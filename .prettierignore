@@ -1,0 +1,8 @@
+.next
+node_modules
+package-lock.json
+public
+next-env.d.ts
+
+# next dev maintains the agent-rules block; formatting it fights the generator
+AGENTS.md
