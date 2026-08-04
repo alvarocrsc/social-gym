@@ -1,0 +1,16 @@
+{
+  "Layout": {
+    "skipToContent": "Saltar al contenido"
+  },
+  "Nav": {
+    "label": "Navegación principal",
+    "open": "Abrir menú",
+    "close": "Cerrar menú"
+  },
+  "Actions": {
+    "viewMemberships": "Ver membresías",
+    "freeTrial": "Prueba gratis",
+    "call": "Llamar por teléfono",
+    "whatsapp": "Escribir por WhatsApp"
+  }
+}
