@@ -29,6 +29,12 @@ export const routing = defineRouting({
   // documented in the cookie policy (§13). Re-enable with a language switcher.
   localeCookie: false,
 
+  // Written as literals on purpose. Deriving the six discipline entries from
+  // `src/content/disciplines.ts` would lose the const inference that makes an
+  // unknown `Link href` a compile error — `Discipline.slug` is `string`, so the
+  // keys widen and every route becomes assignable. A new discipline therefore
+  // needs an entry here too, matching its `slug` and `enSlug`; the guard in
+  // `src/lib/seo/routes.ts` fails the build if they drift apart.
   pathnames: {
     "/": "/",
     "/membresias": { es: "/membresias", en: "/memberships" },

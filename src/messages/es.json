@@ -12,5 +12,10 @@
     "freeTrial": "Prueba gratis",
     "call": "Llamar por teléfono",
     "whatsapp": "Escribir por WhatsApp"
+  },
+  "NotFound": {
+    "title": "Página no encontrada",
+    "description": "El enlace que has seguido no existe o ha cambiado de sitio.",
+    "backHome": "Volver al inicio"
   }
 }
