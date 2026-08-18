@@ -1,5 +1,5 @@
 /*
- * Design tokens — AGENTS.md §9.
+ * Design tokens.
  *
  * The only place raw colour, font-size and spacing values exist. Tailwind
  * utilities and CSS Modules both read from here; neither may hardcode a hex,
@@ -10,7 +10,6 @@
  */
 
 @theme {
-  /* Colour — §9 table, verbatim */
   --color-base: #050506;
   --color-surface: #08080b;
   --color-ink: #f2f2f5;
@@ -18,13 +17,15 @@
   --color-hairline: rgba(255, 255, 255, 0.08);
   --color-accent: #5a78ff;
   --color-accent-alt: #a457ff;
+  --color-accent-soft: #a4b5ff;
+  --color-ink-soft: rgba(255, 255, 255, 0.8);
+  --color-scrim-hero: rgba(0, 0, 0, 0.5);
 
-  /* Families — Archivo Black display, Archivo body, JetBrains Mono utility */
   --font-display: var(--font-archivo-black), system-ui, sans-serif;
   --font-sans: var(--font-archivo), system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+  --font-label: var(--font-geist), system-ui, sans-serif;
 
-  /* Fluid type scale. Display sizes are for Archivo Black. */
   --text-display-1: clamp(2.75rem, 9vw, 7.5rem);
   --text-display-2: clamp(2.25rem, 6.5vw, 4.75rem);
   --text-display-3: clamp(1.75rem, 4.5vw, 3rem);
@@ -35,19 +36,21 @@
   --text-body-sm: clamp(0.875rem, 1vw, 0.9375rem);
   --text-mono: clamp(0.75rem, 0.9vw, 0.8125rem);
   --text-mono-sm: clamp(0.6875rem, 0.8vw, 0.75rem);
+  --text-mono-lg: clamp(0.9375rem, 1.15vw, 1.125rem);
+  --text-mono-xl: clamp(1.125rem, 1.4vw, 1.375rem);
 
-  /* Display typography — §9: tracking -.03em, line-height never above .96 */
   --tracking-display: -0.03em;
   --tracking-mono: 0.14em;
   --leading-display: 0.96;
   --leading-body: 1.6;
+  --leading-display-tight: 0.88;
 
-  /* Layout */
+  --stroke-display: 0.03em;
+
   --container-page: min(1240px, calc(100% - 40px));
   --space-section: clamp(56px, 7vw, 110px);
   --space-block: clamp(24px, 3vw, 48px);
 
-  /* Radii — §9: 8 / 16 / 999 */
   --radius-sm: 8px;
   --radius-md: 16px;
   --radius-full: 999px;

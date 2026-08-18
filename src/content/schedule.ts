@@ -1,12 +1,5 @@
 import type { ScheduleBlock } from "@/types/content";
 
-/**
- * Opening hours. Confirmed against the Google Business Profile — these two must
- * never drift apart (§8.8). Feeds `openingHoursSpecification` in the root
- * JSON-LD graph.
- *
- * The gym is open 365 days a year; Sunday hours also cover public holidays.
- */
 export const schedule = [
   {
     days: ["Mo", "Tu", "We", "Th", "Fr"],

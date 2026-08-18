@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
+import { Hero } from "@/components/sections/home/Hero";
 import { pageSeo } from "@/content/seo";
 import { buildMetadata } from "@/lib/seo/metadata";
-import { headingFor } from "@/lib/seo/routes";
 
 const seo = pageSeo["/"];
 
@@ -14,12 +14,12 @@ export const metadata: Metadata = buildMetadata(seo);
  * already describes the gym and the site, and `BreadcrumbList` belongs only
  * below the home page (§8.4).
  *
- * TODO: sections — Hero, TickerBand, Disciplines, Manifesto, StatsBand,
- * SocialProof, Schedule, Team, AppShowcase, Gallery, Location, FinalCta (§6.1).
+ * TODO: sections — TickerBand, Disciplines, Manifesto, StatsBand, SocialProof,
+ * Schedule, Team, AppShowcase, Gallery, Location, FinalCta (§6.1).
  */
 export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return <h1>{headingFor(seo)}</h1>;
+  return <Hero />;
 }

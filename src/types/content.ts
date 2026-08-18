@@ -1,9 +1,7 @@
 import type { PageSeo } from "./seo";
 
-/** Day codes for the weekly timetable, Monday first. */
 export type DayCode = "Mo" | "Tu" | "We" | "Th" | "Fr" | "Sa" | "Su";
 
-/** An image with the alt text it must always carry (§12). */
 export interface ImageAsset {
   src: string;
   alt: string;
@@ -11,13 +9,34 @@ export interface ImageAsset {
   height: number;
 }
 
-/** A question and its answer. Feeds both page copy and `FAQPage` JSON-LD. */
 export interface FaqItem {
   question: string;
   answer: string;
 }
 
-/** One of the six training disciplines. Order 1 is Hyrox (§7.2). */
+export interface HeroSlide {
+  id: string;
+  line1: string;
+  line2: string;
+  caption: string;
+  media: { left: HeroMedia; right: HeroMedia };
+}
+
+export interface HeroMedia {
+  poster: ImageAsset;
+  sources: readonly HeroVideoSource[];
+}
+
+export interface HeroVideoSource {
+  src: string;
+  type: string;
+}
+
+export interface Hero {
+  eyebrow: string;
+  slides: readonly HeroSlide[];
+}
+
 export interface Discipline {
   slug: string; // 'entrenamiento-funcional'
   /** English URL segment, used only by `routing.ts` pathnames. */
@@ -25,8 +44,8 @@ export interface Discipline {
   name: string; // 'Funcional'
   code: string; // '[FNL]'
   order: number; // Display order — Hyrox first
-  shortDescription: string; // Home card
-  longDescription: string; // Discipline page body
+  shortDescription: string;
+  longDescription: string; 
   forWho: string;
   sessionLooksLike: string[];
   level: "todos" | "iniciacion" | "avanzado";
@@ -37,7 +56,6 @@ export interface Discipline {
   seo: PageSeo;
 }
 
-/** A coach. Never populated without confirmed spelling, role and photo consent (§7.3). */
 export interface Coach {
   slug: string;
   name: string;
@@ -47,7 +65,6 @@ export interface Coach {
   disciplineSlugs: string[];
 }
 
-/** An opening-hours band. Feeds `openingHoursSpecification` JSON-LD. */
 export interface ScheduleBlock {
   /** Days this band applies to. */
   days: DayCode[];
@@ -57,7 +74,6 @@ export interface ScheduleBlock {
   closes: string; // '01:00'
 }
 
-/** One class in the weekly timetable rendered at /horarios. */
 export interface ClassSlot {
   day: DayCode; // 'Mo' … 'Su'
   start: string; // '18:00'
@@ -66,11 +82,9 @@ export interface ClassSlot {
   coachSlug?: string;
 }
 
-/** A membership plan. Prices must match Virtuagym exactly — never invented. */
 export interface MembershipPlan {
   slug: string;
   name: string;
-  /** Euros per period. `null` until the client confirms (§20 blocking item 2). */
   price: number | null;
   period: "mes" | "trimestre" | "año" | "sesion";
   description: string;
@@ -106,14 +120,13 @@ export interface Site {
     lng: number;
   };
   googlePlaceId: string;
-  /** Display only. Never emitted as `aggregateRating` — hard rule 7. */
+  /** Display only. Never emitted as `aggregateRating`*/
   reviews: { rating: number; count: number; source: string };
   socials: { instagram: string };
   app: { provider: string; appStore: string; googlePlay: string };
   areaServed: readonly string[];
 }
 
-/** A single navigation entry. */
 export interface NavItem {
   label: string;
   href: string;
