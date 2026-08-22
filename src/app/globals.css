@@ -9,6 +9,12 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+
+    /* The nav overlay locks scrolling with `overflow: hidden`. Without a
+     * reserved gutter that removes the scrollbar mid-session, and the hero's
+     * two halves — sized at 200% precisely to be scrollbar-safe — jump apart
+     * at the seam. */
+    scrollbar-gutter: stable;
   }
 
   /* Reduced motion is a designed path, in CSS so it works pre-hydration. */

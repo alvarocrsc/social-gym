@@ -4,6 +4,8 @@
   },
   "Nav": {
     "label": "Navegación principal",
+    "menu": "Menú",
+    "closeShort": "Cerrar",
     "open": "Abrir menú",
     "close": "Cerrar menú"
   },
@@ -12,6 +14,10 @@
     "freeTrial": "Prueba gratis",
     "call": "Llamar por teléfono",
     "whatsapp": "Escribir por WhatsApp"
+  },
+  "Membresias": {
+    "storeLabel": "Tienda de membresías",
+    "storeFrameTitle": "Tienda de membresías de Social Gym en Virtuagym"
   },
   "NotFound": {
     "title": "Página no encontrada",

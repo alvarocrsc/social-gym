@@ -1,3 +1,5 @@
+import type { routing } from "@/i18n/routing";
+
 import type { PageSeo } from "./seo";
 
 export type DayCode = "Mo" | "Tu" | "We" | "Th" | "Fr" | "Sa" | "Su";
@@ -45,7 +47,7 @@ export interface Discipline {
   code: string; // '[FNL]'
   order: number; // Display order — Hyrox first
   shortDescription: string;
-  longDescription: string; 
+  longDescription: string;
   forWho: string;
   sessionLooksLike: string[];
   level: "todos" | "iniciacion" | "avanzado";
@@ -94,7 +96,7 @@ export interface MembershipPlan {
 
 /**
  * Site-wide business facts. Every value appearing in more than one place lives
- * here only — NAP consistency is an SEO requirement (§8.8).
+ * here only.
  *
  * Arrays are `readonly` so `site.ts` can use `as const satisfies Site` and keep
  * its literal types.
@@ -120,14 +122,21 @@ export interface Site {
     lng: number;
   };
   googlePlaceId: string;
-  /** Display only. Never emitted as `aggregateRating`*/
   reviews: { rating: number; count: number; source: string };
   socials: { instagram: string };
   app: { provider: string; appStore: string; googlePlay: string };
+  /**
+   * `shopEmbedUrl` is the iframe source. `shopUrl` is the same shop hosted by
+   * Virtuagym, needed as the fallback link when the visitor rejects cookies
+   * and the embed cannot mount (§13).
+   */
+  virtuagym: { shopEmbedUrl: string; shopUrl: string };
   areaServed: readonly string[];
 }
 
+export type AppPathname = keyof typeof routing.pathnames;
+
 export interface NavItem {
   label: string;
-  href: string;
+  href: AppPathname;
 }

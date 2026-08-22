@@ -9,7 +9,7 @@ import type { Site } from "@/types/content";
  */
 export const site = {
   name: "Social Gym",
-  legalName: "", // TODO: confirm — exact S.L. name for the aviso legal
+  legalName: "PUMP GYM S.L.",
   nif: "B72749559",
   tagline: "Mambo, eat & repeat",
   foundingYear: 2022,
@@ -32,7 +32,12 @@ export const site = {
   reviews: { rating: 4.9, count: 102, source: "Google" },
   socials: { instagram: "https://instagram.com/socialgym.es" },
   // TODO: confirm — exact store URLs
-  app: { provider: "Virtuagym", appStore: "", googlePlay: "" },
+  app: { provider: "Virtuagym", appStore: "https://apps.apple.com/es/app/social-gym/id6759244895", googlePlay: "https://play.google.com/store/apps/details?id=digifit.android.virtuagym.pro.socialgym2&pcampaignid=web_share" },
+  virtuagym: {
+    shopEmbedUrl:
+      "https://socialgym.virtuagym.com/webshop/?club=di9xYmQzNTNZT0Q4UEZMRXRnM0dadz09&embedded=1",
+    shopUrl: "", // TODO: confirm — hosted shop URL, the cookie-rejected fallback
+  },
   areaServed: [
     "Calahorra",
     "Rincón de Soto",

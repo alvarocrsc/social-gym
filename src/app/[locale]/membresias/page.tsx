@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
+import { VirtuagymStore } from "@/components/sections/membresias/VirtuagymStore";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { faq } from "@/content/faq";
 import { pageSeo } from "@/content/seo";
@@ -40,6 +41,7 @@ export default async function MembresiasPage({
         ])}
       />
       <h1>{headingFor(seo)}</h1>
+      <VirtuagymStore />
     </>
   );
 }

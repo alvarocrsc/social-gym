@@ -1,6 +1,10 @@
 .hero {
   position: relative;
   background-color: var(--color-base);
+
+  /* Cancels the clearance `<main>` reserves for the fixed header — the hero is
+   * designed to run full-bleed underneath the bar, unlike every other section. */
+  margin-top: calc(-1 * var(--header-height));
 }
 
 .root {
@@ -204,7 +208,6 @@
     --display-size: clamp(2.5rem, 10vw, 15rem);
   }
 }
-
 
 @media (prefers-reduced-motion: no-preference) {
   .root[data-motion="on"] .pin {

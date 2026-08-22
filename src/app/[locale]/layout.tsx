@@ -5,10 +5,12 @@ import {
   Geist,
   JetBrains_Mono,
 } from "next/font/google";
+import localFont from "next/font/local";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
+import { SiteHeader } from "@/components/layout/SiteHeader";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { pageSeo } from "@/content/seo";
 import { routing } from "@/i18n/routing";
@@ -34,6 +36,13 @@ const archivoBlack = Archivo_Black({
 const jetBrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const satoshi = localFont({
+  src: "../../fonts/Satoshi-Variable.woff2",
+  variable: "--font-satoshi",
+  weight: "300 900",
   display: "swap",
 });
 
@@ -66,7 +75,10 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${archivo.variable} ${archivoBlack.variable} ${jetBrainsMono.variable} ${geist.variable} h-full antialiased`}
+      // globals.css sets `scroll-behavior: smooth`; without this Next warns and
+      // route transitions inherit the smooth scroll instead of jumping.
+      data-scroll-behavior="smooth"
+      className={`${archivo.variable} ${archivoBlack.variable} ${jetBrainsMono.variable} ${geist.variable} ${satoshi.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
         <NextIntlClientProvider>
@@ -77,10 +89,11 @@ export default async function LocaleLayout({
             {t("skipToContent")}
           </a>
 
-          {/* TODO: SiteHeader — stub until the layout components stage. */}
-          <header />
+          <SiteHeader />
 
-          <main id="contenido" className="flex-1">
+          {/* Clears the fixed bar. The hero opts out with a negative margin,
+              because it is designed to run full-bleed underneath it. */}
+          <main id="contenido" className="flex-1 pt-[var(--header-height)]">
             {children}
           </main>
 

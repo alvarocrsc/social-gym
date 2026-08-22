@@ -1,0 +1,138 @@
+.root {
+  display: contents;
+}
+
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: var(--space-section) var(--space-block);
+  color: var(--color-ink);
+  pointer-events: none;
+}
+
+.menu:not([data-ready]) {
+  visibility: hidden;
+}
+
+.menu[data-open] {
+  pointer-events: auto;
+}
+
+.menuBg {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-scrim-menu);
+  opacity: 0;
+  backdrop-filter: blur(var(--blur-menu)) saturate(140%);
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  .menuBg {
+    background-color: var(--color-scrim-menu-solid);
+  }
+}
+
+.menuItem {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+  font-family: var(--font-display);
+  font-size: 5.5vw;
+  letter-spacing: var(--tracking-display);
+  line-height: 1.25;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.sans {
+  font-family: var(--font-nav);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.menuCta {
+  background-image: linear-gradient(
+    90deg,
+    var(--color-cta-start) 0%,
+    var(--color-cta-end) 100%
+  );
+  background-clip: text;
+  color: transparent;
+}
+
+.menuCta[data-split] {
+  background-image: none;
+  color: var(--color-ink);
+}
+
+.menuCta .itemDivider {
+  background-color: var(--color-cta-end);
+}
+
+.itemArrow {
+  margin-left: 0.25em;
+}
+
+.itemIndex {
+  align-self: flex-start;
+  margin-top: 0.25rem;
+  margin-right: 0.25rem;
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-sm);
+  font-weight: 500;
+  letter-spacing: var(--tracking-mono);
+}
+
+.itemDivider {
+  width: 2px;
+  height: 100%;
+  margin: 0 1.25rem;
+  background-color: currentcolor;
+  transform: rotate(20deg) scaleY(0);
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.itemBody {
+  display: inline-block;
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@media (max-width: 1000px) {
+  .menuItem {
+    font-size: 2.5rem;
+  }
+
+  .itemDivider {
+    margin: 0 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu {
+    visibility: hidden;
+  }
+
+  .menu[data-open] {
+    visibility: visible;
+  }
+
+  .menu[data-open] .menuBg {
+    opacity: 1;
+  }
+
+  .menu[data-open] .itemDivider {
+    transform: rotate(20deg) scaleY(1);
+  }
+}
