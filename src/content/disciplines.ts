@@ -23,11 +23,20 @@ export const disciplines = [
     name: "Hyrox",
     code: "[HYX]",
     order: 1,
+    badge: "Centro oficial", // Confirmed — official Hyrox centre (§1)
     shortDescription:
       "Somos centro oficial Hyrox. Preparamos las ocho estaciones contigo, compitas o no: aquí el objetivo es terminar mejor de lo que empezaste.",
     longDescription: "", // TODO: copy
     forWho: "", // TODO: copy
     sessionLooksLike: [], // TODO: copy
+    // TODO: confirm — placeholder profile, not measured.
+    metrics: [
+      { label: "Fuerza", value: 75 },
+      { label: "Resistencia", value: 95 },
+      { label: "Agilidad", value: 60 },
+      { label: "Velocidad", value: 70 },
+      { label: "Flexibilidad", value: 35 },
+    ],
     level: "todos", // Confirmado 2026-08-05
     image: { src: "", alt: "", width: 0, height: 0 }, // TODO: confirm — photography pending
     coachSlugs: [], // TODO: confirm — coach names unverified (§7.3)
@@ -40,11 +49,20 @@ export const disciplines = [
     name: "Boxeo",
     code: "[BXO]",
     order: 2,
+    badge: "Desde cero", // TODO: confirm
     shortDescription:
       "Técnica, saco y mucho footwork. Aprendes a golpear bien antes que fuerte, y nadie te va a mirar por encima del hombro.",
     longDescription: "", // TODO: copy
     forWho: "", // TODO: copy
     sessionLooksLike: [], // TODO: copy
+    // TODO: confirm — placeholder profile, not measured.
+    metrics: [
+      { label: "Fuerza", value: 60 },
+      { label: "Resistencia", value: 85 },
+      { label: "Agilidad", value: 90 },
+      { label: "Velocidad", value: 85 },
+      { label: "Flexibilidad", value: 45 },
+    ],
     level: "todos", // Confirmado 2026-08-05
     image: { src: "", alt: "", width: 0, height: 0 }, // TODO: confirm — photography pending
     coachSlugs: [], // TODO: confirm — coach names unverified (§7.3)
@@ -57,11 +75,20 @@ export const disciplines = [
     name: "Funcional",
     code: "[FNL]",
     order: 3,
+    badge: "En grupo", // TODO: confirm
     shortDescription:
       "Fuerza, movilidad y algo de cardio en la misma sesión. Cada ejercicio tiene su versión, así que empiezas por donde estés hoy.",
     longDescription: "", // TODO: copy
     forWho: "", // TODO: copy
     sessionLooksLike: [], // TODO: copy
+    // TODO: confirm — placeholder profile, not measured.
+    metrics: [
+      { label: "Fuerza", value: 80 },
+      { label: "Resistencia", value: 75 },
+      { label: "Agilidad", value: 70 },
+      { label: "Velocidad", value: 60 },
+      { label: "Flexibilidad", value: 50 },
+    ],
     level: "todos", // Confirmado 2026-08-05
     image: { src: "", alt: "", width: 0, height: 0 }, // TODO: confirm — photography pending
     coachSlugs: [], // TODO: confirm — coach names unverified (§7.3)
@@ -74,11 +101,20 @@ export const disciplines = [
     name: "Spinning",
     code: "[SPN]",
     order: 4,
+    badge: "Clase dirigida", // TODO: confirm
     shortDescription:
       "Música alta, luz baja y una hora en la que solo piensas en pedalear. Tú decides la resistencia, así que el ritmo es tuyo.",
     longDescription: "", // TODO: copy
     forWho: "", // TODO: copy
     sessionLooksLike: [], // TODO: copy
+    // TODO: confirm — placeholder profile, not measured.
+    metrics: [
+      { label: "Fuerza", value: 45 },
+      { label: "Resistencia", value: 95 },
+      { label: "Agilidad", value: 25 },
+      { label: "Velocidad", value: 80 },
+      { label: "Flexibilidad", value: 20 },
+    ],
     level: "todos", // Confirmado 2026-08-05
     image: { src: "", alt: "", width: 0, height: 0 }, // TODO: confirm — photography pending
     coachSlugs: [], // TODO: confirm — coach names unverified (§7.3)
@@ -91,11 +127,20 @@ export const disciplines = [
     name: "Pilates",
     code: "[PLT]",
     order: 5,
+    badge: "Clase dirigida", // TODO: confirm
     shortDescription:
       "Control, respiración y core. Sale una clase tranquila que al día siguiente se nota, y es de las mejores formas de volver a moverte.",
     longDescription: "", // TODO: copy
     forWho: "", // TODO: copy
     sessionLooksLike: [], // TODO: copy
+    // TODO: confirm — placeholder profile, not measured.
+    metrics: [
+      { label: "Fuerza", value: 50 },
+      { label: "Resistencia", value: 40 },
+      { label: "Agilidad", value: 55 },
+      { label: "Velocidad", value: 20 },
+      { label: "Flexibilidad", value: 95 },
+    ],
     level: "todos", // Confirmado 2026-08-05
     image: { src: "", alt: "", width: 0, height: 0 }, // TODO: confirm — photography pending
     coachSlugs: [], // TODO: confirm — coach names unverified (§7.3)
@@ -108,11 +153,20 @@ export const disciplines = [
     name: "GAP",
     code: "[GAP]",
     order: 6,
+    badge: "Clase dirigida", // TODO: confirm
     shortDescription:
       "Glúteo, abdomen y pierna en sesiones cortas que van al grano. Fáciles de seguir y de encajar en una semana complicada.",
     longDescription: "", // TODO: copy
     forWho: "", // TODO: copy
     sessionLooksLike: [], // TODO: copy
+    // TODO: confirm — placeholder profile, not measured.
+    metrics: [
+      { label: "Fuerza", value: 70 },
+      { label: "Resistencia", value: 65 },
+      { label: "Agilidad", value: 45 },
+      { label: "Velocidad", value: 40 },
+      { label: "Flexibilidad", value: 40 },
+    ],
     level: "todos", // Confirmado 2026-08-05
     image: { src: "", alt: "", width: 0, height: 0 }, // TODO: confirm — photography pending
     coachSlugs: [], // TODO: confirm — coach names unverified (§7.3)

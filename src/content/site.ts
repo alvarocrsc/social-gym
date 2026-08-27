@@ -32,7 +32,12 @@ export const site = {
   reviews: { rating: 4.9, count: 102, source: "Google" },
   socials: { instagram: "https://instagram.com/socialgym.es" },
   // TODO: confirm — exact store URLs
-  app: { provider: "Virtuagym", appStore: "https://apps.apple.com/es/app/social-gym/id6759244895", googlePlay: "https://play.google.com/store/apps/details?id=digifit.android.virtuagym.pro.socialgym2&pcampaignid=web_share" },
+  app: {
+    provider: "Virtuagym",
+    appStore: "https://apps.apple.com/es/app/social-gym/id6759244895",
+    googlePlay:
+      "https://play.google.com/store/apps/details?id=digifit.android.virtuagym.pro.socialgym2&pcampaignid=web_share",
+  },
   virtuagym: {
     shopEmbedUrl:
       "https://socialgym.virtuagym.com/webshop/?club=di9xYmQzNTNZT0Q4UEZMRXRnM0dadz09&embedded=1",

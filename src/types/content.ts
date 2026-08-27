@@ -39,6 +39,11 @@ export interface Hero {
   slides: readonly HeroSlide[];
 }
 
+export interface DisciplineMetric {
+  label: string;
+  value: number;
+}
+
 export interface Discipline {
   slug: string; // 'entrenamiento-funcional'
   /** English URL segment, used only by `routing.ts` pathnames. */
@@ -46,16 +51,39 @@ export interface Discipline {
   name: string; // 'Funcional'
   code: string; // '[FNL]'
   order: number; // Display order — Hyrox first
+  /** Short qualifier on the carousel card, e.g. 'Centro oficial'. */
+  badge: string;
   shortDescription: string;
   longDescription: string;
   forWho: string;
   sessionLooksLike: string[];
+  metrics: DisciplineMetric[];
   level: "todos" | "iniciacion" | "avanzado";
   image: ImageAsset;
+  /** Optional looping clip for the carousel card, layered over `image`. */
+  video?: HeroVideoSource[];
   gallery?: ImageAsset[];
   coachSlugs: string[];
   faq: FaqItem[];
   seo: PageSeo;
+}
+
+/** Copy for the /disciplinas hub. The cards come from `disciplines.ts`. */
+export interface DisciplinasPage {
+  eyebrow: string;
+  headlineSolid: string;
+  headlineOutlined: string;
+  lead: string;
+  scrollHint: string;
+  /** Labels the ring group on each card for screen readers. */
+  metricsLabel: string;
+  cta: {
+    eyebrow: string;
+    headlineTop: string;
+    headlineBottom: string;
+    action: string;
+  };
+  closing: { heading: string; body: string; action: string };
 }
 
 export interface Coach {

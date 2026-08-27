@@ -65,5 +65,14 @@
 
   --radius-sm: 8px;
   --radius-md: 16px;
+  --radius-lg: 22px;
   --radius-full: 999px;
+
+  --shadow-card: 0 40px 90px rgba(0, 0, 0, 0.6);
+
+  /* Metric rings. Stroke widths are unitless so the SVG scales with its
+   * viewBox rather than the viewport. */
+  --ring-track: rgba(90, 120, 255, 0.16);
+  --ring-stroke: 7;
+  --ring-track-stroke: 5;
 }

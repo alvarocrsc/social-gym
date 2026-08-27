@@ -2,6 +2,7 @@ import { disciplines } from "@/content/disciplines";
 import { pageSeo } from "@/content/seo";
 import { site } from "@/content/site";
 import { routing } from "@/i18n/routing";
+import type { AppPathname } from "@/types/content";
 
 /**
  * Absolute site origin, no trailing slash.
@@ -82,6 +83,17 @@ for (const discipline of disciplines) {
         `{ es: "${pathname}", en: "/disciplines/${discipline.enSlug}" }.`,
     );
   }
+}
+
+/**
+ * A discipline's routing key, for the typed `Link`.
+ *
+ * The assertion is safe because the loop above throws at build time unless
+ * every slug already has a `routing.pathnames` entry — this narrows a string
+ * the compiler cannot, rather than papering over an unchecked one.
+ */
+export function disciplinePathname(slug: string): AppPathname {
+  return `/disciplinas/${slug}` as AppPathname;
 }
 
 /**
