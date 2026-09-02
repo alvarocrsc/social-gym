@@ -1,10 +1,19 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
-import { VirtuagymStore } from "@/components/sections/membresias/VirtuagymStore";
+import { AppCta } from "@/components/sections/membresias/AppCta";
+import { BenefitsTicker } from "@/components/sections/membresias/BenefitsTicker";
+import { HowItWorks } from "@/components/sections/membresias/HowItWorks";
+import { MembershipStore } from "@/components/sections/membresias/MembershipStore";
+import { MembresiasHero } from "@/components/sections/membresias/MembresiasHero";
+import { MembresiasMotion } from "@/components/sections/membresias/MembresiasMotion";
+import { PlansCompare } from "@/components/sections/membresias/PlansCompare";
+import { PlansFaq } from "@/components/sections/membresias/PlansFaq";
+import { PlansGrid } from "@/components/sections/membresias/PlansGrid";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { faq } from "@/content/faq";
 import { pageSeo } from "@/content/seo";
+import { site } from "@/content/site";
 import {
   buildBreadcrumbs,
   buildFaqPage,
@@ -12,19 +21,11 @@ import {
   buildWebPage,
 } from "@/lib/seo/json-ld";
 import { buildMetadata } from "@/lib/seo/metadata";
-import { headingFor } from "@/lib/seo/routes";
 
 const seo = pageSeo["/membresias"];
 
 export const metadata: Metadata = buildMetadata(seo);
 
-/**
- * Membresías.
- *
- * TODO: sections — PlansHero, PlansGrid, IncludedMatrix, VirtuagymStore,
- * FaqSection, FinalCta (§6.4). Prices render as our own HTML from `plans.ts`
- * above the Virtuagym embed, never only inside it (hard rule 9).
- */
 export default async function MembresiasPage({
   params,
 }: PageProps<"/[locale]/membresias">) {
@@ -40,8 +41,17 @@ export default async function MembresiasPage({
           buildFaqPage(faq),
         ])}
       />
-      <h1>{headingFor(seo)}</h1>
-      <VirtuagymStore />
+
+      <MembresiasMotion shopUrl={site.virtuagym.shopEmbedUrl}>
+        <MembresiasHero />
+        <BenefitsTicker />
+        <PlansGrid />
+        <PlansCompare />
+        <MembershipStore />
+        <HowItWorks />
+        <PlansFaq />
+        <AppCta />
+      </MembresiasMotion>
     </>
   );
 }

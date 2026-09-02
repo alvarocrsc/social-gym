@@ -41,6 +41,8 @@ export const site = {
   virtuagym: {
     shopEmbedUrl:
       "https://socialgym.virtuagym.com/webshop/?club=di9xYmQzNTNZT0Q4UEZMRXRnM0dadz09&embedded=1",
+    productEmbedBase:
+      "https://socialgym.virtuagym.com/webshop/product?club=di9xYmQzNTNZT0Q4UEZMRXRnM0dadz09&embedded=1&id=",
     shopUrl: "", // TODO: confirm — hosted shop URL, the cookie-rejected fallback
   },
   areaServed: [

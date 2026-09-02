@@ -181,10 +181,55 @@ export interface MembershipPlan {
   slug: string;
   name: string;
   price: number | null;
-  period: "mes" | "trimestre" | "año" | "sesion";
+  period: "mes" | "trimestre" | "semestre" | "año" | "sesion";
+  /** Months of access. Drives the per-month figure and the comparison table. */
+  months: number;
+  durationLabel: string;
+  periodLabel: string;
+  badge: string;
+  /** One human sentence on who this plan is for. */
+  pitch: string;
+  monthlyLabel: string;
+  savingLabel: string;
   description: string;
   features: string[];
   highlighted: boolean;
+  /** Virtuagym product id, confirmed against the live webshop. */
+  productId: string;
+}
+
+export interface MembresiasPage {
+  eyebrow: string;
+  headlineSolid: string;
+  headlineOutlined: string;
+  keywordLine: string;
+  lead: string;
+  heroAction: string;
+  tickerItems: readonly string[];
+  plansHeading: string;
+  plansMeta: string;
+  planAction: string;
+  plansFootnote: string;
+  compareHeading: string;
+  compareConcept: string;
+  compareRows: readonly { label: string; values: readonly string[] }[];
+  howEyebrow: string;
+  howHeadlineSolid: string;
+  howHeadlineOutlined: string;
+  howLead: string;
+  howSteps: readonly { title: string; body: string }[];
+  faqHeading: string;
+  storeEyebrow: string;
+  storeHeading: string;
+  storeLead: string;
+  storeNewTab: string;
+  storeAllPlans: string;
+  ctaHeadlineSolid: string;
+  ctaHeadlineOutlined: string;
+  ctaBody: string;
+  ctaAction: string;
+  appStoreKicker: string;
+  googlePlayKicker: string;
 }
 
 /**
@@ -223,7 +268,12 @@ export interface Site {
    * Virtuagym, needed as the fallback link when the visitor rejects cookies
    * and the embed cannot mount (§13).
    */
-  virtuagym: { shopEmbedUrl: string; shopUrl: string };
+  virtuagym: {
+    shopEmbedUrl: string;
+    /** Product-page embed, with the id appended. */
+    productEmbedBase: string;
+    shopUrl: string;
+  };
   areaServed: readonly string[];
 }
 

@@ -71,6 +71,11 @@
   --offset-sticky: clamp(90px, 12vh, 130px);
 
   --size-embed-shop: clamp(620px, 72vh, 820px);
+  --size-embed-product: clamp(880px, 118vh, 1320px);
+  /* The frame never scrolls internally, so a phone — where the shop's four
+   * cards stack and every label wraps — needs far more height than desktop. */
+  --size-embed-shop-mobile: clamp(1100px, 165vh, 1800px);
+  --size-embed-product-mobile: clamp(900px, 140vh, 1400px);
 
   --radius-sm: 8px;
   --radius-md: 16px;
