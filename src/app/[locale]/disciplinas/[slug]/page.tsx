@@ -2,10 +2,17 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 
+import { DisciplinaAbout } from "@/components/sections/disciplina/DisciplinaAbout";
+import { DisciplinaAttributes } from "@/components/sections/disciplina/DisciplinaAttributes";
+import { DisciplinaCta } from "@/components/sections/disciplina/DisciplinaCta";
+import { DisciplinaGallery } from "@/components/sections/disciplina/DisciplinaGallery";
+import { DisciplinaHero } from "@/components/sections/disciplina/DisciplinaHero";
+import { DisciplinaMotion } from "@/components/sections/disciplina/DisciplinaMotion";
+import { DisciplinaSchedule } from "@/components/sections/disciplina/DisciplinaSchedule";
+import { DisciplinaSession } from "@/components/sections/disciplina/DisciplinaSession";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { disciplines } from "@/content/disciplines";
 import { pageSeo } from "@/content/seo";
-import { site } from "@/content/site";
 import {
   buildBreadcrumbs,
   buildDisciplineService,
@@ -32,22 +39,16 @@ export async function generateMetadata({
   return discipline ? buildMetadata(discipline.seo) : {};
 }
 
-/**
- * Discipline template — six pages from one file (§6.2).
- *
- * TODO: sections — DisciplineHero, DisciplineBody, DisciplineSchedule, Team
- * (filtered), FaqSection, RelatedDisciplines, FinalCta. Each page needs
- * 400–600 words of genuinely distinct copy; near-identical paragraphs with the
- * name swapped would waste all six.
- */
+/** Discipline template — six pages from one file (§6.2). */
 export default async function DisciplinaPage({
   params,
 }: PageProps<"/[locale]/disciplinas/[slug]">) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
 
-  const discipline = disciplines.find((entry) => entry.slug === slug);
-  if (!discipline) {
+  const index = disciplines.findIndex((entry) => entry.slug === slug);
+  const discipline = disciplines[index];
+  if (discipline === undefined) {
     notFound();
   }
 
@@ -68,8 +69,16 @@ export default async function DisciplinaPage({
           buildFaqPage(discipline.faq),
         ])}
       />
-      {/* §6.2: H1 is `<Disciplina> en Calahorra`. */}
-      <h1>{`${discipline.name} en ${site.address.locality}`}</h1>
+
+      <DisciplinaMotion>
+        <DisciplinaHero discipline={discipline} index={index} />
+        <DisciplinaGallery discipline={discipline} />
+        <DisciplinaAttributes discipline={discipline} />
+        <DisciplinaAbout discipline={discipline} />
+        <DisciplinaSession discipline={discipline} />
+        <DisciplinaSchedule discipline={discipline} />
+        <DisciplinaCta discipline={discipline} />
+      </DisciplinaMotion>
     </>
   );
 }

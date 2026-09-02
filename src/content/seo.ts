@@ -15,7 +15,7 @@ export const pageSeo = {
   "/": {
     title: "Gimnasio en Calahorra abierto 365 días | Social Gym",
     description:
-      "Centro de entrenamiento en Calahorra abierto los 365 días. Hyrox, boxeo, spinning, pilates, GAP y funcional. Inclusivo y sin egos. Ven a probar gratis.",
+      "Centro de entrenamiento en Calahorra abierto los 365 días. Hyrox, boxeo, spinning, pilates, GAP y funcional. Inclusivo y sin egos. Ven a conocernos.",
     path: "/",
     primaryKeyword: "gimnasio calahorra",
     secondaryKeywords: [
@@ -26,7 +26,7 @@ export const pageSeo = {
   "/membresias": {
     title: "Precios y tarifas del gimnasio | Social Gym Calahorra",
     description:
-      "Consulta las tarifas del gimnasio en Calahorra: cuotas, qué incluye cada plan y cómo darte de alta. Sin letra pequeña. Reserva tu clase de prueba gratis.",
+      "Consulta las tarifas del gimnasio en Calahorra: cuotas, qué incluye cada plan y cómo darte de alta. Sin letra pequeña y sin permanencia sorpresa.",
     path: "/membresias",
     primaryKeyword: "precios gimnasio calahorra",
     secondaryKeywords: [
@@ -102,7 +102,7 @@ export const pageSeo = {
   "/contacto": {
     title: "Contacto y teléfono del gimnasio | Social Gym Calahorra",
     description:
-      "Teléfono, dirección y horarios del gimnasio Social Gym en Calahorra. Estamos en C. Viacampo 12 bis. Escríbenos y ven a probar una clase gratis.",
+      "Teléfono, dirección y horarios del gimnasio Social Gym en Calahorra. Estamos en C. Viacampo 12 bis. Escríbenos o pásate a conocer la sala sin cita.",
     path: "/contacto",
     primaryKeyword: "gimnasio calahorra telefono",
     secondaryKeywords: ["gimnasio calahorra direccion"],

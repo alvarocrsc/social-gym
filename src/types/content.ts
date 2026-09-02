@@ -44,6 +44,31 @@ export interface DisciplineMetric {
   value: number;
 }
 
+/**
+ * One figure in the pinned "dentro de la sala" track. `span` picks a width
+ * band rather than a length: the rhythm of the track is part of the design and
+ * must not shift when photography of a different aspect ratio lands.
+ */
+export interface DisciplineGalleryPiece {
+  caption: string;
+  span: 1 | 2 | 3;
+  image: ImageAsset;
+  video?: readonly HeroVideoSource[];
+  /** Shown on the video badge, e.g. '0:24'. */
+  duration?: string;
+}
+
+export interface DisciplineSessionBlock {
+  time: string;
+  title: string;
+  body: string;
+}
+
+export interface DisciplineMetaItem {
+  label: string;
+  value: string;
+}
+
 export interface Discipline {
   slug: string; // 'entrenamiento-funcional'
   /** English URL segment, used only by `routing.ts` pathnames. */
@@ -54,15 +79,26 @@ export interface Discipline {
   /** Short qualifier on the carousel card, e.g. 'Centro oficial'. */
   badge: string;
   shortDescription: string;
+  /** Hero paragraph on the discipline page. */
+  tagline: string;
+  /** Two-line display heading; the second line renders outlined. */
+  headline: { solid: string; outlined: string };
+  /** Lead paragraph of the extended description. */
   longDescription: string;
+  /** The paragraphs after the lead. */
+  paragraphs: string[];
+  meta: DisciplineMetaItem[];
   forWho: string;
   sessionLooksLike: string[];
+  session: DisciplineSessionBlock[];
+  /** Closing call to action. The gym sells memberships, not trials. */
+  cta: { heading: string; body: string };
   metrics: DisciplineMetric[];
   level: "todos" | "iniciacion" | "avanzado";
   image: ImageAsset;
   /** Optional looping clip for the carousel card, layered over `image`. */
   video?: HeroVideoSource[];
-  gallery?: ImageAsset[];
+  gallery: DisciplineGalleryPiece[];
   coachSlugs: string[];
   faq: FaqItem[];
   seo: PageSeo;
@@ -84,6 +120,35 @@ export interface DisciplinasPage {
     action: string;
   };
   closing: { heading: string; body: string; action: string };
+}
+
+/** Copy shared by all six discipline pages. Per-discipline copy lives on `Discipline`. */
+export interface DisciplinaPage {
+  hubLabel: string;
+  heroHint: string;
+  playLabel: string;
+  closeLabel: string;
+  galleryHeading: string;
+  galleryPieces: string;
+  galleryVideos: string;
+  galleryVideo: string;
+  attributesHeading: string;
+  attributeLevels: { high: string; mid: string; low: string };
+  aboutEyebrow: string;
+  sessionHeading: string;
+  sessionBlocks: string;
+  switcherHeading: string;
+  coachEyebrow: string;
+  coachAction: string;
+  scheduleHeading: string;
+  scheduleAction: string;
+  scheduleWeek: string;
+  scheduleWeekend: string;
+  scheduleColumns: { day: string; time: string; coach: string };
+  scheduleLimited: string;
+  scheduleBooking: string;
+  schedulePending: string;
+  ctaAction: string;
 }
 
 export interface Coach {

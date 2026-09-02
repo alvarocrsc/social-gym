@@ -1,14 +1,28 @@
 import type { Coach } from "@/types/content";
 
 /**
- * Coaches. Deliberately empty.
+ * Coaches, entered as the client confirms them (§7.3).
  *
- * Google reviews mention David, Adrián and Álvaro, and an app screenshot shows
- * Manuel Lacaba — all four are unverified hints (§7.3). Nobody goes in here
- * until the client confirms spelling, role and photo consent; a guessed name
- * would end up in `Person` structured data.
- *
- * TODO: confirm — open question 4, needed by week 2.
+ * `role`, `bio` and `image` stay empty until the wording is agreed and photo
+ * consent is on record — a name alone is enough for the timetable, and nothing
+ * here is emitted as `Person` structured data yet.
  */
-// TODO: switch to satisfies once populated — empty arrays infer never[].
-export const coaches: Coach[] = [];
+export const coaches = [
+  {
+    slug: "adrian-buda",
+    name: "Adrián Buda", // Confirmado 2026-09-02
+    role: "", // TODO: confirm — título exacto
+    bio: "", // TODO: copy
+    image: { src: "", alt: "", width: 800, height: 800 }, // TODO: confirm — foto y consentimiento
+    disciplineSlugs: ["hyrox"],
+  },
+  {
+    slug: "andrea",
+    // TODO: confirm — apellido; se facilitó solo el nombre.
+    name: "Andrea", // Confirmado 2026-09-02
+    role: "", // TODO: confirm — título exacto
+    bio: "", // TODO: copy
+    image: { src: "", alt: "", width: 800, height: 800 }, // TODO: confirm — foto y consentimiento
+    disciplineSlugs: ["hyrox"],
+  },
+] satisfies Coach[];

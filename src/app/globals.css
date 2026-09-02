@@ -6,6 +6,34 @@
  * in Tailwind utilities or a co-located CSS Module, both reading the same
  * tokens in src/styles/tokens.css.
  */
+/*
+ * Lenis, hand-written rather than importing `lenis/dist/lenis.css`.
+ *
+ * That stylesheet includes `.lenis.lenis-smooth iframe { pointer-events: none }`
+ * — a guard against wheel events being swallowed by a frame — which would make
+ * the Virtuagym checkout embed completely uninteractive. The embed opts out of
+ * Lenis with `data-lenis-prevent` instead.
+ *
+ * Unlayered on purpose: it has to win over the `scroll-behavior` in
+ * `@layer base` below without `!important`.
+ */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+html.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+html.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+
+.lenis [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;

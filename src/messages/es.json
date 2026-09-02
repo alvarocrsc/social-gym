@@ -9,9 +9,17 @@
     "open": "Abrir menú",
     "close": "Cerrar menú"
   },
+  "Days": {
+    "Mo": "Lunes",
+    "Tu": "Martes",
+    "We": "Miércoles",
+    "Th": "Jueves",
+    "Fr": "Viernes",
+    "Sa": "Sábado",
+    "Su": "Domingo"
+  },
   "Actions": {
     "viewMemberships": "Ver membresías",
-    "freeTrial": "Prueba gratis",
     "call": "Llamar por teléfono",
     "whatsapp": "Escribir por WhatsApp"
   },

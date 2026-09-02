@@ -11,6 +11,7 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { SiteHeader } from "@/components/layout/SiteHeader";
+import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { pageSeo } from "@/content/seo";
 import { routing } from "@/i18n/routing";
@@ -88,6 +89,8 @@ export default async function LocaleLayout({
           >
             {t("skipToContent")}
           </a>
+
+          <SmoothScroll />
 
           <SiteHeader />
 

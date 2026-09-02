@@ -25,6 +25,10 @@
   --color-scrim-hero: rgba(0, 0, 0, 0.5);
   --color-scrim-menu: rgba(5, 5, 6, 0.65);
   --color-scrim-menu-solid: rgba(5, 5, 6, 0.94);
+  --color-panel: #1b1a3d;
+  --color-hairline-strong: rgba(255, 255, 255, 0.18);
+  --color-wash-a: rgba(58, 58, 190, 0.3);
+  --color-wash-b: rgba(120, 60, 220, 0.22);
   --blur-menu: 40px;
 
   --font-display: var(--font-archivo-black), system-ui, sans-serif;
@@ -34,6 +38,7 @@
 
   --font-nav: var(--font-satoshi), system-ui, sans-serif;
 
+  --text-display-hero: clamp(3.5rem, 15vw, 16rem);
   --text-display-1: clamp(2.75rem, 9vw, 7.5rem);
   --text-display-2: clamp(2.25rem, 6.5vw, 4.75rem);
   --text-display-3: clamp(1.75rem, 4.5vw, 3rem);
@@ -54,12 +59,16 @@
   --leading-display-tight: 0.88;
 
   --stroke-display: 0.03em;
+  --stroke-hero: clamp(1.4px, 0.2vw, 3px);
+  --stroke-title: 1.6px;
 
   --container-page: min(1240px, calc(100% - 40px));
+  --gutter-page: clamp(20px, 5vw, 80px);
   --space-section: clamp(56px, 7vw, 110px);
   --space-block: clamp(24px, 3vw, 48px);
 
   --header-height: clamp(56px, 5.5vw, 88px);
+  --offset-sticky: clamp(90px, 12vh, 130px);
 
   --size-embed-shop: clamp(620px, 72vh, 820px);
 
@@ -69,6 +78,8 @@
   --radius-full: 999px;
 
   --shadow-card: 0 40px 90px rgba(0, 0, 0, 0.6);
+  --shadow-play: 0 20px 60px rgba(90, 120, 255, 0.4);
+  --shadow-bar: 0 12px 34px rgba(90, 120, 255, 0.22);
 
   /* Metric rings. Stroke widths are unitless so the SVG scales with its
    * viewBox rather than the viewport. */

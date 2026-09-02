@@ -27,7 +27,10 @@ export async function VirtuagymStore(): Promise<ReactElement> {
             removes its scrollbar. It does mean anything past
             --size-embed-shop is clipped and unreachable, so that token has to
             grow with the product list. */}
-        <div className="h-[var(--size-embed-shop)] overflow-hidden">
+        <div
+          className="h-[var(--size-embed-shop)] overflow-hidden"
+          data-lenis-prevent
+        >
           <iframe
             src={site.virtuagym.shopEmbedUrl}
             title={t("storeFrameTitle")}

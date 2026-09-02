@@ -3,6 +3,7 @@
 import { useEffect, useRef, type ReactElement, type ReactNode } from "react";
 
 import { usePathname } from "@/i18n/navigation";
+import { lockScroll } from "@/lib/motion/scroll-lock";
 
 import styles from "./NavOverlay.module.css";
 
@@ -95,6 +96,8 @@ export function NavOverlay({ children }: NavOverlayProps): ReactElement {
 
       toggle.setAttribute("aria-expanded", String(next));
       document.documentElement.style.overflow = next ? "hidden" : "";
+      // overflow:hidden does not stop Lenis — it drives scroll itself.
+      lockScroll(next);
       outside.forEach((el) => el.toggleAttribute("inert", next));
 
       play?.(next);
