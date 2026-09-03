@@ -15,7 +15,7 @@ export const pageSeo = {
   "/": {
     title: "Gimnasio en Calahorra abierto 365 días | Social Gym",
     description:
-      "Centro de entrenamiento en Calahorra abierto los 365 días. Hyrox, boxeo, spinning, pilates, GAP y funcional. Inclusivo y sin egos. Ven a conocernos.",
+      "Centro de entrenamiento en Calahorra abierto los 365 días. Hyrox, boxeo, ciclo indoor, pilates, fuerza, core y más. Inclusivo y sin egos. Ven a vernos.",
     path: "/",
     primaryKeyword: "gimnasio calahorra",
     secondaryKeywords: [
@@ -37,7 +37,7 @@ export const pageSeo = {
   "/disciplinas": {
     title: "Clases dirigidas en Calahorra | Social Gym Calahorra",
     description:
-      "Seis disciplinas en un mismo centro de Calahorra: Hyrox, boxeo, entrenamiento funcional, spinning, pilates y GAP. Elige la tuya y entrena con gente real.",
+      "Diez clases dirigidas en un mismo centro de Calahorra: Hyrox, boxeo, funcional, ciclo indoor, pilates, GAP, core y fuerza. Elige la tuya y empieza.",
     path: "/disciplinas",
     primaryKeyword: "clases dirigidas calahorra",
     secondaryKeywords: ["actividades gimnasio calahorra"],
@@ -90,6 +90,38 @@ export const pageSeo = {
     path: "/disciplinas/gap",
     primaryKeyword: "gap calahorra",
     secondaryKeywords: ["clases gap la rioja"],
+  },
+  "/disciplinas/booty-power": {
+    title: "Booty Power en Calahorra · Glúteo y cadera | Social Gym",
+    description:
+      "Clases de Booty Power en Calahorra: glúteo, cadera y cadena posterior con banda y carga progresiva. Series largas y una sesión que se nota de verdad.",
+    path: "/disciplinas/booty-power",
+    primaryKeyword: "booty power calahorra",
+    secondaryKeywords: ["clases de gluteo calahorra"],
+  },
+  "/disciplinas/power-cycling": {
+    title: "Power Cycling en Calahorra · Ciclo indoor | Social Gym",
+    description:
+      "Clases de Power Cycling en Calahorra: ciclo indoor por bloques de alta intensidad y sin impacto para rodillas ni tobillos. Tú decides la resistencia.",
+    path: "/disciplinas/power-cycling",
+    primaryKeyword: "power cycling calahorra",
+    secondaryKeywords: ["ciclo indoor la rioja"],
+  },
+  "/disciplinas/full-body-strength": {
+    title: "Full Body Strength en Calahorra | Social Gym Calahorra",
+    description:
+      "Clases de Full Body Strength en Calahorra: fuerza de cuerpo entero con barra y mancuernas, técnica corregida y carga que sube semana a semana.",
+    path: "/disciplinas/full-body-strength",
+    primaryKeyword: "full body strength calahorra",
+    secondaryKeywords: ["clases de fuerza calahorra"],
+  },
+  "/disciplinas/core": {
+    title: "Clases de Core en Calahorra · Abdomen y lumbar | Social Gym",
+    description:
+      "Clases de Core en Calahorra: abdomen profundo, lumbares y suelo pélvico en sesiones cortas y exigentes. La base que sostiene todo lo demás que entrenas.",
+    path: "/disciplinas/core",
+    primaryKeyword: "core calahorra",
+    secondaryKeywords: ["clases de abdominales calahorra"],
   },
   "/horarios": {
     title: "Horarios de clases y gimnasio | Social Gym Calahorra",

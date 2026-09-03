@@ -30,7 +30,7 @@ export const plans = [
       "Acceso ilimitado al gimnasio durante 1 mes desde la fecha de activación.",
     features: [
       "Sala y máquinas sin límite",
-      "Las seis disciplinas dirigidas",
+      "Todas las clases dirigidas",
       "Se autorrenueva cada mes",
     ],
     highlighted: false,
@@ -53,7 +53,7 @@ export const plans = [
       "Acceso ilimitado al gimnasio durante 3 meses desde la fecha de activación.",
     features: [
       "Sala y máquinas sin límite",
-      "Las seis disciplinas dirigidas",
+      "Todas las clases dirigidas",
       "Se autorrenueva cada 3 meses",
     ],
     highlighted: false,
@@ -76,7 +76,7 @@ export const plans = [
       "Acceso ilimitado al gimnasio durante 6 meses desde la fecha de activación.",
     features: [
       "Sala y máquinas sin límite",
-      "Las seis disciplinas dirigidas",
+      "Todas las clases dirigidas",
       "Se autorrenueva cada 6 meses",
     ],
     highlighted: true,
@@ -99,7 +99,7 @@ export const plans = [
       "Acceso ilimitado al gimnasio durante 1 año desde la fecha de activación.",
     features: [
       "Sala y máquinas sin límite",
-      "Las seis disciplinas dirigidas",
+      "Todas las clases dirigidas",
       "Se autorrenueva cada año",
     ],
     highlighted: false,

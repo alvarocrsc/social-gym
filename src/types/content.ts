@@ -122,7 +122,7 @@ export interface DisciplinasPage {
   closing: { heading: string; body: string; action: string };
 }
 
-/** Copy shared by all six discipline pages. Per-discipline copy lives on `Discipline`. */
+/** Copy shared by every discipline page. Per-discipline copy lives on `Discipline`. */
 export interface DisciplinaPage {
   hubLabel: string;
   heroHint: string;

@@ -29,7 +29,7 @@ export const routing = defineRouting({
   // documented in the cookie policy (§13). Re-enable with a language switcher.
   localeCookie: false,
 
-  // Written as literals on purpose. Deriving the six discipline entries from
+  // Written as literals on purpose. Deriving the discipline entries from
   // `src/content/disciplines.ts` would lose the const inference that makes an
   // unknown `Link href` a compile error — `Discipline.slug` is `string`, so the
   // keys widen and every route becomes assignable. A new discipline therefore
@@ -60,6 +60,22 @@ export const routing = defineRouting({
       en: "/disciplines/pilates",
     },
     "/disciplinas/gap": { es: "/disciplinas/gap", en: "/disciplines/gap" },
+    "/disciplinas/booty-power": {
+      es: "/disciplinas/booty-power",
+      en: "/disciplines/booty-power",
+    },
+    "/disciplinas/power-cycling": {
+      es: "/disciplinas/power-cycling",
+      en: "/disciplines/power-cycling",
+    },
+    "/disciplinas/full-body-strength": {
+      es: "/disciplinas/full-body-strength",
+      en: "/disciplines/full-body-strength",
+    },
+    "/disciplinas/core": {
+      es: "/disciplinas/core",
+      en: "/disciplines/core",
+    },
     "/horarios": { es: "/horarios", en: "/schedule" },
     "/contacto": { es: "/contacto", en: "/contact" },
     "/aviso-legal": { es: "/aviso-legal", en: "/legal-notice" },

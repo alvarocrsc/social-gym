@@ -20,7 +20,7 @@ export const faq = [
   {
     question: "¿Las clases dirigidas cuestan aparte?",
     answer:
-      "No. Cualquier membresía incluye las seis disciplinas y todas las clases del horario. Solo necesitas reservar plaza en la app.",
+      "No. Cualquier membresía incluye todas las disciplinas y todas las clases del horario. Solo necesitas reservar plaza en la app.",
   },
   {
     question: "¿Cuándo empieza a contar mi periodo?",

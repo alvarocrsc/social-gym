@@ -9,12 +9,13 @@ const GALLERY_AV1 = 'video/mp4; codecs="av01.0.08M.08"';
 const GALLERY_H264 = 'video/mp4; codecs="avc1.640028"'; // High@4.0
 
 /**
- * The six active disciplines, in display order — Hyrox first (§7.2).
+ * The active disciplines, in display order — Hyrox first (§7.2).
  *
  * This module is the single source for disciplines: the hub page, the six
  * discipline pages, the sitemap and the nav all derive from it. Adding a
- * seventh entry here should be the only edit needed, apart from its
- * localized pathname in `src/i18n/routing.ts` (see the note there).
+ * new entry here should be the only edit needed, apart from its localized
+ * pathname in `src/i18n/routing.ts` and its `pageSeo` record (see the notes
+ * in both).
  *
  * K1 and Powerlifting appeared in the old mockup and are deliberately absent.
  *
@@ -698,5 +699,413 @@ export const disciplines = [
     coachSlugs: [], // TODO: confirm — coach names unverified (§7.3)
     faq: [], // TODO: copy
     seo: pageSeo["/disciplinas/gap"],
+  },
+  {
+    slug: "booty-power",
+    enSlug: "booty-power",
+    name: "Booty Power",
+    code: "[BTY]",
+    order: 7,
+    badge: "Clase dirigida", // TODO: confirm
+    shortDescription:
+      "Glúteo a conciencia, con banda y carga progresiva. Series largas, descansos cortos y una sesión que se nota al subir escaleras.",
+    tagline:
+      "Glúteo, cadera y toda la cadena posterior. Una hora dedicada al músculo que más agradece el trabajo constante.",
+    headline: { solid: "Fuerza", outlined: "de cadera" },
+    longDescription:
+      "Booty Power es trabajo específico de glúteo con la cadera como centro de todo. No es tonificación suave: se busca tensión, recorrido completo y una carga que suba semana a semana.",
+    paragraphs: [
+      "La sesión combina puentes, hip thrust, abducciones y zancadas con banda elástica y peso libre. El orden se repite para que puedas medir tu progreso; lo que cambia es la carga y el tiempo bajo tensión.",
+      "El glúteo es el músculo que más se apaga cuando pasas el día sentado y el que más rápido responde cuando le dedicas dos sesiones a la semana. También es el que sostiene la rodilla y la zona lumbar.",
+      "No hace falta técnica previa ni material propio. Si vienes de GAP o de funcional, encajarás desde el primer día.",
+    ],
+    // TODO: confirm — duración y material redactados, no facilitados por el club.
+    meta: [
+      { label: "Duración", value: "50 min" },
+      { label: "Objetivo", value: "Fuerza" },
+      { label: "Material", value: "Banda y peso libre" },
+      { label: "Nivel", value: "Todos" },
+    ],
+    forWho: "", // TODO: copy
+    sessionLooksLike: [], // TODO: copy
+    // TODO: confirm — reparto de minutos redactado, pendiente de validar con los coaches.
+    session: [
+      {
+        time: "00–08 min",
+        title: "Activación",
+        body: "Movilidad de cadera y activación de glúteo con banda antes de tocar carga.",
+      },
+      {
+        time: "08–22 min",
+        title: "Bloque de fuerza",
+        body: "Hip thrust y puente de glúteo en series de pocas repeticiones, con el coach ajustando la carga.",
+      },
+      {
+        time: "22–42 min",
+        title: "Series largas",
+        body: "Abducciones, zancadas y trabajo con banda en repeticiones altas y descansos cortos.",
+      },
+      {
+        time: "42–50 min",
+        title: "Estiramiento",
+        body: "Cadena posterior, psoas y zona lumbar para bajar pulsaciones y cerrar la sesión.",
+      },
+    ],
+    cta: {
+      heading: "Empieza esta semana",
+      body: "Elige tu membresía y reserva tu sitio en la próxima clase de Booty Power.",
+    },
+    // TODO: confirm — placeholder profile, not measured.
+    metrics: [
+      { label: "Fuerza", value: 80 },
+      { label: "Resistencia", value: 60 },
+      { label: "Agilidad", value: 40 },
+      { label: "Velocidad", value: 35 },
+      { label: "Flexibilidad", value: 45 },
+    ],
+    level: "todos", // TODO: confirm
+    image: { src: "", alt: "", width: 1720, height: 1440 }, // TODO: photography
+    // TODO: photography — los pies de foto son un borrador, el material no existe.
+    gallery: [
+      {
+        caption: "Hip thrust",
+        span: 2,
+        image: { src: "", alt: "", width: 1120, height: 1080 },
+      },
+      {
+        caption: "Serie con banda",
+        span: 3,
+        image: { src: "", alt: "", width: 1120, height: 1080 },
+      },
+      {
+        caption: "Puente de glúteo",
+        span: 1,
+        image: { src: "", alt: "", width: 1120, height: 1080 },
+      },
+      {
+        caption: "Zancadas",
+        span: 3,
+        image: { src: "", alt: "", width: 1120, height: 1080 },
+      },
+      {
+        caption: "Abducciones",
+        span: 1,
+        image: { src: "", alt: "", width: 1120, height: 1080 },
+      },
+      {
+        caption: "Estiramiento",
+        span: 2,
+        image: { src: "", alt: "", width: 1120, height: 1080 },
+      },
+    ],
+    coachSlugs: [], // TODO: confirm — coach names unverified (§7.3)
+    faq: [], // TODO: copy
+    seo: pageSeo["/disciplinas/booty-power"],
+  },
+  {
+    slug: "power-cycling",
+    enSlug: "power-cycling",
+    name: "Power Cycling",
+    code: "[PWC]",
+    order: 8,
+    badge: "Clase dirigida", // TODO: confirm
+    shortDescription:
+      "Ciclo indoor por bloques de mucha intensidad. Piernas y pulso alto durante una hora, sin castigar las articulaciones.",
+    tagline:
+      "Ciclo indoor llevado al terreno de la fuerza. Bloques cortos donde se aprieta de verdad y recuperaciones medidas.",
+    headline: { solid: "Potencia", outlined: "sobre la bici" },
+    longDescription:
+      "Power Cycling es ciclo indoor a intensidad alta: bloques cortos de mucho esfuerzo, subidas sostenidas y recuperaciones medidas, con la resistencia siempre en tu mando.",
+    paragraphs: [
+      "La clase se organiza en bloques con un objetivo claro cada uno, marcados con la música. Se alterna trabajo sentado y de pie, con series donde se aprieta de verdad y recuperación activa entre ellas.",
+      "Es cardio de alta intensidad sin impacto: la bici absorbe lo que las rodillas y los tobillos no tienen por qué aguantar, y aun así sales con las pulsaciones donde quieras ponerlas.",
+      "Antes de empezar te ajustamos el sillín y el manillar. Si ya vienes de spinning, el salto es de intensidad, no de técnica.",
+    ],
+    // TODO: confirm — duración y material redactados, no facilitados por el club.
+    meta: [
+      { label: "Duración", value: "50 min" },
+      { label: "Objetivo", value: "Resistencia" },
+      { label: "Material", value: "Bici indoor" },
+      { label: "Nivel", value: "Todos" },
+    ],
+    forWho: "", // TODO: copy
+    sessionLooksLike: [], // TODO: copy
+    // TODO: confirm — reparto de minutos redactado, pendiente de validar con los coaches.
+    session: [
+      {
+        time: "00–08 min",
+        title: "Ajuste y calentamiento",
+        body: "Colocación en la bici y pedaleo progresivo hasta entrar en ritmo.",
+      },
+      {
+        time: "08–20 min",
+        title: "Bloque base",
+        body: "Cadencia sostenida a resistencia media para preparar el cuerpo para el trabajo duro.",
+      },
+      {
+        time: "20–42 min",
+        title: "Bloques de intensidad",
+        body: "Series de pie, subidas sostenidas y sprints cortos, con recuperación activa entre cada bloque.",
+      },
+      {
+        time: "42–50 min",
+        title: "Vuelta a la calma",
+        body: "Pedaleo suave y estiramiento de cuádriceps, isquios y gemelo fuera de la bici.",
+      },
+    ],
+    cta: {
+      heading: "Súbete a la bici",
+      body: "Elige tu membresía y reserva tu bici para la próxima sesión.",
+    },
+    // TODO: confirm — placeholder profile, not measured.
+    metrics: [
+      { label: "Fuerza", value: 60 },
+      { label: "Resistencia", value: 95 },
+      { label: "Agilidad", value: 30 },
+      { label: "Velocidad", value: 85 },
+      { label: "Flexibilidad", value: 20 },
+    ],
+    level: "todos", // TODO: confirm
+    image: { src: "", alt: "", width: 1720, height: 1440 }, // TODO: photography
+    // TODO: photography — los pies de foto son un borrador, el material no existe.
+    gallery: [
+      {
+        caption: "Sala de ciclo",
+        span: 2,
+        image: { src: "", alt: "", width: 1120, height: 1080 },
+      },
+      {
+        caption: "Bloque de intensidad",
+        span: 3,
+        image: { src: "", alt: "", width: 1120, height: 1080 },
+      },
+      {
+        caption: "Ajuste de bici",
+        span: 1,
+        image: { src: "", alt: "", width: 1120, height: 1080 },
+      },
+      {
+        caption: "Series de pie",
+        span: 3,
+        image: { src: "", alt: "", width: 1120, height: 1080 },
+      },
+      {
+        caption: "Cadencia",
+        span: 1,
+        image: { src: "", alt: "", width: 1120, height: 1080 },
+      },
+      {
+        caption: "Vuelta a la calma",
+        span: 2,
+        image: { src: "", alt: "", width: 1120, height: 1080 },
+      },
+    ],
+    coachSlugs: [], // TODO: confirm — coach names unverified (§7.3)
+    faq: [], // TODO: copy
+    seo: pageSeo["/disciplinas/power-cycling"],
+  },
+  {
+    slug: "full-body-strength",
+    enSlug: "full-body-strength",
+    name: "Full Body Strength",
+    code: "[FBS]",
+    order: 9,
+    badge: "Clase dirigida", // TODO: confirm
+    shortDescription:
+      "Todo el cuerpo en una sesión: empujar, tirar y levantar del suelo con carga real y técnica cuidada.",
+    tagline:
+      "Una sesión, todo el cuerpo. Fuerza de verdad, con carga que sube y técnica que se corrige levantamiento a levantamiento.",
+    headline: { solid: "Fuerza", outlined: "de cuerpo entero" },
+    longDescription:
+      "Full Body Strength trabaja el cuerpo completo en cada sesión en lugar de repartirlo por días: un empuje, una tracción, un movimiento de pierna y algo de centro, con la carga suficiente para que la fuerza suba de verdad.",
+    paragraphs: [
+      "Se entrena con barra, mancuernas y kettlebells en series de pocas repeticiones y descansos largos. No es un circuito de intensidad: aquí importa la calidad de cada repetición y el peso que llegas a mover.",
+      "El coach corrige la posición levantamiento a levantamiento y te ayuda a decidir cuándo subir carga. Cada ejercicio tiene su versión, así que puedes empezar con muy poco peso sin quedarte fuera de la clase.",
+      "Dos sesiones a la semana sostienen todo lo demás: aguantas más en las clases duras, corres mejor y te lesionas menos.",
+    ],
+    // TODO: confirm — duración y material redactados, no facilitados por el club.
+    meta: [
+      { label: "Duración", value: "60 min" },
+      { label: "Objetivo", value: "Fuerza" },
+      { label: "Material", value: "Barra y mancuernas" },
+      { label: "Nivel", value: "Todos" },
+    ],
+    forWho: "", // TODO: copy
+    sessionLooksLike: [], // TODO: copy
+    // TODO: confirm — reparto de minutos redactado, pendiente de validar con los coaches.
+    session: [
+      {
+        time: "00–10 min",
+        title: "Calentamiento específico",
+        body: "Movilidad de hombro y cadera y series de aproximación con la barra vacía.",
+      },
+      {
+        time: "10–30 min",
+        title: "Bloque principal",
+        body: "El levantamiento del día en series de pocas repeticiones y descansos largos, corrigiendo posición.",
+      },
+      {
+        time: "30–50 min",
+        title: "Accesorios",
+        body: "Tracción, empuje y trabajo unilateral para equilibrar lo que el bloque principal deja fuera.",
+      },
+      {
+        time: "50–60 min",
+        title: "Centro y movilidad",
+        body: "Trabajo de core y estiramiento guiado para cerrar sin salir en caliente.",
+      },
+    ],
+    cta: {
+      heading: "Levanta más que ayer",
+      body: "Elige tu membresía y entra en el próximo grupo de fuerza.",
+    },
+    // TODO: confirm — placeholder profile, not measured.
+    metrics: [
+      { label: "Fuerza", value: 95 },
+      { label: "Resistencia", value: 55 },
+      { label: "Agilidad", value: 45 },
+      { label: "Velocidad", value: 45 },
+      { label: "Flexibilidad", value: 40 },
+    ],
+    level: "todos", // TODO: confirm
+    image: { src: "", alt: "", width: 1720, height: 1440 }, // TODO: photography
+    // TODO: photography — los pies de foto son un borrador, el material no existe.
+    gallery: [
+      {
+        caption: "Barra y discos",
+        span: 2,
+        image: { src: "", alt: "", width: 1120, height: 1080 },
+      },
+      {
+        caption: "Serie de peso muerto",
+        span: 3,
+        image: { src: "", alt: "", width: 1120, height: 1080 },
+      },
+      {
+        caption: "Press militar",
+        span: 1,
+        image: { src: "", alt: "", width: 1120, height: 1080 },
+      },
+      {
+        caption: "Remo con mancuerna",
+        span: 3,
+        image: { src: "", alt: "", width: 1120, height: 1080 },
+      },
+      {
+        caption: "Trabajo unilateral",
+        span: 1,
+        image: { src: "", alt: "", width: 1120, height: 1080 },
+      },
+      {
+        caption: "Movilidad final",
+        span: 2,
+        image: { src: "", alt: "", width: 1120, height: 1080 },
+      },
+    ],
+    coachSlugs: [], // TODO: confirm — coach names unverified (§7.3)
+    faq: [], // TODO: copy
+    seo: pageSeo["/disciplinas/full-body-strength"],
+  },
+  {
+    slug: "core",
+    enSlug: "core",
+    name: "Core",
+    code: "[COR]",
+    order: 10,
+    badge: "Sesión corta", // TODO: confirm
+    shortDescription:
+      "Abdomen, lumbares y suelo pélvico en sesiones cortas. La base que sostiene todo lo demás, entrenada aparte.",
+    tagline:
+      "El centro del cuerpo, entrenado en serio. Media hora que se nota en todo lo demás que haces.",
+    headline: { solid: "Todo empieza", outlined: "por el centro" },
+    longDescription:
+      "Core entrena la musculatura profunda que estabiliza la columna y transmite la fuerza entre el tren superior y el inferior: abdomen profundo, oblicuos, lumbares y suelo pélvico.",
+    paragraphs: [
+      "Se trabaja con planchas, anti-rotaciones, isométricos y control respiratorio, en series cortas y muy exigentes. Poca carga, mucho control y cero balanceos.",
+      "Es la clase que arregla lo que nadie ve: la postura al final del día, la espalda cuando llevas horas sentado y la estabilidad al levantar peso en cualquier otra disciplina.",
+      "Funciona sola y funciona mejor como complemento. Encaja bien al terminar un día de fuerza o como sesión corta entre entrenos duros.",
+    ],
+    // TODO: confirm — duración y material redactados, no facilitados por el club.
+    meta: [
+      { label: "Duración", value: "30 min" },
+      { label: "Objetivo", value: "Fuerza" },
+      { label: "Material", value: "Colchoneta" },
+      { label: "Nivel", value: "Todos" },
+    ],
+    forWho: "", // TODO: copy
+    sessionLooksLike: [], // TODO: copy
+    // TODO: confirm — reparto de minutos redactado, pendiente de validar con los coaches.
+    session: [
+      {
+        time: "00–06 min",
+        title: "Respiración y colocación",
+        body: "Colocación de pelvis y caja torácica y el patrón respiratorio que sostiene el resto de la clase.",
+      },
+      {
+        time: "06–16 min",
+        title: "Anti-extensión",
+        body: "Planchas y variantes en series cortas, buscando tensión mantenida y cero balanceo.",
+      },
+      {
+        time: "16–26 min",
+        title: "Anti-rotación y lateral",
+        body: "Trabajo de oblicuos y estabilidad lateral con banda o peso ligero.",
+      },
+      {
+        time: "26–30 min",
+        title: "Estiramiento",
+        body: "Apertura de cadera y descarga lumbar antes de levantarte.",
+      },
+    ],
+    cta: {
+      heading: "Empieza por el centro",
+      body: "Elige tu membresía y añade el core a tu semana.",
+    },
+    // TODO: confirm — placeholder profile, not measured.
+    metrics: [
+      { label: "Fuerza", value: 70 },
+      { label: "Resistencia", value: 55 },
+      { label: "Agilidad", value: 45 },
+      { label: "Velocidad", value: 25 },
+      { label: "Flexibilidad", value: 60 },
+    ],
+    level: "todos", // TODO: confirm
+    image: { src: "", alt: "", width: 1720, height: 1440 }, // TODO: photography
+    // TODO: photography — los pies de foto son un borrador, el material no existe.
+    gallery: [
+      {
+        caption: "Plancha frontal",
+        span: 2,
+        image: { src: "", alt: "", width: 1120, height: 1080 },
+      },
+      {
+        caption: "Serie de anti-rotación",
+        span: 3,
+        image: { src: "", alt: "", width: 1120, height: 1080 },
+      },
+      {
+        caption: "Plancha lateral",
+        span: 1,
+        image: { src: "", alt: "", width: 1120, height: 1080 },
+      },
+      {
+        caption: "Hollow hold",
+        span: 3,
+        image: { src: "", alt: "", width: 1120, height: 1080 },
+      },
+      {
+        caption: "Trabajo con banda",
+        span: 1,
+        image: { src: "", alt: "", width: 1120, height: 1080 },
+      },
+      {
+        caption: "Estiramiento",
+        span: 2,
+        image: { src: "", alt: "", width: 1120, height: 1080 },
+      },
+    ],
+    coachSlugs: [], // TODO: confirm — coach names unverified (§7.3)
+    faq: [], // TODO: copy
+    seo: pageSeo["/disciplinas/core"],
   },
 ] satisfies Discipline[];
