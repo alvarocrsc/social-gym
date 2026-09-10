@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-import { absoluteUrl } from "@/lib/seo/routes";
+import { absoluteUrl, isProductionSite } from "@/lib/seo/routes";
 
 /**
  * Keeps every non-production deploy out of the index (§8.5).
@@ -15,9 +15,7 @@ import { absoluteUrl } from "@/lib/seo/routes";
  * advertise a sitemap for a deploy that should not be crawled.
  */
 export default function robots(): MetadataRoute.Robots {
-  const isProduction = process.env.VERCEL_ENV === "production";
-
-  if (!isProduction) {
+  if (!isProductionSite) {
     return { rules: { userAgent: "*", disallow: "/" } };
   }
 

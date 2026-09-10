@@ -1,0 +1,21 @@
+# Netlify build configuration.
+#
+# Kept in the repo rather than in the dashboard so a deploy is reproducible
+# from a clone and any change to it shows up in review.
+#
+# The Next.js runtime is installed automatically when Netlify detects Next, so
+# it is deliberately not declared as a plugin here — declaring one that is not
+# also a dependency fails the build.
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  # Next 16 requires Node >= 20.9. Pinned so a change to Netlify's default
+  # cannot break the build without a commit.
+  NODE_VERSION = "22"
+  NEXT_PUBLIC_SITE_URL = "https://socialgymfit.com"
+
+[context.production.environment]
+  SITE_ENV = "production"

@@ -3,13 +3,7 @@ import type { Metadata } from "next";
 import { site } from "@/content/site";
 import type { PageSeo } from "@/types/seo";
 
-import { SITE_URL, absoluteUrl } from "./routes";
-
-/**
- * Staging and preview deploys must never be indexed (§8.5). Vercel sets
- * `VERCEL_ENV` to `production` only on the production deployment.
- */
-const isProduction = process.env.VERCEL_ENV === "production";
+import { SITE_URL, absoluteUrl, isProductionSite } from "./routes";
 
 /**
  * The single metadata factory. No route hand-rolls tags (§8.2).
@@ -53,7 +47,7 @@ export function buildMetadata(seo: PageSeo): Metadata {
       description: seo.description,
       ...(seo.ogImage && { images: [seo.ogImage] }),
     },
-    robots: isProduction
+    robots: isProductionSite
       ? {
           index: true,
           follow: true,

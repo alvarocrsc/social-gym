@@ -13,10 +13,13 @@ export const site = {
   nif: "B72749559",
   tagline: "Mambo, eat & repeat",
   foundingYear: 2022,
-  url: process.env.NEXT_PUBLIC_SITE_URL, // TODO: confirm — domain not yet owned
+  url: process.env.NEXT_PUBLIC_SITE_URL, // socialgymfit.com, registered via Hostinger
   phone: "+34941051433",
   phoneDisplay: "941 05 14 33",
-  whatsapp: "", // TODO: confirm — same number on WhatsApp Business?
+  // TODO: confirm — same number on WhatsApp Business? Full international
+  // number without the `+`, e.g. `34941051433`; empty drops the affordance
+  // rather than faking it (§6.6).
+  whatsapp: "",
   email: "socialgymoficial@gmail.com", // temporary, corporate address pending
   address: {
     street: "C. Viacampo, 12 bis",
@@ -24,6 +27,7 @@ export const site = {
     region: "La Rioja",
     postalCode: "26500",
     country: "ES",
+    countryLabel: "España",
     lat: 42.309606,
     lng: -1.9585302,
   },

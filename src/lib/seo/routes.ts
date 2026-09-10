@@ -24,6 +24,22 @@ export const SITE_URL: string = (() => {
 })();
 
 /**
+ * Whether this deploy is the live site.
+ *
+ * Staging, preview and local builds must never be indexed (§8.5), and the two
+ * consumers — `robots.ts` and the metadata factory — have to agree, so the
+ * check lives here rather than being written out twice.
+ *
+ * `SITE_ENV` is the portable switch: set it to `production` on whichever host
+ * serves the domain. `VERCEL_ENV` is kept alongside it so a Vercel production
+ * deploy still needs no configuration — Vercel sets it itself, and it reads
+ * `preview` on every other deploy there.
+ */
+export const isProductionSite: boolean =
+  process.env.SITE_ENV === "production" ||
+  process.env.VERCEL_ENV === "production";
+
+/**
  * Turns an internal Spanish path into an absolute URL.
  *
  * @param path Route path with a leading slash, e.g. `/membresias`.
