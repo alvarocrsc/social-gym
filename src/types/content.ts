@@ -296,6 +296,48 @@ export interface MembresiasPage {
 }
 
 /**
+ * Copy for /contacto. Every value the page shows — address, hours, phone,
+ * email, socials — comes from `site.ts` and `schedule.ts`; this holds only the
+ * words wrapped around them.
+ */
+export interface ContactoPage {
+  headlineSolid: string;
+  headlineOutlined: string;
+  keywordLine: string;
+  lead: string;
+  whereLabel: string;
+  whereAction: string;
+  whenLabel: string;
+  /** `{time}` is replaced with the closing time, in Europe/Madrid. */
+  statusOpen: string;
+  statusClosed: string;
+  /** `{time}`, and `{day}` when the next opening is not today. */
+  statusOpensAt: string;
+  statusOpensOn: string;
+  talkLabel: string;
+  followLabel: string;
+  phoneLabel: string;
+  whatsappLabel: string;
+  emailLabel: string;
+  instagramLabel: string;
+  actionWhatsapp: string;
+  actionPhone: string;
+  actionNote: string;
+  reviewsHeadline: string;
+  reviewsBody: string;
+  reviewsAction: string;
+  mapHeading: string;
+  mapBody: string;
+  mapAction: string;
+  mapConsent: string;
+  mapDirections: string;
+  areaLead: string;
+  legalLabel: string;
+  manifesto: string;
+  slabAction: string;
+}
+
+/**
  * Site-wide business facts. Every value appearing in more than one place lives
  * here only.
  *
@@ -319,6 +361,8 @@ export interface Site {
     region: string;
     postalCode: string;
     country: string;
+    /** Display name for the country. `country` stays the ISO code for schema.org. */
+    countryLabel: string;
     lat: number;
     lng: number;
   };

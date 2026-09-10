@@ -40,5 +40,8 @@
     "title": "Página no encontrada",
     "description": "El enlace que has seguido no existe o ha cambiado de sitio.",
     "backHome": "Volver al inicio"
+  },
+  "Contacto": {
+    "mapFrameTitle": "Mapa de la ubicación de Social Gym en Calahorra"
   }
 }

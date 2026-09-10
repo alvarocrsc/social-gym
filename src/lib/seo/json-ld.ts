@@ -126,6 +126,26 @@ export function buildWebPage(
 }
 
 /**
+ * `ContactPage` node.
+ *
+ * The same shape as `buildWebPage` with the more specific type, plus
+ * `mainEntity` pointing at the gym so the address, phone, opening hours and
+ * `hasMap` already published in the root graph are bound to this page rather
+ * than repeated on it.
+ */
+export function buildContactPage(
+  path: string,
+  name: string,
+  description: string,
+): JsonLdNode {
+  return {
+    ...buildWebPage(path, name, description),
+    "@type": "ContactPage",
+    mainEntity: { "@id": GYM_ID },
+  };
+}
+
+/**
  * `BreadcrumbList` node. Required everywhere below the home page (§8.4).
  *
  * @param trail Ordered crumbs, excluding the implicit home entry.
