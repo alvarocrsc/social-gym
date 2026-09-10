@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import type { ReactElement } from "react";
 
 import { classSchedule } from "@/content/class-schedule";
+import { classTypes } from "@/content/class-types";
 import { coaches } from "@/content/coaches";
 import { disciplina } from "@/content/disciplina";
 import { Link } from "@/i18n/navigation";
@@ -49,8 +50,21 @@ export async function DisciplinaSchedule({
 }: DisciplinaScheduleProps): Promise<ReactElement> {
   const t = await getTranslations("Days");
 
-  const slots = classSchedule
-    .filter((slot) => slot.disciplineSlug === discipline.slug)
+  const classSlugs = classTypes
+    .filter((entry) => entry.disciplineSlug === discipline.slug)
+    .map((entry) => entry.slug);
+
+  const all: ClassSlot[] = classSchedule;
+  const slots = all
+    .filter((slot) => classSlugs.includes(slot.classSlug))
+    .map((slot) => ({
+      ...slot,
+      durationMin:
+        slot.durationMin ??
+        classTypes.find((entry) => entry.slug === slot.classSlug)
+          ?.durationMin ??
+        60,
+    }))
     .sort((a, b) => DAY_ORDER.indexOf(a.day) - DAY_ORDER.indexOf(b.day));
 
   const week = slots.filter((slot) => WEEKDAYS.includes(slot.day));

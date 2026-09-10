@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { ReactElement } from "react";
 
 import { Link } from "@/i18n/navigation";
+import { existingImage } from "@/lib/media/public-file";
 import { disciplinePathname } from "@/lib/seo/routes";
 import type { Discipline } from "@/types/content";
 
@@ -23,7 +24,8 @@ export function DisciplineCard({
 }: DisciplineCardProps): ReactElement {
   const { image, video } = discipline;
   const hasVideo = video !== undefined && video.length > 0;
-  const hasImage = image.src !== "";
+  const photo = existingImage(image.src);
+  const hasImage = photo !== "";
 
   return (
     <article className={styles.card} data-card>
@@ -31,7 +33,7 @@ export function DisciplineCard({
         {hasImage ? (
           <Image
             className={styles.cardImage}
-            src={image.src}
+            src={photo}
             alt=""
             fill
             sizes="(min-width: 48rem) 68vw, 100vw"
@@ -50,7 +52,7 @@ export function DisciplineCard({
         {hasVideo ? (
           <video
             className={styles.cardVideo}
-            poster={hasImage ? image.src : undefined}
+            poster={hasImage ? photo : undefined}
             muted
             loop
             playsInline

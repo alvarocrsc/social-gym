@@ -2,7 +2,7 @@ import type { DisciplinasPage } from "@/types/content";
 
 export const disciplinas = {
   eyebrow: "Clases dirigidas en Calahorra",
-  headlineSolid: "Diez formas",
+  headlineSolid: "Trece formas",
   headlineOutlined: "de entrenar",
   lead: "Fuerza, boxeo, resistencia y clases dirigidas bajo un mismo techo en Calahorra. Elige la tuya y cámbiate cuando quieras: todas entran en la misma cuota.",
   scrollHint: "Desliza abajo",

@@ -51,15 +51,10 @@ export const routing = defineRouting({
       es: "/disciplinas/entrenamiento-funcional",
       en: "/disciplines/functional-training",
     },
-    "/disciplinas/spinning": {
-      es: "/disciplinas/spinning",
-      en: "/disciplines/spinning",
-    },
     "/disciplinas/pilates": {
       es: "/disciplinas/pilates",
       en: "/disciplines/pilates",
     },
-    "/disciplinas/gap": { es: "/disciplinas/gap", en: "/disciplines/gap" },
     "/disciplinas/booty-power": {
       es: "/disciplinas/booty-power",
       en: "/disciplines/booty-power",
@@ -75,6 +70,26 @@ export const routing = defineRouting({
     "/disciplinas/core": {
       es: "/disciplinas/core",
       en: "/disciplines/core",
+    },
+    "/disciplinas/hiit": {
+      es: "/disciplinas/hiit",
+      en: "/disciplines/hiit",
+    },
+    "/disciplinas/cross-combat": {
+      es: "/disciplinas/cross-combat",
+      en: "/disciplines/cross-combat",
+    },
+    "/disciplinas/defensa-personal": {
+      es: "/disciplinas/defensa-personal",
+      en: "/disciplines/self-defence",
+    },
+    "/disciplinas/bjj": {
+      es: "/disciplinas/bjj",
+      en: "/disciplines/brazilian-jiu-jitsu",
+    },
+    "/disciplinas/mma-grappling": {
+      es: "/disciplinas/mma-grappling",
+      en: "/disciplines/mma-grappling",
     },
     "/horarios": { es: "/horarios", en: "/schedule" },
     "/contacto": { es: "/contacto", en: "/contact" },

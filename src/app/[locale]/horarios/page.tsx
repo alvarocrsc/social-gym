@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
+import { HorariosCta } from "@/components/sections/horarios/HorariosCta";
+import { HorariosHero } from "@/components/sections/horarios/HorariosHero";
+import { HorariosMotion } from "@/components/sections/horarios/HorariosMotion";
+import { OpeningHours } from "@/components/sections/horarios/OpeningHours";
+import { WeekTimetable } from "@/components/sections/horarios/WeekTimetable";
+import { WhenToCome } from "@/components/sections/horarios/WhenToCome";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { horarios } from "@/content/horarios";
 import { pageSeo } from "@/content/seo";
 import {
   buildBreadcrumbs,
@@ -9,19 +16,11 @@ import {
   buildWebPage,
 } from "@/lib/seo/json-ld";
 import { buildMetadata } from "@/lib/seo/metadata";
-import { headingFor } from "@/lib/seo/routes";
 
 const seo = pageSeo["/horarios"];
 
 export const metadata: Metadata = buildMetadata(seo);
 
-/**
- * Horarios. The answer to `horario gimnasio calahorra` currently lives only
- * inside the app, invisible to Google — this page publishes it as real HTML.
- *
- * TODO: sections — semantic `<table>` from `class-schedule.ts` with
- * `<th scope>`, plus the displayed `lastUpdated` (§6.5, §12).
- */
 export default async function HorariosPage({
   params,
 }: PageProps<"/[locale]/horarios">) {
@@ -36,7 +35,14 @@ export default async function HorariosPage({
           buildBreadcrumbs([{ name: "Horarios", path: seo.path }]),
         ])}
       />
-      <h1>{headingFor(seo)}</h1>
+
+      <HorariosMotion countTemplate={horarios.filterCount}>
+        <HorariosHero />
+        <OpeningHours />
+        <WeekTimetable />
+        <WhenToCome />
+        <HorariosCta />
+      </HorariosMotion>
     </>
   );
 }

@@ -1,37 +1,38 @@
 import Image from "next/image";
 import type { ReactElement } from "react";
 
-import { membresias } from "@/content/membresias";
+import { horarios } from "@/content/horarios";
 import { site } from "@/content/site";
+import { Link } from "@/i18n/navigation";
 
-import styles from "./Membresias.module.css";
+import styles from "./Horarios.module.css";
 import { revealDelay } from "./reveal";
 
 const MARQUEE_REPEATS = 4;
 
-export function AppCta(): ReactElement {
+export function HorariosCta(): ReactElement {
   // `site.ts` is `as const`, so the paths are literal types and an
   // empty-string check against them would not compile.
   const icon: { appStore: string; googlePlay: string } = site.app.icon;
 
   return (
-    <section className={styles.cta} data-cta aria-labelledby="la-app">
+    <section className={styles.cta} data-cta aria-labelledby="reserva-app">
       <span className={styles.ctaMarquee} data-cta-marquee aria-hidden>
         {Array.from({ length: MARQUEE_REPEATS }, (_, i) => (
-          <span key={i}>{`${site.name} /`}</span>
+          <span key={i}>06:00 / 01:00 /</span>
         ))}
       </span>
 
       <div className={styles.ctaRow}>
-        <h2 className={styles.ctaTitle} id="la-app" data-rv>
-          <span>{membresias.ctaHeadlineSolid}</span>
+        <h2 className={styles.ctaTitle} id="reserva-app" data-rv>
+          <span>{horarios.ctaHeadlineSolid}</span>
           <span className={styles.ctaOutlined}>
-            {membresias.ctaHeadlineOutlined}
+            {horarios.ctaHeadlineOutlined}
           </span>
         </h2>
 
         <div className={styles.ctaAside} data-rv style={revealDelay(120)}>
-          <p className={styles.ctaBody}>{membresias.ctaBody}</p>
+          <p className={styles.ctaBody}>{horarios.ctaBody}</p>
 
           <div className={styles.storeRow}>
             <a
@@ -51,7 +52,7 @@ export function AppCta(): ReactElement {
               )}
               <span className={styles.storeBadgeText}>
                 <span className={styles.storeBadgeKicker}>
-                  {membresias.appStoreKicker}
+                  {horarios.appStoreKicker}
                 </span>
                 <span className={styles.storeBadgeName}>App Store</span>
               </span>
@@ -73,16 +74,16 @@ export function AppCta(): ReactElement {
               )}
               <span className={styles.storeBadgeText}>
                 <span className={styles.storeBadgeKicker}>
-                  {membresias.googlePlayKicker}
+                  {horarios.googlePlayKicker}
                 </span>
                 <span className={styles.storeBadgeName}>Google Play</span>
               </span>
             </a>
           </div>
 
-          <a className={styles.ctaAction} href="#planes">
-            {`${membresias.ctaAction} →`}
-          </a>
+          <Link className={styles.ctaAction} href="/membresias">
+            {`${horarios.ctaAction} →`}
+          </Link>
         </div>
       </div>
     </section>

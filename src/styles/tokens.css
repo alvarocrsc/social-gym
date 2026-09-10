@@ -19,6 +19,8 @@
   --color-accent: #5a78ff;
   --color-accent-alt: #a457ff;
   --color-accent-soft: #a4b5ff;
+  --color-accent-rose: #ff5c8a;
+  --color-hyrox: #101a45;
   --color-cta-start: #809bff;
   --color-cta-end: #a986ff;
   --color-ink-soft: rgba(255, 255, 255, 0.8);
@@ -71,6 +73,7 @@
   --offset-sticky: clamp(90px, 12vh, 130px);
 
   --size-embed-shop: clamp(620px, 72vh, 820px);
+  --size-timetable-min: 1080px;
   --size-embed-product: clamp(880px, 118vh, 1320px);
   /* The frame never scrolls internally, so a phone — where the shop's four
    * cards stack and every label wraps — needs far more height than desktop. */

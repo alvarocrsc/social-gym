@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { ReactElement } from "react";
 
+import { existingImage } from "@/lib/media/public-file";
 import type { ImageAsset } from "@/types/content";
 
 import styles from "./Disciplina.module.css";
@@ -31,7 +32,8 @@ export function CoachTag({
   role,
   size = "sm",
 }: CoachTagProps): ReactElement {
-  const hasImage = image !== undefined && image.src !== "";
+  const photo = existingImage(image?.src ?? "");
+  const hasImage = photo !== "";
 
   return (
     <span className={styles.coachTag} data-size={size}>
@@ -39,10 +41,10 @@ export function CoachTag({
         {hasImage ? (
           <Image
             className={styles.coachAvatarImage}
-            src={image.src}
+            src={photo}
             alt=""
-            width={image.width}
-            height={image.height}
+            width={image?.width ?? 400}
+            height={image?.height ?? 400}
           />
         ) : (
           initialsOf(name)

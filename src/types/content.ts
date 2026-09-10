@@ -169,12 +169,75 @@ export interface ScheduleBlock {
   closes: string; // '01:00'
 }
 
+/** Visual family on the timetable. Not every format has a discipline page. */
+export type ClassTier = "hyrox" | "fuerza" | "dirigida" | "cuerpo" | "contacto";
+
+/**
+ * A format as it appears on the timetable. Disciplines are the subset of these
+ * that also have a marketing page — `/horarios` runs classes the site does not
+ * sell individually, so the two vocabularies are deliberately separate.
+ */
+export interface ClassType {
+  slug: string;
+  /** Short label shown inside a timetable cell, e.g. 'FBS'. */
+  code: string;
+  name: string;
+  /** Spelled out in the legend when `name` is an abbreviation. */
+  fullName?: string;
+  tier: ClassTier;
+  /** Minutes the format runs. A slot may override it. */
+  durationMin: number;
+  /** Links to a discipline page when one exists. */
+  disciplineSlug?: string;
+}
+
 export interface ClassSlot {
   day: DayCode; // 'Mo' … 'Su'
   start: string; // '18:00'
-  durationMin: number;
-  disciplineSlug: string;
+  classSlug: string;
+  /** Only when this session differs from the format's usual length. */
+  durationMin?: number;
   coachSlug?: string;
+}
+
+export interface HorariosPage {
+  eyebrow: string;
+  headlineSolid: string;
+  headlineOutlined: string;
+  keywordLine: string;
+  lead: string;
+  heroAction: string;
+  openHeading: string;
+  openTrackTicks: readonly string[];
+  weekHeading: string;
+  weekAnchor: string;
+  filterClassLabel: string;
+  filterCoachLabel: string;
+  filterAllClasses: string;
+  filterAllCoaches: string;
+  filterClear: string;
+  filterCount: string;
+  emptyFiltered: string;
+  todayLabel: string;
+  hourColumn: string;
+  weekFootnote: string;
+  lastUpdatedLabel: string;
+  densityEyebrow: string;
+  densityHeadlineSolid: string;
+  densityHeadlineOutlined: string;
+  densityLead: string;
+  densityRows: readonly {
+    range: string;
+    note: string;
+    bars: readonly number[];
+    peak: boolean;
+  }[];
+  ctaHeadlineSolid: string;
+  ctaHeadlineOutlined: string;
+  ctaBody: string;
+  ctaAction: string;
+  appStoreKicker: string;
+  googlePlayKicker: string;
 }
 
 export interface MembershipPlan {
@@ -262,7 +325,13 @@ export interface Site {
   googlePlaceId: string;
   reviews: { rating: number; count: number; source: string };
   socials: { instagram: string };
-  app: { provider: string; appStore: string; googlePlay: string };
+  app: {
+    provider: string;
+    appStore: string;
+    googlePlay: string;
+    /** Store glyph shown beside the label. Empty renders the label alone. */
+    icon: { appStore: string; googlePlay: string };
+  };
   /**
    * `shopEmbedUrl` is the iframe source. `shopUrl` is the same shop hosted by
    * Virtuagym, needed as the fallback link when the visitor rejects cookies

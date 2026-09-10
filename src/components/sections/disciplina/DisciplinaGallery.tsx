@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { ReactElement } from "react";
 
 import { disciplina } from "@/content/disciplina";
+import { existingImage } from "@/lib/media/public-file";
 import type { Discipline } from "@/types/content";
 
 import styles from "./Disciplina.module.css";
@@ -45,7 +46,8 @@ export function DisciplinaGallery({
         <div className={styles.galleryViewport}>
           <ul className={styles.galleryTrack} data-gallery-track>
             {gallery.map((piece, i) => {
-              const hasImage = piece.image.src !== "";
+              const photo = existingImage(piece.image.src);
+              const hasImage = photo !== "";
               const hasVideo =
                 piece.video !== undefined && piece.video.length > 0;
 
@@ -60,7 +62,7 @@ export function DisciplinaGallery({
                     {hasImage ? (
                       <Image
                         className={styles.pieceImage}
-                        src={piece.image.src}
+                        src={photo}
                         alt=""
                         fill
                         sizes="(min-width: 48rem) 40vw, 78vw"
@@ -76,7 +78,7 @@ export function DisciplinaGallery({
                     {hasVideo ? (
                       <video
                         className={styles.pieceVideo}
-                        poster={hasImage ? piece.image.src : undefined}
+                        poster={hasImage ? photo : undefined}
                         muted
                         loop
                         playsInline

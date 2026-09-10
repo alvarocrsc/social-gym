@@ -18,6 +18,15 @@
     "Sa": "Sábado",
     "Su": "Domingo"
   },
+  "DaysShort": {
+    "Mo": "Lun",
+    "Tu": "Mar",
+    "We": "Mié",
+    "Th": "Jue",
+    "Fr": "Vie",
+    "Sa": "Sáb",
+    "Su": "Dom"
+  },
   "Actions": {
     "viewMemberships": "Ver membresías",
     "call": "Llamar por teléfono",

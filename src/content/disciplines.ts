@@ -20,7 +20,12 @@ const GALLERY_H264 = 'video/mp4; codecs="avc1.640028"'; // High@4.0
  * K1 and Powerlifting appeared in the old mockup and are deliberately absent.
  *
  * Copy is written. `forWho`, `sessionLooksLike` and `faq` stay empty because
- * no section renders them yet; every media slot awaits the photography batch.
+ * no section renders them yet.
+ *
+ * Every image path follows the slug, and `existingImage()` hides the ones
+ * whose file is not there yet — so adding a photo means dropping
+ * `public/disciplinas/<slug>.jpg` (or `<slug>/01.jpg`…`06.jpg` for the
+ * gallery) and nothing else.
  */
 export const disciplines = [
   {
@@ -245,35 +250,65 @@ export const disciplines = [
       {
         caption: "Guardia y distancia",
         span: 2,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/boxeo/01.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Trabajo de pies",
         span: 3,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/boxeo/02.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Saco pesado",
         span: 1,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/boxeo/03.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Manoplas",
         span: 3,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/boxeo/04.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Combinaciones",
         span: 1,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/boxeo/05.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Acondicionamiento",
         span: 2,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/boxeo/06.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
     ],
-    coachSlugs: [], // TODO: confirm — coach names unverified (§7.3)
+    coachSlugs: ["simon"], // Confirmado 2026-09-08
     faq: [], // TODO: copy
     seo: pageSeo["/disciplinas/boxeo"],
   },
@@ -342,7 +377,7 @@ export const disciplines = [
     ],
     level: "todos", // Confirmado 2026-08-05
     image: {
-      src: "/disciplinas/funcional.jpg",
+      src: "/disciplinas/entrenamiento-funcional.jpg",
       alt: "",
       width: 1720,
       height: 1440,
@@ -352,151 +387,74 @@ export const disciplines = [
       {
         caption: "Kettlebell swing",
         span: 2,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/entrenamiento-funcional/01.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Circuito en grupo",
         span: 3,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/entrenamiento-funcional/02.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Sentadilla frontal",
         span: 1,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/entrenamiento-funcional/03.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Salto al cajón",
         span: 3,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/entrenamiento-funcional/04.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Anillas",
         span: 1,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/entrenamiento-funcional/05.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Cuerdas",
         span: 2,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/entrenamiento-funcional/06.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
     ],
-    coachSlugs: [], // TODO: confirm — coach names unverified (§7.3)
+    coachSlugs: ["adrian-buda"], // Confirmado 2026-09-08
     faq: [], // TODO: copy
     seo: pageSeo["/disciplinas/entrenamiento-funcional"],
-  },
-  {
-    slug: "spinning",
-    enSlug: "spinning",
-    name: "Spinning",
-    code: "[SPN]",
-    order: 4,
-    badge: "Clase dirigida", // TODO: confirm
-    shortDescription:
-      "Música alta, luz baja y una hora en la que solo piensas en pedalear. Tú decides la resistencia, así que el ritmo es tuyo.",
-    tagline:
-      "Luz baja, música alta y una hora en la que solo existe la siguiente cuesta. La resistencia la eliges tú.",
-    headline: { solid: "Tu ritmo", outlined: "tu resistencia" },
-    longDescription:
-      "El spinning es cardio de alta intensidad sin impacto: la bici absorbe todo lo que las rodillas y los tobillos no tienen por qué aguantar, y aun así sales con las pulsaciones donde quieras ponerlas.",
-    paragraphs: [
-      "La clase se dirige por bloques —llano, subida, series cortas— marcados con la música. El coach da la cadencia y la sensación de esfuerzo; la resistencia la pones tú en el mando, así que dos personas de la misma fila pueden estar haciendo entrenos muy distintos.",
-      "Antes de empezar te ajustamos la altura del sillín y la distancia al manillar. Es lo que separa una hora cómoda de una hora con dolor de espalda, y se tarda dos minutos.",
-      "Si vuelves de una lesión o llevas tiempo sin entrenar, es la forma más segura de recuperar fondo. Si ya estás en forma, es la más rápida de encontrar tu techo.",
-    ],
-    // TODO: confirm — duración y material redactados, no facilitados por el club.
-    meta: [
-      { label: "Duración", value: "50 min" },
-      { label: "Objetivo", value: "Resistencia" },
-      { label: "Material", value: "Bici indoor" },
-      { label: "Nivel", value: "Todos" },
-    ],
-    forWho: "", // TODO: copy
-    sessionLooksLike: [], // TODO: copy
-    // TODO: confirm — reparto de minutos redactado, pendiente de validar con los coaches.
-    session: [
-      {
-        time: "00–08 min",
-        title: "Ajuste y calentamiento",
-        body: "Colocación en la bici, altura de sillín y unos minutos de pedaleo suave para soltar piernas.",
-      },
-      {
-        time: "08–20 min",
-        title: "Bloque llano",
-        body: "Cadencia alta y resistencia baja para calentar el sistema y coger el ritmo de la música.",
-      },
-      {
-        time: "20–42 min",
-        title: "Subidas y series",
-        body: "El bloque duro: series de pie, subidas sostenidas y sprints cortos, con recuperación activa entre cada una.",
-      },
-      {
-        time: "42–50 min",
-        title: "Bajada de pulsaciones",
-        body: "Pedaleo suave, respiración y estiramiento de cuádriceps, isquios y gemelo fuera de la bici.",
-      },
-    ],
-    cta: {
-      heading: "Súbete a la bici",
-      body: "Elige tu membresía y reserva tu bici para la próxima sesión.",
-    },
-    // TODO: confirm — placeholder profile, not measured.
-    metrics: [
-      { label: "Fuerza", value: 45 },
-      { label: "Resistencia", value: 95 },
-      { label: "Agilidad", value: 25 },
-      { label: "Velocidad", value: 80 },
-      { label: "Flexibilidad", value: 20 },
-    ],
-    level: "todos", // Confirmado 2026-08-05
-    image: {
-      src: "/disciplinas/spinning.jpg",
-      alt: "",
-      width: 1720,
-      height: 1440,
-    }, // TODO: confirm — photography pending
-    // TODO: photography — los pies de foto son definitivos, el material no.
-    gallery: [
-      {
-        caption: "Sala de ciclo",
-        span: 2,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
-      },
-      {
-        caption: "Bloque de subida",
-        span: 3,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
-      },
-      {
-        caption: "Ajuste de sillín",
-        span: 1,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
-      },
-      {
-        caption: "Series de pie",
-        span: 3,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
-      },
-      {
-        caption: "Cadencia",
-        span: 1,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
-      },
-      {
-        caption: "Vuelta a la calma",
-        span: 2,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
-      },
-    ],
-    coachSlugs: [], // TODO: confirm — coach names unverified (§7.3)
-    faq: [], // TODO: copy
-    seo: pageSeo["/disciplinas/spinning"],
   },
   {
     slug: "pilates",
     enSlug: "pilates",
     name: "Pilates",
     code: "[PLT]",
-    order: 5,
+    order: 4,
     badge: "Clase dirigida", // TODO: confirm
     shortDescription:
       "Control, respiración y core. Sale una clase tranquila que al día siguiente se nota, y es de las mejores formas de volver a moverte.",
@@ -566,146 +524,74 @@ export const disciplines = [
       {
         caption: "Serie de suelo",
         span: 2,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/pilates/01.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Respiración y centro",
         span: 3,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/pilates/02.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Aro y banda",
         span: 1,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/pilates/03.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Control de columna",
         span: 3,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/pilates/04.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Trabajo lateral",
         span: 1,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/pilates/05.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Estiramiento final",
         span: 2,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/pilates/06.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
     ],
-    coachSlugs: [], // TODO: confirm — coach names unverified (§7.3)
+    coachSlugs: ["mihai"], // Confirmado 2026-09-08
     faq: [], // TODO: copy
     seo: pageSeo["/disciplinas/pilates"],
-  },
-  {
-    slug: "gap",
-    enSlug: "gap",
-    name: "GAP",
-    code: "[GAP]",
-    order: 6,
-    badge: "Clase dirigida", // TODO: confirm
-    shortDescription:
-      "Glúteo, abdomen y pierna en sesiones cortas que van al grano. Fáciles de seguir y de encajar en una semana complicada.",
-    tagline:
-      "Glúteo, abdomen y pierna. Sesiones cortas que van directas al grano y encajan en la peor de las semanas.",
-    headline: { solid: "Corto", outlined: "e intenso" },
-    longDescription:
-      "GAP concentra el trabajo en glúteo, abdomen y pierna: los tres grupos que más se resienten de pasar el día sentado y los que más rápido responden cuando les dedicas tiempo.",
-    paragraphs: [
-      "Son series de repeticiones altas con peso corporal, banda elástica y algo de carga ligera. Se sigue fácil desde el primer día porque los ejercicios se repiten sesión a sesión: lo que cambia es el volumen y el descanso.",
-      "No hay nada técnico que aprender ni material que dominar, así que toda la energía se va en trabajar. Por eso es la clase que mejor funciona para empezar y la que más gente encadena semanas seguidas.",
-      "Cuarenta y cinco minutos, un grupo que va al mismo ritmo y una sensación muy concreta al día siguiente. Poco más hace falta.",
-    ],
-    // TODO: confirm — duración y material redactados, no facilitados por el club.
-    meta: [
-      { label: "Duración", value: "45 min" },
-      { label: "Objetivo", value: "Fuerza" },
-      { label: "Material", value: "Banda elástica" },
-      { label: "Nivel", value: "Todos" },
-    ],
-    forWho: "", // TODO: copy
-    sessionLooksLike: [], // TODO: copy
-    // TODO: confirm — reparto de minutos redactado, pendiente de validar con los coaches.
-    session: [
-      {
-        time: "00–08 min",
-        title: "Calentamiento",
-        body: "Activación de glúteo y core y movilidad de cadera y tobillo antes de la primera serie.",
-      },
-      {
-        time: "08–24 min",
-        title: "Bloque de pierna",
-        body: "Sentadillas, zancadas y puentes en series de repeticiones altas con descansos cortos.",
-      },
-      {
-        time: "24–38 min",
-        title: "Glúteo y abdomen",
-        body: "Trabajo aislado con banda elástica y series de abdomen encadenadas sin bajar el ritmo.",
-      },
-      {
-        time: "38–45 min",
-        title: "Estiramiento",
-        body: "Cadena posterior, cadera y zona lumbar para bajar pulsaciones y cerrar la sesión.",
-      },
-    ],
-    cta: {
-      heading: "Empieza esta semana",
-      body: "Elige tu membresía y encaja el GAP donde mejor te venga.",
-    },
-    // TODO: confirm — placeholder profile, not measured.
-    metrics: [
-      { label: "Fuerza", value: 70 },
-      { label: "Resistencia", value: 65 },
-      { label: "Agilidad", value: 45 },
-      { label: "Velocidad", value: 40 },
-      { label: "Flexibilidad", value: 40 },
-    ],
-    level: "todos", // Confirmado 2026-08-05
-    image: { src: "/disciplinas/gap.jpg", alt: "", width: 1720, height: 1440 }, // TODO: confirm — photography pending
-    // TODO: photography — los pies de foto son definitivos, el material no.
-    gallery: [
-      {
-        caption: "Serie de glúteo",
-        span: 2,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
-      },
-      {
-        caption: "Circuito GAP",
-        span: 3,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
-      },
-      {
-        caption: "Banda elástica",
-        span: 1,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
-      },
-      {
-        caption: "Abdomen",
-        span: 3,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
-      },
-      {
-        caption: "Zancadas",
-        span: 1,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
-      },
-      {
-        caption: "Estiramiento",
-        span: 2,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
-      },
-    ],
-    coachSlugs: [], // TODO: confirm — coach names unverified (§7.3)
-    faq: [], // TODO: copy
-    seo: pageSeo["/disciplinas/gap"],
   },
   {
     slug: "booty-power",
     enSlug: "booty-power",
     name: "Booty Power",
     code: "[BTY]",
-    order: 7,
+    order: 5,
     badge: "Clase dirigida", // TODO: confirm
     shortDescription:
       "Glúteo a conciencia, con banda y carga progresiva. Series largas, descansos cortos y una sesión que se nota al subir escaleras.",
@@ -717,7 +603,7 @@ export const disciplines = [
     paragraphs: [
       "La sesión combina puentes, hip thrust, abducciones y zancadas con banda elástica y peso libre. El orden se repite para que puedas medir tu progreso; lo que cambia es la carga y el tiempo bajo tensión.",
       "El glúteo es el músculo que más se apaga cuando pasas el día sentado y el que más rápido responde cuando le dedicas dos sesiones a la semana. También es el que sostiene la rodilla y la zona lumbar.",
-      "No hace falta técnica previa ni material propio. Si vienes de GAP o de funcional, encajarás desde el primer día.",
+      "No hace falta técnica previa ni material propio. Si vienes de funcional o de core, encajarás desde el primer día.",
     ],
     // TODO: confirm — duración y material redactados, no facilitados por el club.
     meta: [
@@ -764,41 +650,76 @@ export const disciplines = [
       { label: "Flexibilidad", value: 45 },
     ],
     level: "todos", // TODO: confirm
-    image: { src: "", alt: "", width: 1720, height: 1440 }, // TODO: photography
+    image: {
+      src: "/disciplinas/booty-power.jpg",
+      alt: "",
+      width: 1720,
+      height: 1440,
+    }, // TODO: photography
     // TODO: photography — los pies de foto son un borrador, el material no existe.
     gallery: [
       {
         caption: "Hip thrust",
         span: 2,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/booty-power/01.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Serie con banda",
         span: 3,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/booty-power/02.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Puente de glúteo",
         span: 1,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/booty-power/03.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Zancadas",
         span: 3,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/booty-power/04.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Abducciones",
         span: 1,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/booty-power/05.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Estiramiento",
         span: 2,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/booty-power/06.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
     ],
-    coachSlugs: [], // TODO: confirm — coach names unverified (§7.3)
+    coachSlugs: ["andrea"], // Confirmado 2026-09-08
     faq: [], // TODO: copy
     seo: pageSeo["/disciplinas/booty-power"],
   },
@@ -807,7 +728,7 @@ export const disciplines = [
     enSlug: "power-cycling",
     name: "Power Cycling",
     code: "[PWC]",
-    order: 8,
+    order: 6,
     badge: "Clase dirigida", // TODO: confirm
     shortDescription:
       "Ciclo indoor por bloques de mucha intensidad. Piernas y pulso alto durante una hora, sin castigar las articulaciones.",
@@ -819,7 +740,7 @@ export const disciplines = [
     paragraphs: [
       "La clase se organiza en bloques con un objetivo claro cada uno, marcados con la música. Se alterna trabajo sentado y de pie, con series donde se aprieta de verdad y recuperación activa entre ellas.",
       "Es cardio de alta intensidad sin impacto: la bici absorbe lo que las rodillas y los tobillos no tienen por qué aguantar, y aun así sales con las pulsaciones donde quieras ponerlas.",
-      "Antes de empezar te ajustamos el sillín y el manillar. Si ya vienes de spinning, el salto es de intensidad, no de técnica.",
+      "Antes de empezar te ajustamos el sillín y el manillar. No hace falta saber nada: la resistencia siempre la pones tú.",
     ],
     // TODO: confirm — duración y material redactados, no facilitados por el club.
     meta: [
@@ -866,41 +787,76 @@ export const disciplines = [
       { label: "Flexibilidad", value: 20 },
     ],
     level: "todos", // TODO: confirm
-    image: { src: "", alt: "", width: 1720, height: 1440 }, // TODO: photography
+    image: {
+      src: "/disciplinas/power-cycling.jpg",
+      alt: "",
+      width: 1720,
+      height: 1440,
+    }, // TODO: photography
     // TODO: photography — los pies de foto son un borrador, el material no existe.
     gallery: [
       {
         caption: "Sala de ciclo",
         span: 2,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/power-cycling/01.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Bloque de intensidad",
         span: 3,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/power-cycling/02.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Ajuste de bici",
         span: 1,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/power-cycling/03.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Series de pie",
         span: 3,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/power-cycling/04.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Cadencia",
         span: 1,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/power-cycling/05.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Vuelta a la calma",
         span: 2,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/power-cycling/06.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
     ],
-    coachSlugs: [], // TODO: confirm — coach names unverified (§7.3)
+    coachSlugs: ["andrea"], // Confirmado 2026-09-08
     faq: [], // TODO: copy
     seo: pageSeo["/disciplinas/power-cycling"],
   },
@@ -909,7 +865,7 @@ export const disciplines = [
     enSlug: "full-body-strength",
     name: "Full Body Strength",
     code: "[FBS]",
-    order: 9,
+    order: 7,
     badge: "Clase dirigida", // TODO: confirm
     shortDescription:
       "Todo el cuerpo en una sesión: empujar, tirar y levantar del suelo con carga real y técnica cuidada.",
@@ -968,41 +924,76 @@ export const disciplines = [
       { label: "Flexibilidad", value: 40 },
     ],
     level: "todos", // TODO: confirm
-    image: { src: "", alt: "", width: 1720, height: 1440 }, // TODO: photography
+    image: {
+      src: "/disciplinas/full-body-strength.jpg",
+      alt: "",
+      width: 1720,
+      height: 1440,
+    }, // TODO: photography
     // TODO: photography — los pies de foto son un borrador, el material no existe.
     gallery: [
       {
         caption: "Barra y discos",
         span: 2,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/full-body-strength/01.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Serie de peso muerto",
         span: 3,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/full-body-strength/02.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Press militar",
         span: 1,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/full-body-strength/03.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Remo con mancuerna",
         span: 3,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/full-body-strength/04.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Trabajo unilateral",
         span: 1,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/full-body-strength/05.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Movilidad final",
         span: 2,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/full-body-strength/06.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
     ],
-    coachSlugs: [], // TODO: confirm — coach names unverified (§7.3)
+    coachSlugs: ["adrian-buda"], // Confirmado 2026-09-08
     faq: [], // TODO: copy
     seo: pageSeo["/disciplinas/full-body-strength"],
   },
@@ -1011,7 +1002,7 @@ export const disciplines = [
     enSlug: "core",
     name: "Core",
     code: "[COR]",
-    order: 10,
+    order: 8,
     badge: "Sesión corta", // TODO: confirm
     shortDescription:
       "Abdomen, lumbares y suelo pélvico en sesiones cortas. La base que sostiene todo lo demás, entrenada aparte.",
@@ -1070,42 +1061,747 @@ export const disciplines = [
       { label: "Flexibilidad", value: 60 },
     ],
     level: "todos", // TODO: confirm
-    image: { src: "", alt: "", width: 1720, height: 1440 }, // TODO: photography
+    image: { src: "/disciplinas/core.jpg", alt: "", width: 1720, height: 1440 }, // TODO: photography
     // TODO: photography — los pies de foto son un borrador, el material no existe.
     gallery: [
       {
         caption: "Plancha frontal",
         span: 2,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/core/01.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Serie de anti-rotación",
         span: 3,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/core/02.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Plancha lateral",
         span: 1,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/core/03.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Hollow hold",
         span: 3,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/core/04.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Trabajo con banda",
         span: 1,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/core/05.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
       {
         caption: "Estiramiento",
         span: 2,
-        image: { src: "", alt: "", width: 1120, height: 1080 },
+        image: {
+          src: "/disciplinas/core/06.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
       },
     ],
-    coachSlugs: [], // TODO: confirm — coach names unverified (§7.3)
+    coachSlugs: ["andrea"], // Confirmado 2026-09-08
     faq: [], // TODO: copy
     seo: pageSeo["/disciplinas/core"],
+  },
+  {
+    slug: "hiit",
+    enSlug: "hiit",
+    name: "HIIT",
+    code: "[HIT]",
+    order: 9,
+    badge: "Sesión corta", // TODO: confirm
+    shortDescription:
+      "Media hora de intervalos a tope y descansos cortos. Entras, aprietas y sales, sin un minuto muerto.",
+    tagline:
+      "Treinta minutos de intervalos. El entreno más corto del horario y el que más cuesta terminar.",
+    headline: { solid: "Media hora", outlined: "al límite" },
+    longDescription:
+      "HIIT alterna intervalos de intensidad muy alta con descansos medidos. Media hora basta porque el cuerpo sigue trabajando mucho después de que la clase termine.",
+    paragraphs: [
+      "Cada sesión son bloques cortos —veinte, treinta, cuarenta segundos— con peso corporal, kettlebell y desplazamientos. El coach marca el tiempo y tú marcas el ritmo dentro de él.",
+      "Es la clase que mejor encaja cuando no tienes hueco: media hora entra en cualquier tarde y se nota igual que una sesión larga.",
+      "Se escala sola. El intervalo dura lo mismo para todos; lo que cambia es cuántas repeticiones metes dentro.",
+    ],
+    // TODO: confirm — material redactado, no facilitado por el club.
+    meta: [
+      { label: "Duración", value: "30 min" },
+      { label: "Objetivo", value: "Resistencia" },
+      { label: "Material", value: "Peso corporal" },
+      { label: "Nivel", value: "Todos" },
+    ],
+    forWho: "", // TODO: copy
+    sessionLooksLike: [], // TODO: copy
+    // TODO: confirm — reparto de minutos redactado, pendiente de validar con los coaches.
+    session: [
+      {
+        time: "00–05 min",
+        title: "Calentamiento",
+        body: "Movilidad rápida y una serie de activación para entrar en temperatura sin gastar la sesión.",
+      },
+      {
+        time: "05–12 min",
+        title: "Primer bloque",
+        body: "Intervalos de esfuerzo corto con descansos completos, buscando calidad de movimiento antes que volumen.",
+      },
+      {
+        time: "12–25 min",
+        title: "Bloque principal",
+        body: "El grueso de la clase: rondas encadenadas con descansos cada vez más justos.",
+      },
+      {
+        time: "25–30 min",
+        title: "Vuelta a la calma",
+        body: "Respiración y estiramiento breve para bajar pulsaciones antes de salir.",
+      },
+    ],
+    cta: {
+      heading: "Media hora y fuera",
+      body: "Elige tu membresía y métete en el próximo HIIT.",
+    },
+    // TODO: confirm — placeholder profile, not measured.
+    metrics: [
+      { label: "Fuerza", value: 55 },
+      { label: "Resistencia", value: 90 },
+      { label: "Agilidad", value: 70 },
+      { label: "Velocidad", value: 85 },
+      { label: "Flexibilidad", value: 25 },
+    ],
+    level: "todos", // TODO: confirm
+    image: { src: "/disciplinas/hiit.jpg", alt: "", width: 1720, height: 1440 }, // TODO: photography
+    // TODO: photography — los pies de foto son un borrador, el material no existe.
+    gallery: [
+      {
+        caption: "Intervalo con kettlebell",
+        span: 2,
+        image: {
+          src: "/disciplinas/hiit/01.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
+      },
+      {
+        caption: "Ronda cronometrada",
+        span: 3,
+        image: {
+          src: "/disciplinas/hiit/02.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
+      },
+      {
+        caption: "Peso corporal",
+        span: 1,
+        image: {
+          src: "/disciplinas/hiit/03.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
+      },
+      {
+        caption: "Desplazamientos",
+        span: 3,
+        image: {
+          src: "/disciplinas/hiit/04.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
+      },
+      {
+        caption: "Descanso activo",
+        span: 1,
+        image: {
+          src: "/disciplinas/hiit/05.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
+      },
+      {
+        caption: "Estiramiento",
+        span: 2,
+        image: {
+          src: "/disciplinas/hiit/06.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
+      },
+    ],
+    coachSlugs: ["andrea"], // Confirmado 2026-09-08
+    faq: [], // TODO: copy
+    seo: pageSeo["/disciplinas/hiit"],
+  },
+  {
+    slug: "cross-combat",
+    enSlug: "cross-combat",
+    name: "Cross Combat",
+    code: "[CCB]",
+    order: 10,
+    badge: "Clase dirigida", // TODO: confirm
+    shortDescription:
+      "Golpeo, desplazamiento y acondicionamiento en el mismo circuito. La parte física del combate, sin contacto.",
+    tagline:
+      "Golpeo y acondicionamiento en la misma hora. El físico de un deportista de combate, sin subirte al ring.",
+    headline: { solid: "Pegar", outlined: "y aguantar" },
+    longDescription:
+      "Cross Combat cruza el trabajo técnico de los deportes de contacto con el acondicionamiento del entrenamiento funcional: golpeas, te desplazas y entre ronda y ronda haces trabajo físico.",
+    paragraphs: [
+      "La clase se organiza en rondas: saco o manoplas, un bloque de fuerza o cardio, y vuelta a empezar. No hay contacto con nadie, así que puedes entrar sin haber peleado nunca.",
+      "Se trabaja el golpeo básico —directo, gancho, rodilla— y sobre todo el desplazamiento, que es lo que de verdad cansa y lo que menos se entrena.",
+      "Es de las clases con más plazas del horario y la que mejor funciona si buscas el acondicionamiento del combate sin el combate.",
+    ],
+    // TODO: confirm — material redactado, no facilitado por el club.
+    meta: [
+      { label: "Duración", value: "60 min" },
+      { label: "Objetivo", value: "Resistencia" },
+      { label: "Material", value: "Guantes y saco" },
+      { label: "Nivel", value: "Todos" },
+    ],
+    forWho: "", // TODO: copy
+    sessionLooksLike: [], // TODO: copy
+    // TODO: confirm — reparto de minutos redactado, pendiente de validar con los coaches.
+    session: [
+      {
+        time: "00–10 min",
+        title: "Calentamiento",
+        body: "Cuerda, movilidad de hombro y cadera y unos minutos de sombra para soltar.",
+      },
+      {
+        time: "10–25 min",
+        title: "Técnica de golpeo",
+        body: "El golpe o la combinación del día, primero al aire y después contra el saco.",
+      },
+      {
+        time: "25–50 min",
+        title: "Rondas mixtas",
+        body: "Saco o manoplas alternados con bloques de fuerza y cardio, cronometrados.",
+      },
+      {
+        time: "50–60 min",
+        title: "Core y estiramiento",
+        body: "Abdomen, zona lumbar y estiramiento de cadena posterior para cerrar.",
+      },
+    ],
+    cta: {
+      heading: "Ponte los guantes",
+      body: "Elige tu membresía y reserva tu primera clase de Cross Combat.",
+    },
+    // TODO: confirm — placeholder profile, not measured.
+    metrics: [
+      { label: "Fuerza", value: 65 },
+      { label: "Resistencia", value: 90 },
+      { label: "Agilidad", value: 85 },
+      { label: "Velocidad", value: 80 },
+      { label: "Flexibilidad", value: 40 },
+    ],
+    level: "todos", // TODO: confirm
+    image: {
+      src: "/disciplinas/cross-combat.jpg",
+      alt: "",
+      width: 1720,
+      height: 1440,
+    }, // TODO: photography
+    // TODO: photography — los pies de foto son un borrador, el material no existe.
+    gallery: [
+      {
+        caption: "Guardia y guantes",
+        span: 2,
+        image: {
+          src: "/disciplinas/cross-combat/01.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
+      },
+      {
+        caption: "Ronda de saco",
+        span: 3,
+        image: {
+          src: "/disciplinas/cross-combat/02.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
+      },
+      {
+        caption: "Manoplas",
+        span: 1,
+        image: {
+          src: "/disciplinas/cross-combat/03.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
+      },
+      {
+        caption: "Bloque de fuerza",
+        span: 3,
+        image: {
+          src: "/disciplinas/cross-combat/04.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
+      },
+      {
+        caption: "Desplazamiento",
+        span: 1,
+        image: {
+          src: "/disciplinas/cross-combat/05.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
+      },
+      {
+        caption: "Acondicionamiento",
+        span: 2,
+        image: {
+          src: "/disciplinas/cross-combat/06.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
+      },
+    ],
+    coachSlugs: ["wilson"], // Confirmado 2026-09-08
+    faq: [], // TODO: copy
+    seo: pageSeo["/disciplinas/cross-combat"],
+  },
+  {
+    slug: "defensa-personal",
+    enSlug: "self-defence",
+    name: "Defensa Personal",
+    code: "[DFP]",
+    order: 11,
+    badge: "Clase dirigida", // TODO: confirm
+    shortDescription:
+      "Qué hacer cuando no hay reglas: distancia, salida y una respuesta sencilla que funcione bajo estrés.",
+    tagline:
+      "No es un deporte, es un recurso. Distancia, salida y respuestas simples que aguantan bajo presión.",
+    headline: { solid: "Salir", outlined: "de ahí" },
+    longDescription:
+      "La defensa personal no busca ganar un combate: busca que puedas irte. Se entrena la lectura de la distancia, la respuesta ante un agarre y la salida, con técnicas pocas y fáciles de recordar.",
+    paragraphs: [
+      "Cada sesión trabaja una situación concreta —un agarre de muñeca, un abrazo por detrás, un empujón— y una respuesta que funcione sin fuerza y sin años de práctica.",
+      "Se practica por parejas, a intensidad controlada y con el coach corrigiendo. Nadie golpea a nadie: lo que se entrena es la reacción, no el daño.",
+      "No hace falta experiencia previa ni forma física. Es la clase a la que más gente viene por tranquilidad, no por entrenar.",
+    ],
+    // TODO: confirm — material redactado, no facilitado por el club.
+    meta: [
+      { label: "Duración", value: "60 min" },
+      { label: "Objetivo", value: "Agilidad" },
+      { label: "Material", value: "Sin material" },
+      { label: "Nivel", value: "Todos" },
+    ],
+    forWho: "", // TODO: copy
+    sessionLooksLike: [], // TODO: copy
+    // TODO: confirm — reparto de minutos redactado, pendiente de validar con los coaches.
+    session: [
+      {
+        time: "00–10 min",
+        title: "Calentamiento",
+        body: "Movilidad general y desplazamientos para entrar en calor y despertar la reacción.",
+      },
+      {
+        time: "10–25 min",
+        title: "Distancia y postura",
+        body: "Cómo colocarte, cómo leer la distancia y cómo salir antes de que haya contacto.",
+      },
+      {
+        time: "25–50 min",
+        title: "Situación del día",
+        body: "Una liberación concreta, repetida por parejas hasta que sale sin pensarla.",
+      },
+      {
+        time: "50–60 min",
+        title: "Repaso y calma",
+        body: "Repaso de lo aprendido y estiramiento para cerrar la sesión.",
+      },
+    ],
+    cta: {
+      heading: "Ven a probarlo",
+      body: "Elige tu membresía y reserva tu sitio en la próxima clase.",
+    },
+    // TODO: confirm — placeholder profile, not measured.
+    metrics: [
+      { label: "Fuerza", value: 45 },
+      { label: "Resistencia", value: 55 },
+      { label: "Agilidad", value: 85 },
+      { label: "Velocidad", value: 75 },
+      { label: "Flexibilidad", value: 45 },
+    ],
+    level: "todos", // TODO: confirm
+    image: {
+      src: "/disciplinas/defensa-personal.jpg",
+      alt: "",
+      width: 1720,
+      height: 1440,
+    }, // TODO: photography
+    // TODO: photography — los pies de foto son un borrador, el material no existe.
+    gallery: [
+      {
+        caption: "Distancia y postura",
+        span: 2,
+        image: {
+          src: "/disciplinas/defensa-personal/01.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
+      },
+      {
+        caption: "Liberación de agarre",
+        span: 3,
+        image: {
+          src: "/disciplinas/defensa-personal/02.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
+      },
+      {
+        caption: "Trabajo por parejas",
+        span: 1,
+        image: {
+          src: "/disciplinas/defensa-personal/03.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
+      },
+      {
+        caption: "Salida",
+        span: 3,
+        image: {
+          src: "/disciplinas/defensa-personal/04.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
+      },
+      {
+        caption: "Repaso técnico",
+        span: 1,
+        image: {
+          src: "/disciplinas/defensa-personal/05.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
+      },
+      {
+        caption: "Estiramiento",
+        span: 2,
+        image: {
+          src: "/disciplinas/defensa-personal/06.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
+      },
+    ],
+    coachSlugs: ["wilson"], // Confirmado 2026-09-08
+    faq: [], // TODO: copy
+    seo: pageSeo["/disciplinas/defensa-personal"],
+  },
+  {
+    slug: "bjj",
+    enSlug: "brazilian-jiu-jitsu",
+    name: "Brazilian Jiu-Jitsu",
+    code: "[BJJ]",
+    order: 12,
+    badge: "Hora y media", // TODO: confirm
+    shortDescription:
+      "Suelo, control y sumisión. El arte marcial donde la técnica gana a la fuerza, en sesiones de hora y media.",
+    tagline:
+      "Noventa minutos en el suelo. El arte marcial donde la técnica gana a la fuerza, siempre.",
+    headline: { solid: "La técnica", outlined: "gana" },
+    longDescription:
+      "El jiu-jitsu brasileño se entrena en el suelo: control de posiciones, transiciones y sumisiones. Es el arte marcial donde alguien más pequeño puede controlar a alguien más grande, y eso no es un eslogan, es la mecánica.",
+    paragraphs: [
+      "La sesión empieza con calentamiento específico y movilidad de cadera, sigue con la técnica del día repetida hasta que sale sola, y termina con rondas a la intensidad que decidas.",
+      "Noventa minutos suenan a mucho hasta que empiezas: el jiu-jitsu es el deporte donde el tiempo desaparece, porque cada ronda es un problema distinto que resolver.",
+      "Se entra sin experiencia y sin condición física previa. Lo único que se pide es control: aquí nadie va a hacerte daño y tú tampoco se lo vas a hacer a nadie.",
+    ],
+    // TODO: confirm — material redactado, no facilitado por el club.
+    meta: [
+      { label: "Duración", value: "90 min" },
+      { label: "Objetivo", value: "Agilidad" },
+      { label: "Material", value: "Kimono" },
+      { label: "Nivel", value: "Todos" },
+    ],
+    forWho: "", // TODO: copy
+    sessionLooksLike: [], // TODO: copy
+    // TODO: confirm — reparto de minutos redactado, pendiente de validar con los coaches.
+    session: [
+      {
+        time: "00–15 min",
+        title: "Calentamiento específico",
+        body: "Movilidad de cadera, caídas y desplazamientos en el suelo.",
+      },
+      {
+        time: "15–45 min",
+        title: "Técnica del día",
+        body: "Una posición y su transición, repetida por parejas sin resistencia hasta automatizarla.",
+      },
+      {
+        time: "45–80 min",
+        title: "Rondas",
+        body: "Sparring por parejas a la intensidad que se pacte, rotando cada pocos minutos.",
+      },
+      {
+        time: "80–90 min",
+        title: "Vuelta a la calma",
+        body: "Estiramiento de cadera y espalda y repaso de lo trabajado.",
+      },
+    ],
+    cta: {
+      heading: "Pisa el tatami",
+      body: "Elige tu membresía y ven a tu primera clase de jiu-jitsu.",
+    },
+    // TODO: confirm — placeholder profile, not measured.
+    metrics: [
+      { label: "Fuerza", value: 70 },
+      { label: "Resistencia", value: 80 },
+      { label: "Agilidad", value: 90 },
+      { label: "Velocidad", value: 55 },
+      { label: "Flexibilidad", value: 75 },
+    ],
+    level: "todos", // TODO: confirm
+    image: { src: "/disciplinas/bjj.jpg", alt: "", width: 1720, height: 1440 }, // TODO: photography
+    // TODO: photography — los pies de foto son un borrador, el material no existe.
+    gallery: [
+      {
+        caption: "Guardia cerrada",
+        span: 2,
+        image: {
+          src: "/disciplinas/bjj/01.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
+      },
+      {
+        caption: "Transición de posición",
+        span: 3,
+        image: {
+          src: "/disciplinas/bjj/02.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
+      },
+      {
+        caption: "Técnica por parejas",
+        span: 1,
+        image: {
+          src: "/disciplinas/bjj/03.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
+      },
+      {
+        caption: "Ronda de sparring",
+        span: 3,
+        image: {
+          src: "/disciplinas/bjj/04.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
+      },
+      {
+        caption: "Control desde arriba",
+        span: 1,
+        image: {
+          src: "/disciplinas/bjj/05.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
+      },
+      {
+        caption: "Estiramiento",
+        span: 2,
+        image: {
+          src: "/disciplinas/bjj/06.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
+      },
+    ],
+    coachSlugs: ["wilson"], // Confirmado 2026-09-08
+    faq: [], // TODO: copy
+    seo: pageSeo["/disciplinas/bjj"],
+  },
+  {
+    slug: "mma-grappling",
+    enSlug: "mma-grappling",
+    name: "MMA / Grappling",
+    code: "[MMA]",
+    order: 13,
+    badge: "Hora y media", // TODO: confirm
+    shortDescription:
+      "De pie y en el suelo, en la misma sesión. Golpeo, derribo y control, con la intensidad que tú marques.",
+    tagline:
+      "De pie y en el suelo. Golpeo, derribo y control en noventa minutos, con el sparring siempre opcional.",
+    headline: { solid: "Todas", outlined: "las distancias" },
+    longDescription:
+      "MMA y grappling entrenan lo que ninguna disciplina cubre sola: el golpeo de pie, el derribo, y qué hacer cuando el combate llega al suelo. Las tres distancias, en la misma sesión.",
+    paragraphs: [
+      "Cada clase reparte el tiempo entre trabajo de pie, transiciones al suelo y control una vez allí. La técnica se repite despacio antes de meterla en rondas.",
+      "El sparring existe, es opcional y siempre a intensidad pactada. Puedes hacer noventa minutos de técnica pura durante meses sin que nadie te presione.",
+      "Es la clase más completa del horario y también la más exigente: sales cansado de una forma distinta a cualquier otra cosa que hagas aquí.",
+    ],
+    // TODO: confirm — material redactado, no facilitado por el club.
+    meta: [
+      { label: "Duración", value: "90 min" },
+      { label: "Objetivo", value: "Agilidad" },
+      { label: "Material", value: "Guantes y bucal" },
+      { label: "Nivel", value: "Todos" },
+    ],
+    forWho: "", // TODO: copy
+    sessionLooksLike: [], // TODO: copy
+    // TODO: confirm — reparto de minutos redactado, pendiente de validar con los coaches.
+    session: [
+      {
+        time: "00–15 min",
+        title: "Calentamiento",
+        body: "Movilidad, desplazamientos y trabajo de cuello y cadera antes de tocar a nadie.",
+      },
+      {
+        time: "15–40 min",
+        title: "De pie",
+        body: "Golpeo básico y entradas a derribo, primero en el aire y después con compañero.",
+      },
+      {
+        time: "40–70 min",
+        title: "Suelo",
+        body: "Control, transiciones y salidas, repetidas por parejas sin resistencia.",
+      },
+      {
+        time: "70–90 min",
+        title: "Rondas y calma",
+        body: "Rondas opcionales a intensidad pactada y estiramiento final.",
+      },
+    ],
+    cta: {
+      heading: "Prueba las tres distancias",
+      body: "Elige tu membresía y ven a una clase de MMA y grappling.",
+    },
+    // TODO: confirm — placeholder profile, not measured.
+    metrics: [
+      { label: "Fuerza", value: 80 },
+      { label: "Resistencia", value: 90 },
+      { label: "Agilidad", value: 90 },
+      { label: "Velocidad", value: 75 },
+      { label: "Flexibilidad", value: 60 },
+    ],
+    level: "todos", // TODO: confirm
+    image: {
+      src: "/disciplinas/mma-grappling.jpg",
+      alt: "",
+      width: 1720,
+      height: 1440,
+    }, // TODO: photography
+    // TODO: photography — los pies de foto son un borrador, el material no existe.
+    gallery: [
+      {
+        caption: "Guardia de pie",
+        span: 2,
+        image: {
+          src: "/disciplinas/mma-grappling/01.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
+      },
+      {
+        caption: "Entrada a derribo",
+        span: 3,
+        image: {
+          src: "/disciplinas/mma-grappling/02.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
+      },
+      {
+        caption: "Trabajo de suelo",
+        span: 1,
+        image: {
+          src: "/disciplinas/mma-grappling/03.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
+      },
+      {
+        caption: "Control",
+        span: 3,
+        image: {
+          src: "/disciplinas/mma-grappling/04.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
+      },
+      {
+        caption: "Ronda de sparring",
+        span: 1,
+        image: {
+          src: "/disciplinas/mma-grappling/05.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
+      },
+      {
+        caption: "Estiramiento",
+        span: 2,
+        image: {
+          src: "/disciplinas/mma-grappling/06.jpg",
+          alt: "",
+          width: 1120,
+          height: 1080,
+        },
+      },
+    ],
+    coachSlugs: ["wilson"], // Confirmado 2026-09-08
+    faq: [], // TODO: copy
+    seo: pageSeo["/disciplinas/mma-grappling"],
   },
 ] satisfies Discipline[];

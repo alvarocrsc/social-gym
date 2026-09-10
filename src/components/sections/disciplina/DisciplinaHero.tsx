@@ -4,6 +4,7 @@ import type { ReactElement } from "react";
 import { disciplina } from "@/content/disciplina";
 import { site } from "@/content/site";
 import { Link } from "@/i18n/navigation";
+import { existingImage } from "@/lib/media/public-file";
 import type { Discipline } from "@/types/content";
 
 import styles from "./Disciplina.module.css";
@@ -19,7 +20,8 @@ export function DisciplinaHero({
   index,
 }: DisciplinaHeroProps): ReactElement {
   const { image, video } = discipline;
-  const hasImage = image.src !== "";
+  const photo = existingImage(image.src);
+  const hasImage = photo !== "";
   const hasVideo = video !== undefined && video.length > 0;
 
   return (
@@ -28,7 +30,7 @@ export function DisciplinaHero({
         {hasImage ? (
           <Image
             className={styles.heroImage}
-            src={image.src}
+            src={photo}
             alt=""
             fill
             priority
@@ -65,7 +67,7 @@ export function DisciplinaHero({
         {hasVideo ? (
           <VideoOverlay
             sources={video}
-            poster={hasImage ? image.src : undefined}
+            poster={hasImage ? photo : undefined}
             playLabel={disciplina.playLabel}
             closeLabel={disciplina.closeLabel}
             title={discipline.name}

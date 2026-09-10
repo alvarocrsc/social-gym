@@ -37,6 +37,13 @@ export const site = {
     appStore: "https://apps.apple.com/es/app/social-gym/id6759244895",
     googlePlay:
       "https://play.google.com/store/apps/details?id=digifit.android.virtuagym.pro.socialgym2&pcampaignid=web_share",
+    // Bare store glyphs, not the official "Download on the App Store" /
+    // "Get it on Google Play" lockups — so they sit beside our own label
+    // rather than replacing it. Empty renders the label alone.
+    icon: {
+      appStore: "/badges/app-store.svg",
+      googlePlay: "/badges/google-play.svg",
+    },
   },
   virtuagym: {
     shopEmbedUrl:

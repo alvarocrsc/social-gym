@@ -15,7 +15,7 @@ export const pageSeo = {
   "/": {
     title: "Gimnasio en Calahorra abierto 365 días | Social Gym",
     description:
-      "Centro de entrenamiento en Calahorra abierto los 365 días. Hyrox, boxeo, ciclo indoor, pilates, fuerza, core y más. Inclusivo y sin egos. Ven a vernos.",
+      "Centro de entrenamiento en Calahorra abierto los 365 días. Hyrox, boxeo, jiu-jitsu, ciclo, pilates, fuerza y más. Inclusivo y sin egos. Ven a vernos.",
     path: "/",
     primaryKeyword: "gimnasio calahorra",
     secondaryKeywords: [
@@ -37,7 +37,7 @@ export const pageSeo = {
   "/disciplinas": {
     title: "Clases dirigidas en Calahorra | Social Gym Calahorra",
     description:
-      "Diez clases dirigidas en un mismo centro de Calahorra: Hyrox, boxeo, funcional, ciclo indoor, pilates, GAP, core y fuerza. Elige la tuya y empieza.",
+      "Trece clases dirigidas en un mismo centro de Calahorra: Hyrox, boxeo, jiu-jitsu, funcional, ciclo, pilates, core y fuerza. Elige la tuya y empieza.",
     path: "/disciplinas",
     primaryKeyword: "clases dirigidas calahorra",
     secondaryKeywords: ["actividades gimnasio calahorra"],
@@ -67,14 +67,6 @@ export const pageSeo = {
     // Adjacent intent. We mention CrossFit honestly and never claim to be one.
     secondaryKeywords: ["crossfit calahorra"],
   },
-  "/disciplinas/spinning": {
-    title: "Spinning y ciclo indoor en Calahorra | Social Gym Calahorra",
-    description:
-      "Spinning en Calahorra con música alta y luz baja. Tú eliges la resistencia, así que la clase vale igual si llevas años o si es tu primer día en la bici.",
-    path: "/disciplinas/spinning",
-    primaryKeyword: "spinning calahorra",
-    secondaryKeywords: ["ciclo indoor calahorra"],
-  },
   "/disciplinas/pilates": {
     title: "Clases de pilates en Calahorra | Social Gym Calahorra",
     description:
@@ -82,14 +74,6 @@ export const pageSeo = {
     path: "/disciplinas/pilates",
     primaryKeyword: "pilates calahorra",
     secondaryKeywords: ["clases de pilates calahorra"],
-  },
-  "/disciplinas/gap": {
-    title: "GAP en Calahorra · Glúteo, abdomen y pierna | Social Gym",
-    description:
-      "Clases de GAP en Calahorra: glúteo, abdomen y pierna en sesiones cortas y directas. Trabajo de fuerza sencillo de seguir y fácil de encajar en tu semana.",
-    path: "/disciplinas/gap",
-    primaryKeyword: "gap calahorra",
-    secondaryKeywords: ["clases gap la rioja"],
   },
   "/disciplinas/booty-power": {
     title: "Booty Power en Calahorra · Glúteo y cadera | Social Gym",
@@ -122,6 +106,46 @@ export const pageSeo = {
     path: "/disciplinas/core",
     primaryKeyword: "core calahorra",
     secondaryKeywords: ["clases de abdominales calahorra"],
+  },
+  "/disciplinas/hiit": {
+    title: "Clases de HIIT en Calahorra · 30 minutos | Social Gym",
+    description:
+      "Clases de HIIT en Calahorra: media hora de intervalos de alta intensidad y descansos cortos. El entreno más rápido del horario y el que más se nota.",
+    path: "/disciplinas/hiit",
+    primaryKeyword: "hiit calahorra",
+    secondaryKeywords: ["entrenamiento interválico calahorra"],
+  },
+  "/disciplinas/cross-combat": {
+    title: "Cross Combat en Calahorra · Golpeo | Social Gym Calahorra",
+    description:
+      "Cross Combat en Calahorra: golpeo, desplazamiento y acondicionamiento en el mismo circuito. El físico de un deportista de combate, y sin contacto.",
+    path: "/disciplinas/cross-combat",
+    primaryKeyword: "cross combat calahorra",
+    secondaryKeywords: ["clases de combate calahorra"],
+  },
+  "/disciplinas/defensa-personal": {
+    title: "Defensa personal en Calahorra | Social Gym Calahorra",
+    description:
+      "Clases de defensa personal en Calahorra: distancia, salida y respuestas sencillas que funcionan bajo estrés. Sin experiencia previa y sin golpearse.",
+    path: "/disciplinas/defensa-personal",
+    primaryKeyword: "defensa personal calahorra",
+    secondaryKeywords: ["clases defensa personal la rioja"],
+  },
+  "/disciplinas/bjj": {
+    title: "Brazilian Jiu-Jitsu en Calahorra | Social Gym Calahorra",
+    description:
+      "Clases de Brazilian Jiu-Jitsu en Calahorra: control, transiciones y sumisión en el suelo. Noventa minutos donde la técnica gana siempre a la fuerza.",
+    path: "/disciplinas/bjj",
+    primaryKeyword: "jiu jitsu calahorra",
+    secondaryKeywords: ["brazilian jiu jitsu la rioja"],
+  },
+  "/disciplinas/mma-grappling": {
+    title: "MMA y grappling en Calahorra | Social Gym Calahorra",
+    description:
+      "Clases de MMA y grappling en Calahorra: golpeo de pie, derribo y control en el suelo. Noventa minutos con sparring opcional y a intensidad pactada.",
+    path: "/disciplinas/mma-grappling",
+    primaryKeyword: "mma calahorra",
+    secondaryKeywords: ["grappling calahorra"],
   },
   "/horarios": {
     title: "Horarios de clases y gimnasio | Social Gym Calahorra",
