@@ -22,3 +22,20 @@
 
 [context.production.environment]
   SITE_ENV = "production"
+
+# Security headers, applied at the edge to every response.
+#
+# No script-src/style-src: Next inlines its hydration payload, so restricting
+# those needs a per-request nonce, which would force all 21 routes off SSG.
+[[headers]]
+  for = "/*"
+
+  [headers.values]
+    Content-Security-Policy = "frame-ancestors 'self'"
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    # No includeSubDomains until every Hostinger-side subdomain is confirmed
+    # HTTPS-only.
+    Strict-Transport-Security = "max-age=31536000"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"

@@ -6,13 +6,22 @@ import type { PageSeo } from "@/types/seo";
 import { SITE_URL, absoluteUrl, isProductionSite } from "./routes";
 
 /**
- * The single metadata factory. No route hand-rolls tags (§8.2).
+ * The generated share image (`app/[locale]/opengraph-image.tsx`), 1200×630.
  *
- * Two deliberate omissions:
- * - `alternates.languages` is never set and no hreflang is emitted, because
- *   English content does not exist yet (hard rule 8).
- * - `openGraph.images` is left to the file-based `opengraph-image.tsx` unless
- *   the route overrides it, since file-based metadata takes priority anyway.
+ * Unprefixed on purpose. The localized `/es/opengraph-image` that the file
+ * convention emits by itself answers 307 to this path, and a redirecting
+ * `og:image` is followed inconsistently by social crawlers — several cache the
+ * redirect as a failure and show no preview at all.
+ */
+const OG_IMAGE_PATH = "/opengraph-image";
+const OG_IMAGE_WIDTH = 1200;
+const OG_IMAGE_HEIGHT = 630;
+
+/**
+ * The single metadata factory.
+ *
+ * One deliberate omission: `alternates.languages` is never set and no hreflang
+ * is emitted, because English content does not exist yet.
  *
  * The canonical always points at the Spanish URL, in both locales, so the
  * `/en/*` shells consolidate into the Spanish page instead of competing with
@@ -22,6 +31,7 @@ import { SITE_URL, absoluteUrl, isProductionSite } from "./routes";
  */
 export function buildMetadata(seo: PageSeo): Metadata {
   const canonical = absoluteUrl(seo.path);
+  const image = seo.ogImage ?? OG_IMAGE_PATH;
 
   return {
     metadataBase: new URL(SITE_URL),
@@ -35,17 +45,20 @@ export function buildMetadata(seo: PageSeo): Metadata {
       siteName: site.name,
       title: seo.title,
       description: seo.description,
-      ...(seo.ogImage && {
-        images: [
-          { url: seo.ogImage, width: 1200, height: 630, alt: seo.title },
-        ],
-      }),
+      images: [
+        {
+          url: image,
+          width: OG_IMAGE_WIDTH,
+          height: OG_IMAGE_HEIGHT,
+          alt: seo.title,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: seo.title,
       description: seo.description,
-      ...(seo.ogImage && { images: [seo.ogImage] }),
+      images: [image],
     },
     robots: isProductionSite
       ? {

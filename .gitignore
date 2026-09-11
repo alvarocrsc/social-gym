@@ -32,6 +32,9 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+# ...except the template. Without it a fresh clone has nothing to copy,
+# and lib/seo/routes.ts throws on a missing NEXT_PUBLIC_SITE_URL.
+!.env.local.example
 
 # vercel
 .vercel
