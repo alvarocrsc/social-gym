@@ -260,12 +260,19 @@ export function NavOverlay({ children }: NavOverlayProps): ReactElement {
       }
 
       // The unfold tweens to a measured scrollWidth, and the item type is sized
-      // in vw — so a resize leaves those targets stale.
+      // in vw — so a width change leaves those targets stale.
+      //
+      // Width only, and never mid-tween: on mobile the URL bar collapsing
+      // fires `resize` on almost every scroll, and rebuilding there would kill
+      // a running timeline and strand the menu half-open with no way back.
+      let lastWidth = window.innerWidth;
       let resizeFrame = 0;
       function onResize(): void {
-        if (isOpen) return;
+        if (window.innerWidth === lastWidth) return;
+        lastWidth = window.innerWidth;
         window.cancelAnimationFrame(resizeFrame);
         resizeFrame = window.requestAnimationFrame(() => {
+          if (isOpen || timeline.isActive()) return;
           timeline.kill();
           timeline = buildTimeline();
         });
@@ -273,7 +280,12 @@ export function NavOverlay({ children }: NavOverlayProps): ReactElement {
 
       let flickerSplit: InstanceType<typeof SplitText> | null = null;
       flicker = (text) => {
-        flickerSplit?.revert();
+        if (flickerSplit !== null) {
+          // `revert` detaches these nodes, so a tween still targeting them
+          // would animate elements no longer in the document.
+          gsap.killTweensOf(flickerSplit.chars);
+          flickerSplit.revert();
+        }
         label.textContent = text;
         flickerSplit = new SplitText(label, { type: "chars" });
         gsap.fromTo(
@@ -337,6 +349,7 @@ export function NavOverlay({ children }: NavOverlayProps): ReactElement {
       closeRef.current = null;
       teardownMotion?.();
       document.documentElement.style.overflow = "";
+      lockScroll(false);
       outside.forEach((el) => el.removeAttribute("inert"));
     };
   }, []);

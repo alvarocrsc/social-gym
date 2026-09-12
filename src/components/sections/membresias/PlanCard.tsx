@@ -70,9 +70,16 @@ export function PlanCard({ plan, index, action }: PlanCardProps): ReactElement {
         ))}
       </ul>
 
+      {/*
+       * A real new-tab link by default, so it works with JS off and cannot be
+       * caught by a popup blocker. On a wide screen with the embed present,
+       * `MembresiasMotion` cancels it and swaps the frame instead.
+       */}
       <a
         className={styles.planAction}
         href={href}
+        target="_blank"
+        rel="noopener"
         aria-label={label}
         data-plan-shop={plan.productId}
         data-plan-name={plan.name}

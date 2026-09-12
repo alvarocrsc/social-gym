@@ -687,6 +687,114 @@
   letter-spacing: var(--tracking-display);
 }
 
+/* Narrow-screen comparison. Hidden by default; the table hides instead below
+   the breakpoint, so only one of the two is ever in the accessibility tree. */
+
+.compareStack {
+  display: none;
+}
+
+.compareShared {
+  padding: 18px 20px;
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-sm);
+  background: var(--color-veil);
+}
+
+.compareSharedLabel {
+  display: block;
+  margin-bottom: 12px;
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-sm);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.compareSharedList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.compareSharedItem {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  font-size: var(--text-body-sm);
+  line-height: 1.45;
+  color: var(--color-ink-soft);
+}
+
+.compareCards {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.compareCard {
+  padding-top: 16px;
+  border-top: 1px solid var(--color-hairline);
+}
+
+.compareCardName {
+  display: block;
+  margin-bottom: 12px;
+  font-family: var(--font-display);
+  font-size: var(--text-body);
+  letter-spacing: var(--tracking-display);
+  text-transform: uppercase;
+  color: var(--color-ink);
+}
+
+.compareCard[data-featured] .compareCardName {
+  color: var(--color-accent-soft);
+}
+
+.compareCardRows {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+}
+
+.compareCardRow {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.compareCardTerm {
+  font-size: var(--text-body-sm);
+  color: var(--color-ink-muted);
+}
+
+.compareCardValue {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-sm);
+  text-align: right;
+  white-space: nowrap;
+  color: var(--color-ink);
+}
+
+.compareCardValue[data-price] {
+  font-family: var(--font-display);
+  font-size: var(--text-body);
+  letter-spacing: var(--tracking-display);
+}
+
+.compareCard[data-featured] .compareCardValue[data-price] {
+  color: var(--color-accent-soft);
+}
+
 /* ------------------------------------------------------------------- how */
 
 .howGrid {
@@ -1142,25 +1250,24 @@
     font-size: var(--text-body-sm);
   }
 
-  /* Without a pinned label column the row being read is lost as soon as the
-     table is scrolled sideways, which on a phone is immediately. */
-  .compareTable {
-    min-width: 520px;
+  /* Four columns cannot be read at this width even pinned and scrolled — the
+     last two sat off screen. The stacked layout replaces the table outright. */
+  .compareScroll {
+    display: none;
   }
 
-  .compareLabel {
-    position: sticky;
-    left: 0;
-    z-index: 1;
-    padding-right: 12px;
-    background: var(--color-base);
+  .compareStack {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
   }
 
-  .compareConcept {
-    position: sticky;
-    left: 0;
-    z-index: 1;
-    background: var(--color-base);
+  /* The Virtuagym embed cannot be made to behave in a phone viewport: it sets
+     its own height, captures the wheel and clips its own checkout button. The
+     plan cards link straight out to the product instead — see
+     `MembresiasMotion`, which opens a new tab when this frame is absent. */
+  .storeSection {
+    display: none;
   }
 
   .howStep {

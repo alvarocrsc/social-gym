@@ -276,6 +276,9 @@ export interface MembresiasPage {
   compareHeading: string;
   compareConcept: string;
   compareRows: readonly { label: string; values: readonly string[] }[];
+  /** Heading for the rows every plan shares, used by the stacked
+      mobile layout where a four-column table does not fit. */
+  compareSharedLabel: string;
   howEyebrow: string;
   howHeadlineSolid: string;
   howHeadlineOutlined: string;

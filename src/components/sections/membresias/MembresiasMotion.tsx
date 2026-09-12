@@ -77,7 +77,11 @@ export function MembresiasMotion({
         event.button !== 0
       )
         return;
+      // No embed to swap — external content declined, or a phone, where the
+      // section is hidden outright. Left alone, the link opens the product in
+      // a new tab on its own.
       if (storeIframe() === null) return;
+
       const link = event.currentTarget as HTMLAnchorElement;
       event.preventDefault();
       showProduct(link.href, link.href);

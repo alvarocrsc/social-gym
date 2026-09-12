@@ -20,6 +20,25 @@
   visibility: hidden;
 }
 
+/*
+ * Opening before the timeline exists still has to show a usable menu. The two
+ * dynamic imports plus `document.fonts.ready` take long enough on a phone to
+ * be tapped through, and without this the page sits inert and scroll-locked
+ * behind a `visibility: hidden` surface — which reads as a frozen site that
+ * only a reload fixes.
+ */
+.menu[data-open]:not([data-ready]) {
+  visibility: visible;
+}
+
+.menu[data-open]:not([data-ready]) .menuBg {
+  opacity: 1;
+}
+
+.menu[data-open]:not([data-ready]) .itemDivider {
+  transform: rotate(20deg) scaleY(1);
+}
+
 .menu[data-open] {
   pointer-events: auto;
 }

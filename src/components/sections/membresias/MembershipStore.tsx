@@ -23,6 +23,13 @@ import { revealDelay } from "./reveal";
  * The frame itself is behind `ConsentFrame`: Virtuagym sets its own cookies on
  * load, so it is not mounted until the visitor accepts external content.
  */
+/*
+ * Matches the `.storeSection` rule in the module. The embed is hidden on
+ * phones — it sizes itself, captures the wheel and clips its own checkout
+ * button in a narrow viewport — so it must not load there either.
+ */
+const STORE_MEDIA = "(min-width: 48rem)";
+
 export async function MembershipStore(): Promise<ReactElement> {
   const t = await getTranslations("Membresias");
   const hostedShop: string = site.virtuagym.shopUrl;
@@ -31,7 +38,7 @@ export async function MembershipStore(): Promise<ReactElement> {
 
   return (
     <section
-      className={`${styles.section} ${styles.sectionRule}`}
+      className={`${styles.section} ${styles.sectionRule} ${styles.storeSection}`}
       id="tienda"
       aria-labelledby="tienda-online"
     >
@@ -70,6 +77,7 @@ export async function MembershipStore(): Promise<ReactElement> {
       </div>
 
       <ConsentFrame
+        media={STORE_MEDIA}
         className={styles.storeFrame}
         iframeClassName={styles.storeIframe}
         src={site.virtuagym.shopEmbedUrl}

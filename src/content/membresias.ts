@@ -54,6 +54,7 @@ export const membresias = {
       values: ["50,00 €", "46,67 €", "45,00 €", "41,67 €"],
     },
   ],
+  compareSharedLabel: "Incluido en todas",
   howEyebrow: "Cómo funciona",
   howHeadlineSolid: "De la web",
   howHeadlineOutlined: "a la sala",
