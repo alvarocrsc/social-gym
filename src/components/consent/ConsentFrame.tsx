@@ -1,6 +1,6 @@
 "use client";
 
-import type { ReactElement } from "react";
+import { useCallback, useSyncExternalStore, type ReactElement } from "react";
 
 import { consent as copy } from "@/content/consent";
 import { GRANTED, writeConsent } from "@/lib/analytics/consent";
@@ -16,6 +16,36 @@ export interface ConsentFrameProps {
   fallbackLabel: string;
   className?: string;
   iframeClassName?: string;
+  /**
+   * Media query that must match for the frame to mount at all. Lets a layout
+   * that hides this section at some widths also stop it loading there, rather
+   * than fetching a third party into a `display: none` box.
+   */
+  media?: string;
+}
+
+/** Subscribes to a media query without a setState-in-effect round trip. */
+function useMediaMatches(query: string | undefined): boolean {
+  const subscribe = useCallback(
+    (onChange: () => void) => {
+      if (query === undefined) return () => undefined;
+      const mql = window.matchMedia(query);
+      mql.addEventListener("change", onChange);
+      return () => {
+        mql.removeEventListener("change", onChange);
+      };
+    },
+    [query],
+  );
+
+  const get = useCallback(
+    () => query === undefined || window.matchMedia(query).matches,
+    [query],
+  );
+
+  // The server value is irrelevant: consent reads `undefined` before
+  // hydration, so nothing here renders until the client has both answers.
+  return useSyncExternalStore(subscribe, get, () => true);
 }
 
 export function ConsentFrame({
@@ -25,10 +55,12 @@ export function ConsentFrame({
   fallbackLabel,
   className,
   iframeClassName,
+  media,
 }: ConsentFrameProps): ReactElement {
   const value = useConsent();
+  const mediaMatches = useMediaMatches(media);
 
-  if (value === undefined) {
+  if (value === undefined || !mediaMatches) {
     return <div className={className} data-store-frame data-lenis-prevent />;
   }
 

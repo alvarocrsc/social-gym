@@ -10,8 +10,6 @@ const ADDRESS = `${site.address.street}, ${site.address.postalCode} ${site.addre
  *
  * Every identifying value comes from `site.ts` so it stays character for
  * character identical to the footer, the JSON-LD and the Google profile.
- *
- * TODO: confirm — registro mercantil (tomo, folio, hoja). LSSI-CE art. 10.1.b
  */
 export const avisoLegal = {
   eyebrow: "Legal",
@@ -34,6 +32,10 @@ export const avisoLegal = {
             { term: "Denominación social", body: site.legalName },
             { term: "Nombre comercial", body: site.name },
             { term: "NIF", body: site.nif },
+            {
+              term: "Registro Mercantil",
+              body: "Inscrita en el Registro Mercantil de Madrid, tomo 3001, folio 177, hoja M-51404.",
+            },
             { term: "Domicilio", body: ADDRESS },
             { term: "Teléfono", body: site.phoneDisplay },
             { term: "Correo electrónico", body: site.email },

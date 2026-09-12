@@ -10,6 +10,7 @@ import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
+import { Analytics } from "@/components/consent/Analytics";
 import { CookieBanner } from "@/components/consent/CookieBanner";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
@@ -105,6 +106,8 @@ export default async function LocaleLayout({
           <SiteFooter />
 
           <CookieBanner />
+
+          <Analytics />
         </NextIntlClientProvider>
 
         <JsonLd data={buildRootGraph()} />
