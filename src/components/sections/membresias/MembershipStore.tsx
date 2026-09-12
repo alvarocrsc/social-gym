@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import type { ReactElement } from "react";
 
+import { ConsentFrame } from "@/components/consent/ConsentFrame";
 import { membresias } from "@/content/membresias";
 import { site } from "@/content/site";
 
@@ -19,13 +20,14 @@ import { revealDelay } from "./reveal";
  * stays taller than the content. A product page is taller than the shop index
  * and ends in the Checkout button, hence the separate `--size-embed-product`.
  *
- * TODO (§13, blocking for launch): this embed almost certainly sets cookies and
- * currently mounts unconditionally, because no consent banner exists yet. It
- * must not mount before consent — gate it here and render
- * `site.virtuagym.shopUrl` as a link fallback when cookies are rejected.
+ * The frame itself is behind `ConsentFrame`: Virtuagym sets its own cookies on
+ * load, so it is not mounted until the visitor accepts external content.
  */
 export async function MembershipStore(): Promise<ReactElement> {
   const t = await getTranslations("Membresias");
+  const hostedShop: string = site.virtuagym.shopUrl;
+  const fallbackUrl =
+    hostedShop === "" ? site.virtuagym.shopEmbedUrl : hostedShop;
 
   return (
     <section
@@ -67,16 +69,14 @@ export async function MembershipStore(): Promise<ReactElement> {
         </div>
       </div>
 
-      <div className={styles.storeFrame} data-store-frame data-lenis-prevent>
-        <iframe
-          className={styles.storeIframe}
-          src={site.virtuagym.shopEmbedUrl}
-          title={t("storeFrameTitle")}
-          loading="lazy"
-          scrolling="no"
-          data-store-iframe
-        />
-      </div>
+      <ConsentFrame
+        className={styles.storeFrame}
+        iframeClassName={styles.storeIframe}
+        src={site.virtuagym.shopEmbedUrl}
+        title={t("storeFrameTitle")}
+        fallbackUrl={fallbackUrl}
+        fallbackLabel={membresias.storeNewTab}
+      />
     </section>
   );
 }

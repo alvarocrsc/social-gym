@@ -1,32 +1,34 @@
 import Image from "next/image";
 import type { ReactElement } from "react";
 
-import { contacto } from "@/content/contacto";
+import { footer } from "@/content/footer";
 import { legalNav } from "@/content/nav";
 import { site } from "@/content/site";
 import { Link } from "@/i18n/navigation";
 import { existingImage } from "@/lib/media/public-file";
 
-import styles from "./Contacto.module.css";
-import { revealDelay } from "./reveal";
+import { FooterMotion } from "./FooterMotion";
+import styles from "./SiteFooter.module.css";
 
-const ATHLETE_SRC = "/contacto/atleta.png";
+const ATHLETE_SRC = "/footer/atleta.png";
 const MONOGRAM_SRC = "/white-logo.png";
 const LEGAL_STEP_MS = 70;
+const LEGAL_LABEL_ID = "footer-legal";
 
-export function ContactoSlab(): ReactElement {
-  // Declared whether or not the file is on disk: dropping the cut-out into
-  // `public/contacto/` is the only step needed to make it appear, and until
-  // then the halo, monogram and wordmark still compose on their own.
+function revealDelay(ms: number): React.CSSProperties {
+  return { "--rv-delay": `${String(ms)}ms` } as React.CSSProperties;
+}
+
+export function SiteFooter(): ReactElement {
   const athlete = existingImage(ATHLETE_SRC);
 
   return (
-    <section className={styles.slab} aria-labelledby="legal">
-      <div className={styles.slabTop}>
-        <div>
-          <h2 className={styles.label} id="legal" data-rv>
-            {contacto.legalLabel}
-          </h2>
+    <FooterMotion>
+      <div className={styles.top}>
+        <nav className={styles.legalNav} aria-labelledby={LEGAL_LABEL_ID}>
+          <span className={styles.label} id={LEGAL_LABEL_ID} data-rv>
+            {footer.legalLabel}
+          </span>
           <ul className={styles.legalList}>
             {legalNav.map((item, index) => (
               <li
@@ -46,10 +48,10 @@ export function ContactoSlab(): ReactElement {
               </li>
             ))}
           </ul>
-        </div>
+        </nav>
 
         <div className={styles.manifestoCell} data-rv style={revealDelay(90)}>
-          <p className={styles.manifesto}>{contacto.manifesto}</p>
+          <p className={styles.manifesto}>{footer.manifesto}</p>
         </div>
       </div>
 
@@ -94,10 +96,10 @@ export function ContactoSlab(): ReactElement {
           className={`${styles.bottomAction} ${styles.line}`}
           href="/membresias"
         >
-          {contacto.slabAction}
+          {footer.action}
           <span aria-hidden>→</span>
         </Link>
       </div>
-    </section>
+    </FooterMotion>
   );
 }

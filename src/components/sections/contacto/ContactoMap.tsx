@@ -2,6 +2,8 @@
 
 import { useState, type ReactElement } from "react";
 
+import { useConsent } from "@/components/consent/useConsent";
+
 import styles from "./Contacto.module.css";
 
 export interface ContactoMapProps {
@@ -12,12 +14,11 @@ export interface ContactoMapProps {
 }
 
 /**
- * `'use client'` — the frame mounts on click and nowhere else.
+ * `'use client'` — the frame exists only once the visitor has allowed it.
  *
- * Google Maps sets cookies, so it is treated as non-essential until the
- * consent banner exists (§13): nothing third-party is in the initial payload,
- * and the address above plus the "abrir en Google Maps" link below mean a
- * visitor who never presses the button still has everything they need.
+ * Two ways in. Accepting external content in the banner shows the map on
+ * arrival, with no extra step. Declining leaves the placeholder, and pressing
+ * its button loads the map that once without changing the stored choice
  */
 export function ContactoMap({
   src,
@@ -25,11 +26,16 @@ export function ContactoMap({
   action,
   consent,
 }: ContactoMapProps): ReactElement {
-  const [mounted, setMounted] = useState(false);
+  const value = useConsent();
+  const [opened, setOpened] = useState(false);
+
+  // `value` is `undefined` until hydration, so the placeholder is also what the
+  // server renders and what a visitor without JS sees.
+  const show = value?.external === true || opened;
 
   return (
     <div className={styles.mapPanel}>
-      {mounted ? (
+      {show ? (
         <iframe
           className={styles.mapFrame}
           src={src}
@@ -44,7 +50,7 @@ export function ContactoMap({
             className={styles.mapButton}
             type="button"
             onClick={() => {
-              setMounted(true);
+              setOpened(true);
             }}
           >
             {action}

@@ -566,227 +566,6 @@
   color: var(--color-ink-dim);
 }
 
-/* --------------------------------------------------------------- 3 · slab */
-
-.slab {
-  position: relative;
-  z-index: 1;
-  isolation: isolate;
-  overflow: hidden;
-  background: var(--color-slab);
-  border-top: 1px solid var(--color-hairline);
-}
-
-.slabTop {
-  position: relative;
-  display: grid;
-  gap: 24px;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
-  padding: clamp(28px, 4vh, 46px) var(--gutter-centered) 0;
-}
-
-.legalList {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 7px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  font-size: var(--text-body-sm);
-}
-
-.legalLink {
-  display: flex;
-  gap: 12px;
-  color: var(--color-ink-secondary);
-}
-
-.legalIndex {
-  font-family: var(--font-mono);
-  font-size: var(--text-mono-sm);
-  color: var(--color-accent);
-  font-variant-numeric: tabular-nums;
-}
-
-.manifesto {
-  max-width: 44ch;
-  margin: 0;
-  font-size: var(--text-body-sm);
-  line-height: 1.6;
-  color: var(--color-ink-muted);
-}
-
-@media (min-width: 48rem) {
-  .manifestoCell {
-    justify-self: end;
-    text-align: right;
-  }
-}
-
-/* ------------------------------------------------------------- 4 · lockup */
-
-/*
- * One lerped value, `--slab-p`, drives every moving part of the lockup so they
- * arrive as a single composed move. It is written by `ContactoMotion`; the
- * arithmetic stays here.
- *
- * `overflow: hidden` is load-bearing — the wordmark travels 60px and must not
- * escape into the copyright bar.
- */
-.stage {
-  --slab-p: 1;
-
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  height: var(--size-lockup-stage);
-  margin-top: clamp(10px, 2vh, 24px);
-}
-
-.halo,
-.monoBox {
-  position: absolute;
-  top: clamp(0px, 2vh, 22px);
-  right: clamp(6px, 3vw, 54px);
-  width: var(--size-halo);
-  height: var(--size-halo);
-}
-
-/*
- * The handoff animates `filter: blur()` across the reveal. Re-blurring a 390px
- * surface every frame is the one thing the project's motion rules forbid
- * outright, so the blur is baked and the arrival is carried by opacity and
- * scale instead — same read, compositor-only.
- */
-.halo {
-  z-index: 0;
-  pointer-events: none;
-  filter: blur(26px);
-  opacity: calc(0.32 + var(--slab-p) * 0.52);
-  transform: scale(calc(0.84 + var(--slab-p) * 0.16));
-}
-
-.haloCore {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: var(--radius-full);
-  background: radial-gradient(
-    circle,
-    var(--color-halo-core),
-    var(--color-halo-edge) 58%,
-    transparent 72%
-  );
-  animation: ct-halo 5s ease-in-out infinite;
-}
-
-@keyframes ct-halo {
-  0%,
-  100% {
-    opacity: 0.62;
-    transform: scale(1);
-  }
-
-  50% {
-    opacity: 1;
-    transform: scale(1.04);
-  }
-}
-
-.monoBox {
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-}
-
-.mono {
-  width: 70%;
-  height: 70%;
-  object-fit: contain;
-  opacity: calc(0.55 + var(--slab-p) * 0.45);
-}
-
-/*
- * Source order puts the athlete before the wordmark, but it has to read as
- * standing in front of the letters, so it takes the higher layer explicitly
- * rather than relying on the cut-out's transparency.
- */
-.athlete {
-  position: absolute;
-  bottom: 0;
-  left: clamp(-30px, -2vw, 0px);
-  z-index: 3;
-  width: clamp(320px, 52vw, 720px);
-  height: 100%;
-  transform: translate3d(
-      calc((1 - var(--slab-p)) * -70px),
-      calc((1 - var(--slab-p)) * 44px),
-      0
-    )
-    scale(calc(1 + (1 - var(--slab-p)) * 0.05));
-}
-
-.athleteImage {
-  object-fit: contain;
-  object-position: bottom left;
-}
-
-.wordmark {
-  position: absolute;
-  right: 0;
-  bottom: clamp(6px, 1.6vh, 20px);
-  left: 0;
-  z-index: 2;
-  padding: 0 clamp(14px, 3vw, 44px);
-  text-align: center;
-  pointer-events: none;
-  transform: translate3d(0, calc((1 - var(--slab-p)) * 60px), 0)
-    scale(calc(1 + (1 - var(--slab-p)) * 0.03));
-}
-
-.wordmarkText {
-  display: block;
-  font-family: var(--font-display);
-  font-size: var(--text-wordmark);
-  line-height: 0.78;
-  letter-spacing: var(--tracking-display);
-  white-space: nowrap;
-  color: var(--color-ink);
-}
-
-.stage[data-animating] .athlete,
-.stage[data-animating] .wordmark,
-.stage[data-animating] .halo {
-  will-change: transform;
-}
-
-.bottomBar {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  align-items: center;
-  justify-content: space-between;
-  padding: clamp(16px, 2.4vh, 26px) var(--gutter-centered)
-    clamp(20px, 3vh, 34px);
-  border-top: 1px solid var(--color-hairline);
-  font-family: var(--font-mono);
-  font-size: var(--text-mono-sm);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--color-ink-dim);
-}
-
-.bottomAction {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--color-accent-soft);
-}
-
 /* --------------------------------------------------------------- mobile */
 
 @media (max-width: 47.9375rem) {
@@ -883,25 +662,6 @@
     align-items: flex-start;
     gap: 16px;
   }
-
-  .slabTop {
-    gap: 32px;
-    padding-top: clamp(36px, 6vh, 46px);
-  }
-
-  .stage {
-    height: clamp(240px, 46vh, 340px);
-  }
-
-  .halo,
-  .monoBox {
-    width: clamp(150px, 44vw, 200px);
-    height: clamp(150px, 44vw, 200px);
-  }
-
-  .athlete {
-    width: clamp(240px, 72vw, 380px);
-  }
 }
 
 /* ---------------------------------------------------------- touch targets */
@@ -917,10 +677,6 @@
     gap: 22px;
   }
 
-  .legalList {
-    gap: 24px;
-  }
-
   .actions {
     gap: 22px;
   }
@@ -931,16 +687,9 @@
     inset: -11px -8px;
   }
 
-  .legalLink::before {
-    content: "";
-    position: absolute;
-    inset: -12px -8px;
-  }
-
   .addressAction::before,
   .reviewAction::before,
   .mapDirections::before,
-  .bottomAction::before,
   .actionSecondary::before {
     content: "";
     position: absolute;
@@ -966,12 +715,7 @@
     transition: none;
   }
 
-  .stage {
-    --slab-p: 1;
-  }
-
-  .statusDot,
-  .haloCore {
+  .statusDot {
     animation: none;
   }
 

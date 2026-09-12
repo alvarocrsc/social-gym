@@ -97,8 +97,8 @@
    * cards stack and every label wraps — needs far more height than desktop. */
   --size-embed-shop-mobile: clamp(1100px, 165vh, 1800px);
   --size-embed-product-mobile: clamp(900px, 140vh, 1400px);
-  --size-lockup-stage: clamp(340px, 54vh, 560px);
-  --size-halo: clamp(220px, 28vw, 390px);
+  --size-lockup-stage: clamp(380px, 66vh, 680px);
+  --size-halo: clamp(260px, 34vw, 480px);
   --size-map: clamp(300px, 44vh, 500px);
 
   --radius-sm: 8px;

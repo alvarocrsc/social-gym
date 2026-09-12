@@ -2,9 +2,9 @@
 
 import { useEffect, useRef, type ReactElement, type ReactNode } from "react";
 
-import styles from "./Contacto.module.css";
+import styles from "./SiteFooter.module.css";
 
-export interface ContactoMotionProps {
+export interface FooterMotionProps {
   children: ReactNode;
 }
 
@@ -16,17 +16,14 @@ function clamp01(value: number): number {
 }
 
 /**
- * `'use client'` — the lockup is scroll-linked and reveals need an observer,
- * neither of which exists at build time.
+ * `'use client'` — the lockup is scroll-linked and the reveals need an
+ * observer, neither of which exists at build time.
  *
- * Children stay server-rendered: every word, link and hour is in the static
- * HTML and this only writes one custom property and one attribute onto it, so
- * React never reconciles a DOM node this file has touched.
+ * Children stay server-rendered: this only writes one custom property and one
+ * attribute onto them, so React never reconciles a node this file has touched.
  */
-export function ContactoMotion({
-  children,
-}: ContactoMotionProps): ReactElement {
-  const rootRef = useRef<HTMLDivElement>(null);
+export function FooterMotion({ children }: FooterMotionProps): ReactElement {
+  const rootRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const root = rootRef.current;
@@ -49,9 +46,6 @@ export function ContactoMotion({
       function targetFor(): number {
         if (stage === null) return 1;
         const rect = stage.getBoundingClientRect();
-        // Normalised against the stage's own visible travel. Dividing by
-        // `viewport + height` can never reach 1 on a short page, which strands
-        // the wordmark mid-transit over the copyright bar.
         const span = Math.max(1, Math.min(rect.height, viewportH) * 0.6);
         return clamp01((viewportH - rect.top) / span);
       }
@@ -80,9 +74,6 @@ export function ContactoMotion({
         stage.style.setProperty("--slab-p", progress.toFixed(4));
       }
 
-      // Snap to whatever the current scroll position implies before the first
-      // frame, so a restored scroll or a deep link does not play the reveal
-      // from zero on top of already-visible content.
       progress = targetFor();
 
       const revealer = new IntersectionObserver(
@@ -95,17 +86,12 @@ export function ContactoMotion({
         },
         { threshold: 0.12, rootMargin: "0px 0px -6% 0px" },
       );
-      root
-        .querySelectorAll<HTMLElement>("[data-rv], [data-rv-line]")
-        .forEach((element) => {
-          // Anything already on screen when hydration lands is marked before
-          // `data-motion` goes on, so a restored scroll position cannot flash
-          // visible content out and fade it back in.
-          if (element.getBoundingClientRect().top < viewportH) {
-            element.setAttribute("data-shown", "");
-          }
-          revealer.observe(element);
-        });
+      root.querySelectorAll<HTMLElement>("[data-rv]").forEach((element) => {
+        if (element.getBoundingClientRect().top < viewportH) {
+          element.setAttribute("data-shown", "");
+        }
+        revealer.observe(element);
+      });
 
       function onResize(): void {
         viewportH = window.innerHeight;
@@ -114,13 +100,11 @@ export function ContactoMotion({
 
       update();
       root.setAttribute("data-motion", "");
-      // The lockup moved to the global footer; without a stage on the page
-      // there is nothing per-frame left to do, only reveals.
-      if (stage !== null) gsap.ticker.add(update);
+      gsap.ticker.add(update);
       window.addEventListener("resize", onResize);
 
       teardown = () => {
-        if (stage !== null) gsap.ticker.remove(update);
+        gsap.ticker.remove(update);
         window.removeEventListener("resize", onResize);
         revealer.disconnect();
         root.removeAttribute("data-motion");
@@ -152,9 +136,8 @@ export function ContactoMotion({
   }, []);
 
   return (
-    <div ref={rootRef} className={styles.page}>
-      <div className={styles.wash} aria-hidden />
+    <footer ref={rootRef} className={styles.footer}>
       {children}
-    </div>
+    </footer>
   );
 }

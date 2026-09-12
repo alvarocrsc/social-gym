@@ -20,7 +20,7 @@ export const site = {
   // number without the `+`, e.g. `34941051433`; empty drops the affordance
   // rather than faking it (§6.6).
   whatsapp: "",
-  email: "socialgymoficial@gmail.com", // temporary, corporate address pending
+  email: "info@socialgymfit.com",
   address: {
     street: "C. Viacampo, 12 bis",
     locality: "Calahorra",

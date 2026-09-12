@@ -4,7 +4,6 @@ import { setRequestLocale } from "next-intl/server";
 import { ContactoBand } from "@/components/sections/contacto/ContactoBand";
 import { ContactoMotion } from "@/components/sections/contacto/ContactoMotion";
 import { ContactoPlane } from "@/components/sections/contacto/ContactoPlane";
-import { ContactoSlab } from "@/components/sections/contacto/ContactoSlab";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { pageSeo } from "@/content/seo";
 import {
@@ -36,7 +35,6 @@ export default async function ContactoPage({
       <ContactoMotion>
         <ContactoPlane />
         <ContactoBand />
-        <ContactoSlab />
       </ContactoMotion>
     </>
   );

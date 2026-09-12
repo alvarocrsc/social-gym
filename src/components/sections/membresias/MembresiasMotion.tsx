@@ -34,8 +34,10 @@ export function MembresiasMotion({
     const root = rootRef.current;
     if (root === null) return;
 
-    const frame = root.querySelector<HTMLElement>("[data-store-frame]");
-    const iframe = root.querySelector<HTMLIFrameElement>("[data-store-iframe]");
+    const storeFrame = () =>
+      root.querySelector<HTMLElement>("[data-store-frame]");
+    const storeIframe = () =>
+      root.querySelector<HTMLIFrameElement>("[data-store-iframe]");
     const reset = root.querySelector<HTMLButtonElement>("[data-store-reset]");
     const external = root.querySelector<HTMLAnchorElement>(
       "[data-store-external]",
@@ -53,6 +55,8 @@ export function MembresiasMotion({
     }
 
     function showProduct(url: string, external_: string): void {
+      const iframe = storeIframe();
+      const frame = storeFrame();
       if (iframe === null || frame === null) return;
       // `scrolling` stays "no" on both views. The product page is taller than
       // the shop index, so it swaps to --size-embed-product instead; that token
@@ -73,6 +77,7 @@ export function MembresiasMotion({
         event.button !== 0
       )
         return;
+      if (storeIframe() === null) return;
       const link = event.currentTarget as HTMLAnchorElement;
       event.preventDefault();
       showProduct(link.href, link.href);

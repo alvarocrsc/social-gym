@@ -1,0 +1,246 @@
+.banner {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 60;
+  display: flex;
+  justify-content: center;
+  padding: var(--gutter-page);
+  padding-bottom: max(var(--gutter-page), env(safe-area-inset-bottom));
+  pointer-events: none;
+}
+
+.panel {
+  pointer-events: auto;
+  width: min(100%, 34rem);
+  max-height: calc(100dvh - var(--gutter-page) * 2);
+  overflow-y: auto;
+  padding: clamp(20px, 3vw, 28px);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+  backdrop-filter: blur(18px);
+  box-shadow: var(--shadow-card);
+  animation: cb-rise 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes cb-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ------------------------------------------------------------------- head */
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-sm);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-ink-dim);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--text-subheading);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-ink);
+}
+
+.body {
+  margin: 0;
+  font-size: var(--text-body-sm);
+  line-height: 1.6;
+  color: var(--color-ink-muted);
+}
+
+/* ------------------------------------------------------------- categories */
+
+.categories {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--color-hairline);
+}
+
+.category {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--color-hairline);
+}
+
+.categoryText {
+  min-width: 0;
+}
+
+.categoryName {
+  display: block;
+  margin-bottom: 4px;
+  font-size: var(--text-body-sm);
+  font-weight: 600;
+  color: var(--color-ink-secondary);
+}
+
+.categoryBody {
+  margin: 0;
+  font-size: var(--text-mono);
+  line-height: 1.5;
+  color: var(--color-ink-dim);
+}
+
+.always {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-sm);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-ink-dim);
+}
+
+/* ----------------------------------------------------------------- toggle */
+
+.toggle {
+  position: relative;
+  flex-shrink: 0;
+  width: 44px;
+  height: 26px;
+  padding: 0;
+  border: 1px solid var(--color-hairline-strong);
+  border-radius: var(--radius-full);
+  background: var(--color-veil);
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.toggle[data-on] {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+}
+
+.toggleKnob {
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-full);
+  background: var(--color-ink);
+  transform: translate(0, -50%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toggle[data-on] .toggleKnob {
+  transform: translate(18px, -50%);
+}
+
+/* ---------------------------------------------------------------- actions */
+
+/*
+ * One grid track per action, so accept, reject and configure are the same
+ * width and weight.
+ */
+.actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.action {
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--color-hairline-strong);
+  border-radius: var(--radius-sm);
+  background: var(--color-veil);
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-sm);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.action:hover,
+.action:focus-visible {
+  border-color: var(--color-hairline-strong);
+  background: var(--color-surface-raised);
+}
+
+.accept {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+}
+
+.accept:hover,
+.accept:focus-visible {
+  border-color: var(--color-cta-start);
+  background: var(--color-cta-start);
+}
+
+.policy {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: var(--text-mono);
+  color: var(--color-accent-soft);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ----------------------------------------------------------------- mobile */
+
+@media (max-width: 30rem) {
+  /* Three mono labels do not fit side by side under ~360px without the text
+     wrapping inside each button. */
+  .actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --------------------------------------------------------- reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .panel {
+    animation: none;
+  }
+
+  .toggle,
+  .toggleKnob,
+  .action {
+    transition: none;
+  }
+}

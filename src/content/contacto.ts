@@ -47,9 +47,4 @@ export const contacto = {
     "Al abrir el mapa se carga contenido de Google Maps, que puede instalar cookies en tu navegador.",
   mapDirections: "Abrir en Google Maps",
   areaLead: "Vienen a entrenar desde",
-
-  legalLabel: "Legal",
-  manifesto:
-    "Centro de entrenamiento en Calahorra. Inclusivo, sin egos. Aquí no compites contra nadie — solo contra el de ayer.",
-  slabAction: "Hazte socio",
 } satisfies ContactoPage;

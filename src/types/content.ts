@@ -332,9 +332,76 @@ export interface ContactoPage {
   mapConsent: string;
   mapDirections: string;
   areaLead: string;
+}
+
+/** A block of body content inside a legal section. */
+export type LegalBlock =
+  | { kind: "text"; body: string }
+  | { kind: "list"; items: string[] }
+  | { kind: "terms"; items: Array<{ term: string; body: string }> }
+  | { kind: "table"; caption: string; columns: string[]; rows: string[][] }
+  /* Split by destination so an internal link is checked against the route map
+     and an external one never reaches the typed `Link`. */
+  | { kind: "link"; href: AppPathname; label: string; external?: false }
+  | { kind: "link"; href: string; label: string; external: true };
+
+/** One numbered section of a legal document. */
+export interface LegalSection {
+  /** Anchor id, Spanish kebab-case. Stable — these get linked to. */
+  id: string;
+  heading: string;
+  blocks: LegalBlock[];
+}
+
+/**
+ * A complete legal document.
+ *
+ * `updated` is a literal ISO date, never `new Date()`: a last-updated line
+ * that moves on every deploy tells the reader nothing and is the same lie the
+ * sitemap deliberately avoids with `lastmod`.
+ */
+export interface LegalDocument {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  /** ISO `YYYY-MM-DD`. */
+  updated: string;
+  indexLabel: string;
+  sections: LegalSection[];
+}
+
+/** One toggleable cookie category in the banner's detail panel. */
+export interface ConsentCategory {
+  name: string;
+  body: string;
+}
+
+/** Cookie banner copy. */
+export interface ConsentContent {
+  eyebrow: string;
+  title: string;
+  body: string;
+  accept: string;
+  reject: string;
+  configure: string;
+  save: string;
+  policyAction: string;
+  alwaysOn: string;
+  categories: {
+    necessary: ConsentCategory;
+    analytics: ConsentCategory;
+    external: ConsentCategory;
+  };
+  frameBlockedTitle: string;
+  frameBlockedBody: string;
+  frameBlockedAccept: string;
+}
+
+/** Copy for the global footer. */
+export interface SiteFooterContent {
   legalLabel: string;
   manifesto: string;
-  slabAction: string;
+  action: string;
 }
 
 /**
