@@ -2,10 +2,6 @@ import type { LegalDocument } from "@/types/content";
 
 /**
  * Política de cookies — LSSI-CE art. 22.2 and the AEPD's cookie guidance.
- *
- * TODO: the analytics row describes what Google Analytics installs once it is
- * wired. `NEXT_PUBLIC_GA_ID` is still empty, so today accepting that category
- * loads nothing — the row is correct the day the tag lands and harmless before.
  */
 export const cookies = {
   eyebrow: "Legal",

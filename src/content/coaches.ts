@@ -23,7 +23,7 @@ export const coaches = [
       width: 800,
       height: 800,
     }, // TODO: confirm — foto y consentimiento
-    disciplineSlugs: ["hyrox", "entrenamiento-funcional", "full-body-strength"],
+    disciplineSlugs: ["hyrox", "athx", "full-body-strength"],
   },
   {
     slug: "andrea",
@@ -31,7 +31,15 @@ export const coaches = [
     role: "", // TODO: confirm — título exacto
     bio: "", // TODO: copy
     image: { src: "/coaches/andrea.jpg", alt: "", width: 800, height: 800 }, // TODO: confirm — foto y consentimiento
-    disciplineSlugs: ["hyrox", "booty-power", "power-cycling", "core", "hiit"],
+    disciplineSlugs: [
+      "hyrox",
+      "athx",
+      "full-body-strength",
+      "booty-power",
+      "power-cycling",
+      "core",
+      "hiit",
+    ],
   },
   {
     slug: "wilson",

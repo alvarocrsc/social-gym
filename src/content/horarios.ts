@@ -44,7 +44,7 @@ export const horarios = {
     },
     {
       range: "10:00 – 17:00",
-      note: "Funcional y fuerza a media mañana",
+      note: "Fuerza y Cross Combat a media mañana",
       bars: [55, 40, 30],
       peak: false,
     },

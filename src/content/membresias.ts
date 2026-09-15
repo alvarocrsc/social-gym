@@ -9,11 +9,8 @@ export const membresias = {
   headlineSolid: "Una cuota.",
   headlineOutlined: "Todo dentro.",
   keywordLine: "Precios del gimnasio en Calahorra",
-  // TODO: confirm — "sin matrícula" y "sin extras" vienen del diseño; la
-  // tienda no vende matrícula, pero el club no lo ha confirmado por escrito.
   lead: "Acceso ilimitado a la sala y a todas las clases dirigidas, de Hyrox a pilates. Sin matrícula y sin extras por disciplina. Elige cuánto tiempo quieres comprometerte y paga menos cuanto más largo sea.",
   heroAction: "Ver los 4 planes",
-  // TODO: confirm — reclamos comerciales del diseño, sin verificar en la tienda.
   tickerItems: [
     "Sin matrícula",
     "Todas las clases incluidas",

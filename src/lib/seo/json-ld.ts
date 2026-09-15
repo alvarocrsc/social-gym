@@ -1,8 +1,15 @@
 import { classSchedule } from "@/content/class-schedule";
+import { home } from "@/content/home";
 import { plans } from "@/content/plans";
 import { schedule } from "@/content/schedule";
 import { site } from "@/content/site";
-import type { Discipline, FaqItem, MembershipPlan } from "@/types/content";
+import { existingImage } from "@/lib/media/public-file";
+import type {
+  Discipline,
+  FaqItem,
+  HomeImageSlot,
+  MembershipPlan,
+} from "@/types/content";
 
 import { SITE_URL, absoluteUrl } from "./routes";
 
@@ -35,12 +42,25 @@ const DAY_URI = {
  * against Google's policy and risks a manual action — it goes on the page as
  * plain HTML instead (hard rule 7).
  */
+function slotUrls(slots: HomeImageSlot[]): string[] {
+  return slots
+    .map((slot) =>
+      existingImage(slot.primary.src) !== ""
+        ? slot.primary.src
+        : existingImage(slot.fallback.src),
+    )
+    .filter((src) => src !== "")
+    .map((src) => absoluteUrl(src));
+}
+
 export function buildRootGraph(): JsonLdNode {
   const gym: JsonLdNode = {
     "@type": ["HealthClub", "ExerciseGym"],
     "@id": GYM_ID,
     name: site.name,
     url: `${SITE_URL}/`,
+    logo: absoluteUrl("/logo.png"),
+    image: slotUrls([home.intro.image, home.visit.image]),
     telephone: site.phone,
     email: site.email,
     vatID: site.nif,

@@ -1,7 +1,7 @@
 import type { ClassSlot } from "@/types/content";
 
 /**
- * Weekly class timetable, transcribed from the club's own schedule 2026-09-07.
+ * Weekly class timetable, transcribed from the club's own schedule 2026-09-15.
  *
  * One dataset for both `/horarios` and every discipline page, so the two can
  * never disagree. A visibly stale timetable is worse than no timetable (§6.5):
@@ -17,20 +17,16 @@ export const classSchedule = [
   {
     day: "Mo",
     start: "10:30",
-    classSlug: "funcional",
+    classSlug: "full-body-strength",
     coachSlug: "adrian-buda",
   },
-  { day: "Mo", start: "18:00", classSlug: "booty-power", coachSlug: "andrea" },
   { day: "Mo", start: "18:00", classSlug: "cross-combat", coachSlug: "wilson" },
-  {
-    day: "Mo",
-    start: "19:00",
-    classSlug: "power-cycling",
-    coachSlug: "andrea",
-  },
-  { day: "Mo", start: "19:30", classSlug: "pilates", coachSlug: "mihai" },
+  { day: "Mo", start: "18:00", classSlug: "booty-power", coachSlug: "andrea" },
+  { day: "Mo", start: "19:00", classSlug: "athx", coachSlug: "adrian-buda" },
+  { day: "Mo", start: "19:00", classSlug: "hiit", coachSlug: "andrea" },
   { day: "Mo", start: "19:30", classSlug: "boxeo", coachSlug: "simon" },
-  { day: "Mo", start: "20:00", classSlug: "hyrox", coachSlug: "adrian-buda" },
+  { day: "Mo", start: "19:45", classSlug: "pilates", coachSlug: "mihai" },
+  { day: "Mo", start: "20:00", classSlug: "hyrox", coachSlug: "andrea" },
 
   // Martes
   {
@@ -44,9 +40,14 @@ export const classSchedule = [
     day: "Tu",
     start: "18:00",
     classSlug: "full-body-strength",
-    coachSlug: "adrian-buda",
+    coachSlug: "andrea",
   },
-  { day: "Tu", start: "19:00", classSlug: "hiit", coachSlug: "andrea" },
+  {
+    day: "Tu",
+    start: "19:00",
+    classSlug: "power-cycling",
+    coachSlug: "andrea",
+  },
   {
     day: "Tu",
     start: "19:30",
@@ -58,23 +59,25 @@ export const classSchedule = [
   // Miércoles
   {
     day: "We",
-    start: "14:30",
-    classSlug: "full-body-strength",
-    coachSlug: "adrian-buda",
-  },
-  { day: "We", start: "18:00", classSlug: "core", coachSlug: "andrea" },
-  {
-    day: "We",
     start: "18:00",
     classSlug: "defensa-personal",
     coachSlug: "wilson",
   },
-  { day: "We", start: "19:00", classSlug: "hyrox", coachSlug: "andrea" },
-  { day: "We", start: "19:30", classSlug: "pilates", coachSlug: "mihai" },
+  { day: "We", start: "18:00", classSlug: "core", coachSlug: "andrea" },
+  { day: "We", start: "19:00", classSlug: "athx", coachSlug: "adrian-buda" },
+  { day: "We", start: "19:00", classSlug: "hiit", coachSlug: "andrea" },
   { day: "We", start: "19:30", classSlug: "boxeo", coachSlug: "simon" },
+  { day: "We", start: "19:45", classSlug: "pilates", coachSlug: "mihai" },
+  { day: "We", start: "20:00", classSlug: "hyrox", coachSlug: "andrea" },
 
   // Jueves
-  { day: "Th", start: "06:30", classSlug: "cross-combat", coachSlug: "wilson" },
+  {
+    day: "Th",
+    start: "06:30",
+    classSlug: "full-body-strength",
+    coachSlug: "adrian-buda",
+  },
+  { day: "Th", start: "10:30", classSlug: "cross-combat", coachSlug: "wilson" },
   { day: "Th", start: "18:00", classSlug: "booty-power", coachSlug: "andrea" },
   {
     day: "Th",
@@ -83,31 +86,37 @@ export const classSchedule = [
     coachSlug: "andrea",
   },
   { day: "Th", start: "19:30", classSlug: "bjj", coachSlug: "wilson" },
-  { day: "Th", start: "20:00", classSlug: "hyrox", coachSlug: "adrian-buda" },
+  { day: "Th", start: "20:00", classSlug: "hyrox", coachSlug: "andrea" },
 
   // Viernes
   {
     day: "Fr",
     start: "10:30",
-    classSlug: "funcional",
+    classSlug: "full-body-strength",
     coachSlug: "adrian-buda",
   },
-  { day: "Fr", start: "18:00", classSlug: "core", coachSlug: "andrea" },
-  { day: "Fr", start: "19:00", classSlug: "hiit", coachSlug: "andrea" },
+  {
+    day: "Fr",
+    start: "18:00",
+    classSlug: "full-body-strength",
+    coachSlug: "andrea",
+  },
+  { day: "Fr", start: "19:00", classSlug: "athx", coachSlug: "adrian-buda" },
   {
     day: "Fr",
     start: "19:30",
     classSlug: "mma-grappling",
     coachSlug: "wilson",
   },
-  { day: "Fr", start: "20:00", classSlug: "hyrox", coachSlug: "adrian-buda" },
+  { day: "Fr", start: "20:00", classSlug: "hyrox", coachSlug: "andrea" },
 
   // Sábado
   { day: "Sa", start: "11:00", classSlug: "hyrox", coachSlug: "andrea" },
+  { day: "Sa", start: "12:00", classSlug: "athx", coachSlug: "andrea" },
 ] satisfies ClassSlot[];
 
 /**
  * ISO date of the last timetable review. Rendered on /horarios so visitors can
  * see how current it is. Update it whenever `classSchedule` changes.
  */
-export const classScheduleLastUpdated = "2026-09-08";
+export const classScheduleLastUpdated = "2026-09-15";

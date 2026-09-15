@@ -313,29 +313,29 @@ export const disciplines = [
     seo: pageSeo["/disciplinas/boxeo"],
   },
   {
-    slug: "entrenamiento-funcional",
-    enSlug: "functional-training",
-    name: "Funcional",
-    code: "[FNL]",
+    slug: "athx",
+    enSlug: "athx",
+    name: "ATHX",
+    code: "[ATX]",
     order: 3,
-    badge: "En grupo", // TODO: confirm
+    badge: "Híbrido",
     shortDescription:
-      "Fuerza, movilidad y algo de cardio en la misma sesión. Cada ejercicio tiene su versión, así que empiezas por donde estés hoy.",
+      "Fuerza, cardio y acondicionamiento metabólico en la misma sesión. Cargas, remo o SkiErg y movimientos funcionales, adaptados a tu nivel.",
     tagline:
-      "Empujar, tirar, levantar del suelo y desplazarte. Los patrones que usas fuera del gimnasio, entrenados dentro.",
-    headline: { solid: "Moverte", outlined: "mejor" },
+      "Un entrenamiento híbrido que junta fuerza, resistencia y acondicionamiento en una hora. Levantas, remas y te mueves, y cada parte se ajusta a tu nivel.",
+    headline: { solid: "Fuerza", outlined: "y motor" },
     longDescription:
-      "El entrenamiento funcional trabaja movimientos, no músculos por separado: sentadilla, bisagra de cadera, empuje, tracción y desplazamiento. Es la base sobre la que se apoya cualquier otra cosa que hagas.",
+      "ATHX es una modalidad de entrenamiento híbrido que combina trabajo de fuerza, resistencia cardiovascular y acondicionamiento metabólico en una misma sesión. Se entrena con cargas, cardio y movimientos funcionales para mejorar tu fuerza, tu potencia, tu resistencia y tu capacidad de trabajo.",
     paragraphs: [
-      "Cada sesión es distinta y combina un bloque de fuerza con uno final de intensidad. Se entrena en grupo, con kettlebells, mancuernas, anillas, cajones y peso corporal, y el coach lleva la clase de principio a fin.",
-      "Todo ejercicio tiene su versión. Si hoy no llegas al fondo de la sentadilla, hay un cajón; si el dominio no sale, hay una goma. Empiezas por donde estés y el margen lo pones tú.",
-      "Es la clase que mejor funciona cuando vienes de estar parado, y también la que más echan de menos los que se acostumbran a ella.",
+      "Una sesión tipo empieza por la fuerza, con sentadilla o peso muerto y la carga ajustada a cada persona. Después llega la parte híbrida: el remo o el SkiErg se combinan con ejercicios funcionales en bloques de trabajo continuo.",
+      "Es un entrenamiento variado: cambian los ejercicios, los tiempos y la forma de combinarlos, así que el cuerpo no se acomoda y la clase no se repite.",
+      "Y es completo y adaptable a cualquier nivel. Si empiezas, bajas la carga y el ritmo; si ya tienes base, subes. El esfuerzo lo marcas tú.",
     ],
-    // TODO: confirm — duración y material redactados, no facilitados por el club.
+    // TODO: confirm — objetivo y material redactados a partir de la descripción del club.
     meta: [
       { label: "Duración", value: "60 min" },
-      { label: "Objetivo", value: "Fuerza" },
-      { label: "Material", value: "Peso libre" },
+      { label: "Objetivo", value: "Fuerza y resistencia" },
+      { label: "Material", value: "Cargas y cardio" },
       { label: "Nivel", value: "Todos" },
     ],
     forWho: "", // TODO: copy
@@ -345,109 +345,109 @@ export const disciplines = [
       {
         time: "00–10 min",
         title: "Activación",
-        body: "Movilidad de cadera y hombro y una serie de preparación con el mismo material que se va a usar después.",
+        body: "Movilidad y una entrada en calor progresiva con el material que se va a usar después.",
       },
       {
-        time: "10–20 min",
-        title: "Técnica",
-        body: "Repaso del patrón principal del día a carga baja, con el coach corrigiendo posición persona a persona.",
+        time: "10–25 min",
+        title: "Fuerza",
+        body: "Sentadilla o peso muerto por series, con la carga ajustada a tu nivel y la técnica revisada por el coach.",
       },
       {
-        time: "20–48 min",
-        title: "Fuerza y metcon",
-        body: "Series de fuerza y un circuito final de intensidad, con la carga escalada para cada uno.",
+        time: "25–50 min",
+        title: "Bloque híbrido",
+        body: "Remo o SkiErg combinados con ejercicios funcionales en trabajo continuo, para subir pulsaciones sin perder calidad de movimiento.",
       },
       {
-        time: "48–60 min",
-        title: "Movilidad final",
-        body: "Estiramiento guiado y respiración para cerrar la sesión sin salir a la calle en caliente.",
+        time: "50–60 min",
+        title: "Vuelta a la calma",
+        body: "Bajada de pulsaciones, movilidad y estiramiento guiado para cerrar la sesión.",
       },
     ],
     cta: {
-      heading: "Empieza por donde estés",
-      body: "Elige tu membresía y entra en el próximo grupo. El material y la progresión los ponemos nosotros.",
+      heading: "Entrena completo",
+      body: "Elige tu membresía y reserva tu plaza en ATHX desde la app. La carga y el ritmo los ajustamos contigo.",
     },
     // TODO: confirm — placeholder profile, not measured.
     metrics: [
-      { label: "Fuerza", value: 80 },
-      { label: "Resistencia", value: 75 },
-      { label: "Agilidad", value: 70 },
+      { label: "Fuerza", value: 85 },
+      { label: "Resistencia", value: 85 },
+      { label: "Agilidad", value: 65 },
       { label: "Velocidad", value: 60 },
-      { label: "Flexibilidad", value: 50 },
+      { label: "Flexibilidad", value: 45 },
     ],
-    level: "todos", // Confirmado 2026-08-05
+    level: "todos",
     image: {
-      src: "/disciplinas/entrenamiento-funcional.jpg",
+      src: "/disciplinas/athx.jpg",
       alt: "",
-      width: 1720,
-      height: 1440,
-    }, // TODO: confirm — photography pending
-    // TODO: photography — los pies de foto son definitivos, el material no.
+      width: 2560,
+      height: 3413,
+    },
+    // TODO: photography — los pies de foto describen la sesión tipo, el material no existe.
     gallery: [
       {
-        caption: "Kettlebell swing",
+        caption: "Sentadilla",
         span: 2,
         image: {
-          src: "/disciplinas/entrenamiento-funcional/01.jpg",
+          src: "/disciplinas/athx/01.jpg",
           alt: "",
           width: 1120,
           height: 1080,
         },
       },
       {
-        caption: "Circuito en grupo",
+        caption: "Remo",
         span: 3,
         image: {
-          src: "/disciplinas/entrenamiento-funcional/02.jpg",
+          src: "/disciplinas/athx/02.jpg",
           alt: "",
           width: 1120,
           height: 1080,
         },
       },
       {
-        caption: "Sentadilla frontal",
+        caption: "Peso muerto",
         span: 1,
         image: {
-          src: "/disciplinas/entrenamiento-funcional/03.jpg",
+          src: "/disciplinas/athx/03.jpg",
           alt: "",
           width: 1120,
           height: 1080,
         },
       },
       {
-        caption: "Salto al cajón",
+        caption: "SkiErg",
         span: 3,
         image: {
-          src: "/disciplinas/entrenamiento-funcional/04.jpg",
+          src: "/disciplinas/athx/04.jpg",
           alt: "",
           width: 1120,
           height: 1080,
         },
       },
       {
-        caption: "Anillas",
+        caption: "Trabajo con cargas",
         span: 1,
         image: {
-          src: "/disciplinas/entrenamiento-funcional/05.jpg",
+          src: "/disciplinas/athx/05.jpg",
           alt: "",
           width: 1120,
           height: 1080,
         },
       },
       {
-        caption: "Cuerdas",
+        caption: "Ejercicios funcionales",
         span: 2,
         image: {
-          src: "/disciplinas/entrenamiento-funcional/06.jpg",
+          src: "/disciplinas/athx/06.jpg",
           alt: "",
           width: 1120,
           height: 1080,
         },
       },
     ],
-    coachSlugs: ["adrian-buda"], // Confirmado 2026-09-08
+    coachSlugs: ["adrian-buda", "andrea"], // Confirmado 2026-09-15
     faq: [], // TODO: copy
-    seo: pageSeo["/disciplinas/entrenamiento-funcional"],
+    seo: pageSeo["/disciplinas/athx"],
   },
   {
     slug: "pilates",
@@ -603,7 +603,7 @@ export const disciplines = [
     paragraphs: [
       "La sesión combina puentes, hip thrust, abducciones y zancadas con banda elástica y peso libre. El orden se repite para que puedas medir tu progreso; lo que cambia es la carga y el tiempo bajo tensión.",
       "El glúteo es el músculo que más se apaga cuando pasas el día sentado y el que más rápido responde cuando le dedicas dos sesiones a la semana. También es el que sostiene la rodilla y la zona lumbar.",
-      "No hace falta técnica previa ni material propio. Si vienes de funcional o de core, encajarás desde el primer día.",
+      "No hace falta técnica previa ni material propio. Si vienes de core o de HIIT, encajarás desde el primer día.",
     ],
     // TODO: confirm — duración y material redactados, no facilitados por el club.
     meta: [
@@ -993,7 +993,7 @@ export const disciplines = [
         },
       },
     ],
-    coachSlugs: ["adrian-buda"], // Confirmado 2026-09-08
+    coachSlugs: ["adrian-buda", "andrea"], // Confirmado 2026-09-15
     faq: [], // TODO: copy
     seo: pageSeo["/disciplinas/full-body-strength"],
   },

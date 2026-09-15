@@ -37,7 +37,7 @@ export const pageSeo = {
   "/disciplinas": {
     title: "Clases dirigidas en Calahorra | Social Gym Calahorra",
     description:
-      "Trece clases dirigidas en un mismo centro de Calahorra: Hyrox, boxeo, jiu-jitsu, funcional, ciclo, pilates, core y fuerza. Elige la tuya y empieza.",
+      "Trece clases dirigidas en un mismo centro de Calahorra: Hyrox, ATHX, boxeo, jiu-jitsu, ciclo, pilates, core y fuerza. Elige la tuya y empieza hoy mismo.",
     path: "/disciplinas",
     primaryKeyword: "clases dirigidas calahorra",
     secondaryKeywords: ["actividades gimnasio calahorra"],
@@ -58,14 +58,16 @@ export const pageSeo = {
     primaryKeyword: "boxeo calahorra",
     secondaryKeywords: ["clases de boxeo calahorra"],
   },
-  "/disciplinas/entrenamiento-funcional": {
-    title: "Entrenamiento funcional en Calahorra | Social Gym Calahorra",
+  "/disciplinas/athx": {
+    title: "ATHX, entrenamiento híbrido en Calahorra | Social Gym",
     description:
-      "Entrenamiento funcional en Calahorra: fuerza, movilidad y trabajo metabólico en sesiones dirigidas. Cada ejercicio se adapta a tu nivel desde el primer día.",
-    path: "/disciplinas/entrenamiento-funcional",
-    primaryKeyword: "entrenamiento funcional calahorra",
-    // Adjacent intent. We mention CrossFit honestly and never claim to be one.
-    secondaryKeywords: ["crossfit calahorra"],
+      "ATHX en Calahorra: entrenamiento híbrido que combina fuerza, cardio y acondicionamiento metabólico en una sesión. Cargas, remo y SkiErg adaptados a tu nivel.",
+    path: "/disciplinas/athx",
+    primaryKeyword: "athx calahorra",
+    secondaryKeywords: [
+      "entrenamiento híbrido calahorra",
+      "entrenamiento funcional calahorra",
+    ],
   },
   "/disciplinas/pilates": {
     title: "Clases de pilates en Calahorra | Social Gym Calahorra",

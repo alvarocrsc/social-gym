@@ -70,11 +70,11 @@ export interface DisciplineMetaItem {
 }
 
 export interface Discipline {
-  slug: string; // 'entrenamiento-funcional'
+  slug: string; // 'full-body-strength'
   /** English URL segment, used only by `routing.ts` pathnames. */
-  enSlug: string; // 'functional-training'
-  name: string; // 'Funcional'
-  code: string; // '[FNL]'
+  enSlug: string; // 'full-body-strength'
+  name: string; // 'Full Body Strength'
+  code: string; // '[FBS]'
   order: number; // Display order — Hyrox first
   /** Short qualifier on the carousel card, e.g. 'Centro oficial'. */
   badge: string;
@@ -335,6 +335,55 @@ export interface ContactoPage {
   mapConsent: string;
   mapDirections: string;
   areaLead: string;
+}
+
+export interface HomeImageSlot {
+  primary: ImageAsset;
+  fallback: ImageAsset;
+}
+
+export interface HomeFact {
+  value: string;
+  label: string;
+  count?: number;
+}
+
+export interface HomePage {
+  intro: {
+    eyebrow: string;
+    headingSolid: string;
+    headingOutlined: string;
+    lead: string;
+    facts: HomeFact[];
+    place: string;
+    coordinates: string;
+    image: HomeImageSlot;
+  };
+  index: {
+    eyebrow: string;
+    headingSolid: string;
+    headingOutlined: string;
+    lead: string;
+    allAction: string;
+  };
+  visit: {
+    eyebrow: string;
+    headingSolid: string;
+    headingOutlined: string;
+    lead: string;
+    addressLabel: string;
+    directionsAction: string;
+    phoneLabel: string;
+    hoursLabel: string;
+    reviewsLabel: string;
+    reviewsScore: string;
+    reviewsOutOf: string;
+    reviewsText: string;
+    scheduleAction: string;
+    membershipsAction: string;
+    since: string;
+    image: HomeImageSlot;
+  };
 }
 
 /** A block of body content inside a legal section. */

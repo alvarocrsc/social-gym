@@ -11,30 +11,16 @@ import {
 } from "@/lib/schedule/open-state";
 import type { DayCode } from "@/types/content";
 
-import styles from "./Contacto.module.css";
+import styles from "./Home.module.css";
 
-export interface OpeningNowProps {
-  label: string;
-  /** Day names for the "opens on …" case, from the `Days` message group. */
+export interface VisitHoursProps {
   dayNames: Record<DayCode, string>;
   copy: OpenStateCopy;
 }
 
 const REFRESH_MS = 60_000;
 
-/**
- * `'use client'` — "abierto ahora" is only true relative to a clock, and a
- * statically generated page has none.
- *
- * The hours themselves are the indexable content and render identically on the
- * server; only the live line and the highlighted band wait for hydration, so
- * the first client render matches the server's and nothing shifts.
- */
-export function OpeningNow({
-  label,
-  dayNames,
-  copy,
-}: OpeningNowProps): ReactElement {
+export function VisitHours({ dayNames, copy }: VisitHoursProps): ReactElement {
   const [state, setState] = useState<OpenState | null>(null);
 
   useEffect(() => {
@@ -49,14 +35,12 @@ export function OpeningNow({
   }, []);
 
   return (
-    <div>
-      <span className={styles.label}>{label}</span>
-
+    <>
       <ul className={styles.hours}>
         {schedule.map((block, index) => (
           <li
-            className={styles.hoursRow}
             key={block.label}
+            className={styles.hoursRow}
             data-active={state?.activeIndex === index ? "" : undefined}
           >
             <span>{block.label}</span>
@@ -66,7 +50,6 @@ export function OpeningNow({
           </li>
         ))}
       </ul>
-
       <p
         className={styles.status}
         data-state={state === null ? undefined : state.open ? "open" : "closed"}
@@ -74,6 +57,6 @@ export function OpeningNow({
         <span className={styles.statusDot} aria-hidden />
         {state === null ? "" : describeOpenState(state, copy, dayNames)}
       </p>
-    </div>
+    </>
   );
 }

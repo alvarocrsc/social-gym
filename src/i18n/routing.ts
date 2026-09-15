@@ -47,9 +47,9 @@ export const routing = defineRouting({
       es: "/disciplinas/boxeo",
       en: "/disciplines/boxing",
     },
-    "/disciplinas/entrenamiento-funcional": {
-      es: "/disciplinas/entrenamiento-funcional",
-      en: "/disciplines/functional-training",
+    "/disciplinas/athx": {
+      es: "/disciplinas/athx",
+      en: "/disciplines/athx",
     },
     "/disciplinas/pilates": {
       es: "/disciplinas/pilates",

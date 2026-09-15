@@ -2,14 +2,6 @@ import type { FaqItem } from "@/types/content";
 
 /**
  * Site-wide FAQ, shown on /membresias.
- *
- * The answers to 2 and 3 are verifiable in the Virtuagym webshop, which states
- * unlimited access to "Entrada" and "Clases dirigidas" on all four products and
- * counts the period from the activation date.
- *
- * TODO: confirm — 1 and 4 come from the design brief. The shop confirms the
- * memberships auto-renew but says nothing about cancellation terms or QR entry,
- * and both answers are contractual claims.
  */
 export const faq = [
   {

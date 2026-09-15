@@ -33,12 +33,12 @@ export const classTypes = [
     disciplineSlug: "full-body-strength",
   },
   {
-    slug: "funcional",
-    code: "FNL",
-    name: "Funcional",
+    slug: "athx",
+    code: "ATHX",
+    name: "ATHX",
     tier: "fuerza",
     durationMin: 60,
-    disciplineSlug: "entrenamiento-funcional",
+    disciplineSlug: "athx",
   },
   {
     slug: "booty-power",

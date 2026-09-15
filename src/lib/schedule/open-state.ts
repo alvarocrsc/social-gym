@@ -122,3 +122,23 @@ export function resolveOpenState(now: Date): OpenState {
 
   return { open: false, activeIndex: null, time: "", day: null };
 }
+
+export interface OpenStateCopy {
+  open: string;
+  closed: string;
+  opensAt: string;
+  opensOn: string;
+}
+
+export function describeOpenState(
+  state: OpenState,
+  copy: OpenStateCopy,
+  dayNames: Record<DayCode, string>,
+): string {
+  if (state.open) return copy.open.replace("{time}", state.time);
+  if (state.time === "") return copy.closed;
+  if (state.day === null) return copy.opensAt.replace("{time}", state.time);
+  return copy.opensOn
+    .replace("{day}", dayNames[state.day].toLowerCase())
+    .replace("{time}", state.time);
+}
