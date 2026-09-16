@@ -379,8 +379,8 @@ export const disciplines = [
     image: {
       src: "/disciplinas/athx.jpg",
       alt: "",
-      width: 2560,
-      height: 3413,
+      width: 2400,
+      height: 3200,
     },
     // TODO: photography — los pies de foto describen la sesión tipo, el material no existe.
     gallery: [
@@ -861,10 +861,10 @@ export const disciplines = [
     seo: pageSeo["/disciplinas/power-cycling"],
   },
   {
-    slug: "full-body-strength",
-    enSlug: "full-body-strength",
-    name: "Full Body Strength",
-    code: "[FBS]",
+    slug: "entrenamiento-funcional",
+    enSlug: "functional-training",
+    name: "Funcional",
+    code: "[FNL]",
     order: 7,
     badge: "Clase dirigida", // TODO: confirm
     shortDescription:
@@ -873,7 +873,7 @@ export const disciplines = [
       "Una sesión, todo el cuerpo. Fuerza de verdad, con carga que sube y técnica que se corrige levantamiento a levantamiento.",
     headline: { solid: "Fuerza", outlined: "de cuerpo entero" },
     longDescription:
-      "Full Body Strength trabaja el cuerpo completo en cada sesión en lugar de repartirlo por días: un empuje, una tracción, un movimiento de pierna y algo de centro, con la carga suficiente para que la fuerza suba de verdad.",
+      "Funcional trabaja el cuerpo completo en cada sesión en lugar de repartirlo por días: un empuje, una tracción, un movimiento de pierna y algo de centro, con la carga suficiente para que la fuerza suba de verdad.",
     paragraphs: [
       "Se entrena con barra, mancuernas y kettlebells en series de pocas repeticiones y descansos largos. No es un circuito de intensidad: aquí importa la calidad de cada repetición y el peso que llegas a mover.",
       "El coach corrige la posición levantamiento a levantamiento y te ayuda a decidir cuándo subir carga. Cada ejercicio tiene su versión, así que puedes empezar con muy poco peso sin quedarte fuera de la clase.",
@@ -925,7 +925,7 @@ export const disciplines = [
     ],
     level: "todos", // TODO: confirm
     image: {
-      src: "/disciplinas/full-body-strength.jpg",
+      src: "/disciplinas/entrenamiento-funcional.jpg",
       alt: "",
       width: 1720,
       height: 1440,
@@ -936,7 +936,7 @@ export const disciplines = [
         caption: "Barra y discos",
         span: 2,
         image: {
-          src: "/disciplinas/full-body-strength/01.jpg",
+          src: "/disciplinas/entrenamiento-funcional/01.jpg",
           alt: "",
           width: 1120,
           height: 1080,
@@ -946,7 +946,7 @@ export const disciplines = [
         caption: "Serie de peso muerto",
         span: 3,
         image: {
-          src: "/disciplinas/full-body-strength/02.jpg",
+          src: "/disciplinas/entrenamiento-funcional/02.jpg",
           alt: "",
           width: 1120,
           height: 1080,
@@ -956,7 +956,7 @@ export const disciplines = [
         caption: "Press militar",
         span: 1,
         image: {
-          src: "/disciplinas/full-body-strength/03.jpg",
+          src: "/disciplinas/entrenamiento-funcional/03.jpg",
           alt: "",
           width: 1120,
           height: 1080,
@@ -966,7 +966,7 @@ export const disciplines = [
         caption: "Remo con mancuerna",
         span: 3,
         image: {
-          src: "/disciplinas/full-body-strength/04.jpg",
+          src: "/disciplinas/entrenamiento-funcional/04.jpg",
           alt: "",
           width: 1120,
           height: 1080,
@@ -976,7 +976,7 @@ export const disciplines = [
         caption: "Trabajo unilateral",
         span: 1,
         image: {
-          src: "/disciplinas/full-body-strength/05.jpg",
+          src: "/disciplinas/entrenamiento-funcional/05.jpg",
           alt: "",
           width: 1120,
           height: 1080,
@@ -986,7 +986,7 @@ export const disciplines = [
         caption: "Movilidad final",
         span: 2,
         image: {
-          src: "/disciplinas/full-body-strength/06.jpg",
+          src: "/disciplinas/entrenamiento-funcional/06.jpg",
           alt: "",
           width: 1120,
           height: 1080,
@@ -995,7 +995,7 @@ export const disciplines = [
     ],
     coachSlugs: ["adrian-buda", "andrea"], // Confirmado 2026-09-15
     faq: [], // TODO: copy
-    seo: pageSeo["/disciplinas/full-body-strength"],
+    seo: pageSeo["/disciplinas/entrenamiento-funcional"],
   },
   {
     slug: "core",

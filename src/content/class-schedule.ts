@@ -17,7 +17,7 @@ export const classSchedule = [
   {
     day: "Mo",
     start: "10:30",
-    classSlug: "full-body-strength",
+    classSlug: "funcional",
     coachSlug: "adrian-buda",
   },
   { day: "Mo", start: "18:00", classSlug: "cross-combat", coachSlug: "wilson" },
@@ -32,14 +32,14 @@ export const classSchedule = [
   {
     day: "Tu",
     start: "06:30",
-    classSlug: "full-body-strength",
+    classSlug: "funcional",
     coachSlug: "adrian-buda",
   },
   { day: "Tu", start: "10:30", classSlug: "cross-combat", coachSlug: "wilson" },
   {
     day: "Tu",
     start: "18:00",
-    classSlug: "full-body-strength",
+    classSlug: "funcional",
     coachSlug: "andrea",
   },
   {
@@ -74,7 +74,7 @@ export const classSchedule = [
   {
     day: "Th",
     start: "06:30",
-    classSlug: "full-body-strength",
+    classSlug: "funcional",
     coachSlug: "adrian-buda",
   },
   { day: "Th", start: "10:30", classSlug: "cross-combat", coachSlug: "wilson" },
@@ -92,13 +92,13 @@ export const classSchedule = [
   {
     day: "Fr",
     start: "10:30",
-    classSlug: "full-body-strength",
+    classSlug: "funcional",
     coachSlug: "adrian-buda",
   },
   {
     day: "Fr",
     start: "18:00",
-    classSlug: "full-body-strength",
+    classSlug: "funcional",
     coachSlug: "andrea",
   },
   { day: "Fr", start: "19:00", classSlug: "athx", coachSlug: "adrian-buda" },

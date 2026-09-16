@@ -64,10 +64,7 @@ export const pageSeo = {
       "ATHX en Calahorra: entrenamiento híbrido que combina fuerza, cardio y acondicionamiento metabólico en una sesión. Cargas, remo y SkiErg adaptados a tu nivel.",
     path: "/disciplinas/athx",
     primaryKeyword: "athx calahorra",
-    secondaryKeywords: [
-      "entrenamiento híbrido calahorra",
-      "entrenamiento funcional calahorra",
-    ],
+    secondaryKeywords: ["entrenamiento híbrido calahorra"],
   },
   "/disciplinas/pilates": {
     title: "Clases de pilates en Calahorra | Social Gym Calahorra",
@@ -93,12 +90,12 @@ export const pageSeo = {
     primaryKeyword: "power cycling calahorra",
     secondaryKeywords: ["ciclo indoor la rioja"],
   },
-  "/disciplinas/full-body-strength": {
-    title: "Full Body Strength en Calahorra | Social Gym Calahorra",
+  "/disciplinas/entrenamiento-funcional": {
+    title: "Entrenamiento funcional en Calahorra | Social Gym Calahorra",
     description:
-      "Clases de Full Body Strength en Calahorra: fuerza de cuerpo entero con barra y mancuernas, técnica corregida y carga que sube semana a semana.",
-    path: "/disciplinas/full-body-strength",
-    primaryKeyword: "full body strength calahorra",
+      "Clases de entrenamiento funcional en Calahorra: fuerza de cuerpo entero con barra y mancuernas, técnica corregida y carga que sube semana a semana.",
+    path: "/disciplinas/entrenamiento-funcional",
+    primaryKeyword: "entrenamiento funcional calahorra",
     secondaryKeywords: ["clases de fuerza calahorra"],
   },
   "/disciplinas/core": {

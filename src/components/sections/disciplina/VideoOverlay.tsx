@@ -9,7 +9,6 @@ import styles from "./Disciplina.module.css";
 
 export interface VideoOverlayProps {
   sources: readonly HeroVideoSource[];
-  poster: string | undefined;
   playLabel: string;
   closeLabel: string;
   title: string;
@@ -24,7 +23,6 @@ export interface VideoOverlayProps {
  */
 export function VideoOverlay({
   sources,
-  poster,
   playLabel,
   closeLabel,
   title,
@@ -69,7 +67,6 @@ export function VideoOverlay({
           <video
             ref={videoRef}
             className={styles.overlayVideo}
-            poster={poster}
             controls
             playsInline
             preload="none"

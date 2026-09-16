@@ -67,7 +67,6 @@ export function DisciplinaHero({
         {hasVideo ? (
           <VideoOverlay
             sources={video}
-            poster={hasImage ? photo : undefined}
             playLabel={disciplina.playLabel}
             closeLabel={disciplina.closeLabel}
             title={discipline.name}

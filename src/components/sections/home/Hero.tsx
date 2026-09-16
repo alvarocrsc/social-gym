@@ -60,7 +60,6 @@ function HeroHalf({
         {media.sources.length === 0 ? null : (
           <video
             className={styles.video}
-            poster={media.poster.src}
             muted
             loop
             playsInline
@@ -69,7 +68,12 @@ function HeroHalf({
             data-video
           >
             {media.sources.map((source) => (
-              <source key={source.src} src={source.src} type={source.type} />
+              <source
+                key={source.src}
+                src={source.src}
+                type={source.type}
+                media={source.media}
+              />
             ))}
           </video>
         )}

@@ -63,6 +63,9 @@ export function HeroSlider({
     }));
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    // A phone shows one half at a time and pays for every byte, so nothing is
+    // fetched until its slide is actually on screen.
+    const compact = window.matchMedia("(max-width: 47.9375rem)");
 
     let frame = 0;
     let position = 1;
@@ -78,7 +81,9 @@ export function HeroSlider({
           video.pause();
           return;
         }
-        if (isRendered(video)) void video.play().catch(() => undefined);
+        if (!isRendered(video)) return;
+        if (video.preload !== "auto") video.preload = "auto";
+        void video.play().catch(() => undefined);
       });
     }
 
@@ -91,8 +96,9 @@ export function HeroSlider({
     }
 
     function apply(): void {
-      const first = Math.floor(position) - 1 - settings.bufferSlides;
-      const last = Math.floor(position) + settings.bufferSlides;
+      const buffer = compact.matches ? 0 : settings.bufferSlides;
+      const first = Math.floor(position) - 1 - buffer;
+      const last = Math.floor(position) + buffer;
 
       const depths = items.map(
         (_, index) =>
@@ -123,9 +129,11 @@ export function HeroSlider({
           item.near = near;
           if (near) {
             slide.setAttribute("data-near", "");
-            item.videos.forEach((video) => {
-              if (isRendered(video)) video.preload = "auto";
-            });
+            if (!compact.matches) {
+              item.videos.forEach((video) => {
+                if (isRendered(video)) video.preload = "auto";
+              });
+            }
           } else {
             slide.removeAttribute("data-near");
           }

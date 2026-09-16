@@ -23,7 +23,7 @@ export const coaches = [
       width: 800,
       height: 800,
     }, // TODO: confirm — foto y consentimiento
-    disciplineSlugs: ["hyrox", "athx", "full-body-strength"],
+    disciplineSlugs: ["hyrox", "athx", "entrenamiento-funcional"],
   },
   {
     slug: "andrea",
@@ -34,7 +34,7 @@ export const coaches = [
     disciplineSlugs: [
       "hyrox",
       "athx",
-      "full-body-strength",
+      "entrenamiento-funcional",
       "booty-power",
       "power-cycling",
       "core",

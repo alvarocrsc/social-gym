@@ -25,12 +25,12 @@ export const classTypes = [
     disciplineSlug: "hyrox",
   },
   {
-    slug: "full-body-strength",
-    code: "FBS",
-    name: "Full Body Strength",
+    slug: "funcional",
+    code: "FNL",
+    name: "Funcional",
     tier: "fuerza",
     durationMin: 60,
-    disciplineSlug: "full-body-strength",
+    disciplineSlug: "entrenamiento-funcional",
   },
   {
     slug: "athx",

@@ -78,7 +78,6 @@ export function DisciplinaGallery({
                     {hasVideo ? (
                       <video
                         className={styles.pieceVideo}
-                        poster={hasImage ? photo : undefined}
                         muted
                         loop
                         playsInline

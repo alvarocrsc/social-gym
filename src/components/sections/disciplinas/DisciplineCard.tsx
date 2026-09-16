@@ -52,7 +52,6 @@ export function DisciplineCard({
         {hasVideo ? (
           <video
             className={styles.cardVideo}
-            poster={hasImage ? photo : undefined}
             muted
             loop
             playsInline

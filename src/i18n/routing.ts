@@ -63,9 +63,9 @@ export const routing = defineRouting({
       es: "/disciplinas/power-cycling",
       en: "/disciplines/power-cycling",
     },
-    "/disciplinas/full-body-strength": {
-      es: "/disciplinas/full-body-strength",
-      en: "/disciplines/full-body-strength",
+    "/disciplinas/entrenamiento-funcional": {
+      es: "/disciplinas/entrenamiento-funcional",
+      en: "/disciplines/functional-training",
     },
     "/disciplinas/core": {
       es: "/disciplinas/core",

@@ -11,6 +11,13 @@ const MEDIA_HEIGHT = 1920;
 const AV1_TYPE = 'video/mp4; codecs="av01.0.08M.08"';
 const H264_TYPE = 'video/mp4; codecs="avc1.640032"'; // High@5.0
 
+// 720x1280 re-encodes for phones, where the right half is hidden and the left
+// one fills the screen. The full-size files are 1080x1920 at up to 5.3 Mbps,
+// which is most of what a phone downloads before it can show anything.
+const MOBILE_MEDIA = "(max-width: 47.9375rem)";
+const MOBILE_AV1_TYPE = 'video/mp4; codecs="av01.0.05M.08"';
+const MOBILE_H264_TYPE = 'video/mp4; codecs="avc1.4D401F"'; // Main@3.1
+
 function slot(name: string): HeroMedia {
   return {
     poster: {
@@ -20,6 +27,20 @@ function slot(name: string): HeroMedia {
       height: MEDIA_HEIGHT,
     },
     sources: [
+      ...(name.endsWith("-left")
+        ? [
+            {
+              src: `/hero-${name}.m.av1.mp4`,
+              type: MOBILE_AV1_TYPE,
+              media: MOBILE_MEDIA,
+            },
+            {
+              src: `/hero-${name}.m.mp4`,
+              type: MOBILE_H264_TYPE,
+              media: MOBILE_MEDIA,
+            },
+          ]
+        : []),
       { src: `/hero-${name}.av1.mp4`, type: AV1_TYPE },
       { src: `/hero-${name}.mp4`, type: H264_TYPE },
     ],

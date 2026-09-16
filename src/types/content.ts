@@ -32,6 +32,8 @@ export interface HeroMedia {
 export interface HeroVideoSource {
   src: string;
   type: string;
+  /** Limits the source to a viewport, so phones fetch the phone-sized encode. */
+  media?: string;
 }
 
 export interface Hero {
@@ -70,11 +72,11 @@ export interface DisciplineMetaItem {
 }
 
 export interface Discipline {
-  slug: string; // 'full-body-strength'
+  slug: string; // 'entrenamiento-funcional'
   /** English URL segment, used only by `routing.ts` pathnames. */
-  enSlug: string; // 'full-body-strength'
-  name: string; // 'Full Body Strength'
-  code: string; // '[FBS]'
+  enSlug: string; // 'functional-training'
+  name: string; // 'Funcional'
+  code: string; // '[FNL]'
   order: number; // Display order — Hyrox first
   /** Short qualifier on the carousel card, e.g. 'Centro oficial'. */
   badge: string;
@@ -179,7 +181,7 @@ export type ClassTier = "hyrox" | "fuerza" | "dirigida" | "cuerpo" | "contacto";
  */
 export interface ClassType {
   slug: string;
-  /** Short label shown inside a timetable cell, e.g. 'FBS'. */
+  /** Short label shown inside a timetable cell, e.g. 'FNL'. */
   code: string;
   name: string;
   /** Spelled out in the legend when `name` is an abbreviation. */

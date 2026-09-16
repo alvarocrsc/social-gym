@@ -78,8 +78,8 @@ export const home = {
       fallback: {
         src: "/disciplinas/athx.jpg",
         alt: "Socia entrenando zancadas con un disco en Social Gym",
-        width: 2560,
-        height: 3413,
+        width: 2400,
+        height: 3200,
       },
     },
   },
