@@ -31,7 +31,7 @@ export function DisciplinesCarousel(): ReactElement {
             {`${names.join("  /  ")}  /  `}
           </div>
 
-          <div className={styles.viewport}>
+          <div className={styles.viewport} data-viewport>
             <div className={styles.track} data-track>
               {disciplines.map((discipline, index) => (
                 <div

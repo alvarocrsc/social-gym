@@ -42,6 +42,7 @@ export function CarouselMotion({
 
     const section = root.querySelector<HTMLElement>("[data-carousel]");
     const track = root.querySelector<HTMLElement>("[data-track]");
+    const viewport = root.querySelector<HTMLElement>("[data-viewport]");
     const ghost = root.querySelector<HTMLElement>("[data-ghost]");
     const bar = root.querySelector<HTMLElement>("[data-bar]");
     const idx = root.querySelector<HTMLElement>("[data-index]");
@@ -66,7 +67,10 @@ export function CarouselMotion({
     if (cards.length === 0) return;
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    // A phone swipes the viewport itself; the pinned track is desktop only.
+    const compact = window.matchMedia("(max-width: 47.9375rem)");
 
+    let mode: "pinned" | "swipe" | "off" = "off";
     let cur = 0;
     let tgt = 0;
     let vel = 0;
@@ -222,6 +226,7 @@ export function CarouselMotion({
     async function enable(): Promise<void> {
       if (running) return;
       running = true;
+      mode = "pinned";
       const mod = await import("gsap");
       if (disposed) return;
       gsapLib = mod.gsap;
@@ -233,11 +238,15 @@ export function CarouselMotion({
       window.addEventListener("scroll", onScroll, { passive: true });
       window.addEventListener("resize", onScroll);
 
+      playEntrance();
+    }
+
+    function playEntrance(): void {
       const shells = Array.from(
         root?.querySelectorAll<HTMLElement>("[data-card-shell]") ?? [],
       );
       const stage = root?.querySelector<HTMLElement>("[data-stage]") ?? null;
-      if (shells.length > 0 && stage !== null) {
+      if (gsapLib !== null && shells.length > 0 && stage !== null) {
         const gsap = gsapLib;
         gsap.set(shells, { opacity: 0, yPercent: 12 });
         entrance = new IntersectionObserver(
@@ -260,6 +269,58 @@ export function CarouselMotion({
       }
     }
 
+    function paintSwipe(): void {
+      if (viewport === null) return;
+      const span = viewport.scrollWidth - viewport.clientWidth;
+      const box = viewport.getBoundingClientRect();
+      const mid = box.left + box.width / 2;
+      let best = 0;
+      let bestD = Infinity;
+
+      cards.forEach((card, i) => {
+        const b = card.el.getBoundingClientRect();
+        const d = Math.abs(b.left + b.width / 2 - mid);
+        if (d < bestD) {
+          bestD = d;
+          best = i;
+        }
+      });
+
+      const centred = cards[best];
+      if (centred !== undefined && !centred.focused) {
+        cards.forEach((card) => {
+          card.focused = false;
+        });
+        centred.focused = true;
+        revealRings(centred);
+      }
+
+      if (bar !== null) {
+        bar.style.width = `${((span > 0 ? viewport.scrollLeft / span : 0) * 100).toFixed(1)}%`;
+      }
+      if (idx !== null) idx.textContent = String(best + 1).padStart(2, "0");
+      if (nameEl !== null && best !== active) {
+        const label = names[best];
+        if (label !== undefined) nameEl.textContent = label;
+      }
+      active = best;
+    }
+
+    async function enableSwipe(): Promise<void> {
+      if (running || viewport === null) return;
+      running = true;
+      mode = "swipe";
+      const mod = await import("gsap");
+      if (disposed) return;
+      gsapLib = mod.gsap;
+
+      resetRings();
+      paintSwipe();
+      viewport.addEventListener("scroll", paintSwipe, { passive: true });
+      window.addEventListener("resize", paintSwipe);
+      playEntrance();
+    }
+
     function disable(): void {
       if (!running || track === null) return;
       running = false;
@@ -267,6 +328,9 @@ export function CarouselMotion({
       tick = null;
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
+      viewport?.removeEventListener("scroll", paintSwipe);
+      window.removeEventListener("resize", paintSwipe);
+      mode = "off";
 
       track.style.transform = "";
       track.style.paddingLeft = "";
@@ -295,16 +359,25 @@ export function CarouselMotion({
     }
 
     function sync(): void {
-      if (reduceMotion.matches) disable();
-      else void enable();
+      const next = reduceMotion.matches
+        ? "off"
+        : compact.matches
+          ? "swipe"
+          : "pinned";
+      if (next === mode) return;
+      disable();
+      if (next === "swipe") void enableSwipe();
+      else if (next === "pinned") void enable();
     }
 
     sync();
     reduceMotion.addEventListener("change", sync);
+    compact.addEventListener("change", sync);
 
     return () => {
       disposed = true;
       reduceMotion.removeEventListener("change", sync);
+      compact.removeEventListener("change", sync);
       disable();
     };
   }, [names]);

@@ -1,4 +1,6 @@
 .section {
+  --card-w: clamp(280px, 68vw, 860px);
+
   position: relative;
   height: calc(var(--card-count) * 100svh);
 }
@@ -46,7 +48,7 @@
 .ctaCard {
   position: relative;
   flex: 0 0 auto;
-  width: clamp(280px, 68vw, 860px);
+  width: var(--card-w);
   height: min(74vh, 720px);
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -196,9 +198,11 @@
  * ------------------------------------------------------------------------ */
 
 .metrics {
+  --metric-gap: clamp(10px, 1.6vw, 26px);
+
   display: flex;
   flex-wrap: wrap;
-  gap: clamp(10px, 1.6vw, 26px);
+  gap: var(--metric-gap);
   margin-top: clamp(14px, 1.8vw, 26px);
 }
 
@@ -366,6 +370,68 @@
   font-family: var(--font-display);
   font-size: var(--text-body-sm);
   text-transform: uppercase;
+}
+
+/*
+ * On a phone the pinned track is driven by vertical scrolling, which reads as
+ * the page refusing to move. Swiping sideways is what a phone user expects, so
+ * below the breakpoint the viewport becomes a real horizontal scroller with
+ * snapping and the JS track transform stays off.
+ */
+@media (max-width: 47.9375rem) and (prefers-reduced-motion: no-preference) {
+  .section {
+    height: auto;
+  }
+
+  .stage {
+    position: static;
+    height: auto;
+    overflow: visible;
+    padding-block: var(--space-section) 0;
+  }
+
+  .ghost {
+    display: none;
+  }
+
+  .viewport {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+
+  .viewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .track {
+    padding-inline: max(var(--gutter-page), calc((100vw - var(--card-w)) / 2));
+  }
+
+  .cardShell {
+    scroll-snap-align: center;
+  }
+
+  .card,
+  .ctaCard {
+    height: min(72svh, 620px);
+  }
+
+  .progress {
+    padding-top: clamp(18px, 4vw, 28px);
+  }
+
+  /* Five rings in a row leave 56px per label, and "RESISTENCIA" needs 89px, so
+     the labels used to run into each other. Three per row gives them space. */
+  .ring {
+    width: calc((100% - 2 * var(--metric-gap)) / 3);
+  }
+
+  .ringLabel {
+    letter-spacing: 0.08em;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
