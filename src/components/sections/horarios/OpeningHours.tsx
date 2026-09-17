@@ -27,10 +27,14 @@ export function OpeningHours(): ReactElement {
         {schedule.map((block, i) => {
           const opens = toMinutes(block.opens);
           const closesRaw = toMinutes(block.closes);
+          const wraps = closesRaw <= opens;
           // A band that ends after midnight reads as a smaller number than it
           // starts at; the track is one day wide, so it is clamped at the edge.
-          const closes = closesRaw <= opens ? DAY_MINUTES : closesRaw;
-          const hours = Math.round((closes - opens) / 60);
+          // The badge counts the real span, which runs past that edge.
+          const closes = wraps ? DAY_MINUTES : closesRaw;
+          const hours = Math.round(
+            ((wraps ? closesRaw + DAY_MINUTES : closesRaw) - opens) / 60,
+          );
           const featured = block.days.length > 1;
 
           return (

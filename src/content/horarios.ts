@@ -7,8 +7,8 @@ import type { HorariosPage } from "@/types/content";
  */
 export const horarios = {
   eyebrow: "Horarios",
-  headlineSolid: "De 6 de la",
-  headlineOutlined: "mañana a la 1",
+  headlineSolid: "Tú pones",
+  headlineOutlined: "la hora",
   keywordLine: "Horario del gimnasio en Calahorra",
   lead: "Diecinueve horas abiertos de lunes a viernes. Entra a la hora que te cuadre y reserva tu clase dirigida desde la app.",
   heroAction: "Ver la semana",
