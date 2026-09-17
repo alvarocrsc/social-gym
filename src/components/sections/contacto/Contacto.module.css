@@ -656,26 +656,14 @@
   }
 
   /*
-   * The photo belongs to the invitation's screen, not to the reference columns
-   * below it, so it stops at the fold. One viewport tall: the band starts
-   * behind the fixed bar and ends where `.invite` does.
+   * No photo here. The invitation fills the screen with text top to bottom, so
+   * there is no free area for it to sit in: any scrim light enough to show the
+   * room is too light for the dim mono lines. The plane keeps the flat ground
+   * it was designed on.
    */
   .planeMedia,
   .planeScrim {
-    height: 100svh;
-    bottom: auto;
-  }
-
-  /* Text runs the whole band here, so the scrim is even rather than graded,
-   * light enough to read the room and heavy enough for the dim mono lines. */
-  .planeScrim {
-    background: linear-gradient(
-      180deg,
-      rgb(from var(--color-base) r g b / 0.58) 0%,
-      rgb(from var(--color-base) r g b / 0.66) 46%,
-      rgb(from var(--color-base) r g b / 0.88) 84%,
-      var(--color-base) 100%
-    );
+    display: none;
   }
 
   .column {

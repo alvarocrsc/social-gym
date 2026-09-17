@@ -38,7 +38,6 @@ export async function ContactoPlane(): Promise<ReactElement> {
               src={photo}
               alt=""
               fill
-              priority
               sizes="100vw"
             />
           </div>
