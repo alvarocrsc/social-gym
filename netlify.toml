@@ -18,7 +18,7 @@
   # Base for metadataBase, canonicals, the sitemap and every JSON-LD @id.
   # `lib/seo/routes.ts` throws without it rather than shipping `undefined`
   # into production markup, so it has to exist in every context.
-  NEXT_PUBLIC_SITE_URL = "https://socialgymfit.com"
+  NEXT_PUBLIC_SITE_URL = "https://socialgym.club"
 
 [context.production.environment]
   SITE_ENV = "production"

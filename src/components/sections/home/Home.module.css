@@ -1137,6 +1137,91 @@
   }
 }
 
+@media (max-width: 35.9375rem) {
+  .visitLead {
+    margin-top: 18px;
+    font-size: var(--text-body);
+  }
+
+  .info {
+    margin-top: 30px;
+  }
+
+  .infoRow {
+    position: relative;
+    gap: 0;
+    padding-block: 0;
+    border-bottom: 0;
+  }
+
+  .infoLabel {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .infoRow[data-info="address"] {
+    padding-top: 24px;
+  }
+
+  .infoRow[data-info="address"] .infoValue {
+    gap: 14px;
+  }
+
+  .infoRow[data-info="phone"] {
+    padding-top: 22px;
+  }
+
+  .infoRow[data-info="hours"] {
+    margin-top: 28px;
+    padding-top: 26px;
+    border-top: 1px solid var(--color-hairline);
+  }
+
+  .infoRow[data-info="hours"] .infoValue {
+    gap: 18px;
+  }
+
+  .address {
+    font-size: var(--text-body);
+    line-height: 1.55;
+  }
+
+  .status {
+    order: -1;
+    align-items: flex-start;
+  }
+
+  .statusDot {
+    margin-top: 0.28em;
+  }
+
+  .hours {
+    gap: 10px;
+    max-width: none;
+    padding-left: 18px;
+  }
+
+  .hoursRow[data-active]::before {
+    left: -18px;
+  }
+
+  .actions {
+    align-items: stretch;
+    gap: 22px;
+    margin-top: 34px;
+  }
+
+  .cta {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .home[data-motion] [data-rv],
   .home[data-motion] [data-rv-line] > span {

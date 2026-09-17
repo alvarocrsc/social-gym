@@ -48,7 +48,7 @@ export async function HomeVisit(): Promise<ReactElement> {
         </p>
 
         <dl className={styles.info}>
-          <div className={styles.infoRow} data-rv>
+          <div className={styles.infoRow} data-info="address" data-rv>
             <dt className={styles.infoLabel}>{visit.addressLabel}</dt>
             <dd className={styles.infoValue}>
               <address className={styles.address}>
@@ -67,7 +67,12 @@ export async function HomeVisit(): Promise<ReactElement> {
               </a>
             </dd>
           </div>
-          <div className={styles.infoRow} data-rv style={revealDelay(80)}>
+          <div
+            className={styles.infoRow}
+            data-info="phone"
+            data-rv
+            style={revealDelay(80)}
+          >
             <dt className={styles.infoLabel}>{visit.phoneLabel}</dt>
             <dd className={styles.infoValue}>
               <a className={styles.phone} href={`tel:${site.phone}`}>
@@ -75,7 +80,12 @@ export async function HomeVisit(): Promise<ReactElement> {
               </a>
             </dd>
           </div>
-          <div className={styles.infoRow} data-rv style={revealDelay(160)}>
+          <div
+            className={styles.infoRow}
+            data-info="hours"
+            data-rv
+            style={revealDelay(160)}
+          >
             <dt className={styles.infoLabel}>{visit.hoursLabel}</dt>
             <dd className={styles.infoValue}>
               <VisitHours

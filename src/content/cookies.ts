@@ -137,13 +137,13 @@ export const cookies = {
           rows: [
             [
               "_ga",
-              "socialgymfit.com",
+              "socialgym.club",
               "Distingue visitantes de forma anónima.",
               "2 años",
             ],
             [
               "_ga_*",
-              "socialgymfit.com",
+              "socialgym.club",
               "Mantiene el estado de la sesión de medición.",
               "2 años",
             ],

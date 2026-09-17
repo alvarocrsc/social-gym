@@ -39,7 +39,7 @@ export const avisoLegal = {
             { term: "Domicilio", body: ADDRESS },
             { term: "Teléfono", body: site.phoneDisplay },
             { term: "Correo electrónico", body: site.email },
-            { term: "Sitio web", body: "socialgymfit.com" },
+            { term: "Sitio web", body: "socialgym.club" },
             {
               term: "Actividad",
               body: "Centro de entrenamiento y actividades dirigidas.",

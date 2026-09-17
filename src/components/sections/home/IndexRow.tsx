@@ -2,11 +2,11 @@ import Image from "next/image";
 import { Fragment, type ReactElement } from "react";
 
 import { Link } from "@/i18n/navigation";
-import { existingImage } from "@/lib/media/public-file";
 import { disciplinePathname } from "@/lib/seo/routes";
 import type { Discipline } from "@/types/content";
 
 import styles from "./Home.module.css";
+import { cardPhoto } from "./slot";
 import { revealDelay } from "./reveal";
 
 export interface IndexRowProps {
@@ -31,7 +31,7 @@ export function IndexRow({
   discipline,
   position,
 }: IndexRowProps): ReactElement {
-  const photo = existingImage(discipline.image.src);
+  const photo = cardPhoto(discipline);
 
   return (
     <li
@@ -56,7 +56,7 @@ export function IndexRow({
               src={photo}
               alt=""
               fill
-              sizes="112px"
+              sizes="64px"
             />
           )}
         </span>

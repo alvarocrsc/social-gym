@@ -1086,7 +1086,7 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  padding: 14px 22px;
+  padding: 11px 22px;
   border: 1px solid var(--color-hairline-strong);
   border-radius: var(--radius-full);
   text-decoration: none;
@@ -1110,7 +1110,8 @@
 .storeBadgeText {
   display: flex;
   flex-direction: column;
-  gap: -2px;
+  gap: 0;
+  line-height: 1.15;
 }
 
 .storeBadgeKicker {
@@ -1314,9 +1315,27 @@
     width: 100%;
   }
 
+  .storeRow {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
   .storeBadge {
+    flex: 1 1 140px;
+    min-width: 0;
     justify-content: center;
-    padding-inline: 16px;
+    gap: 8px;
+    padding-inline: 10px;
+  }
+
+  .storeBadgeIcon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .storeBadgeKicker {
+    letter-spacing: 0.08em;
   }
 
   .ctaAction {

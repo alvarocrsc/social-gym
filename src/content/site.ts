@@ -13,14 +13,14 @@ export const site = {
   nif: "B72749559",
   tagline: "Mambo, eat & repeat",
   foundingYear: 2022,
-  url: process.env.NEXT_PUBLIC_SITE_URL, // socialgymfit.com, registered via Hostinger
+  url: process.env.NEXT_PUBLIC_SITE_URL, // socialgym.club, registered via Hostinger
   phone: "+34941051433",
   phoneDisplay: "941 05 14 33",
   // TODO: confirm — same number on WhatsApp Business? Full international
   // number without the `+`, e.g. `34941051433`; empty drops the affordance
   // rather than faking it (§6.6).
   whatsapp: "",
-  email: "info@socialgymfit.com",
+  email: "info@socialgym.club",
   address: {
     street: "C. Viacampo, 12 bis",
     locality: "Calahorra",
