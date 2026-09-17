@@ -5,6 +5,7 @@ import type { MembresiasPage } from "@/types/content";
  * `plans.ts`, which mirrors the Virtuagym webshop.
  */
 export const membresias = {
+  heroImage: "/heroes/membresias.jpg",
   eyebrow: "Precios y cuotas",
   headlineSolid: "Una cuota.",
   headlineOutlined: "Todo dentro.",

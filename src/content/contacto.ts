@@ -9,6 +9,7 @@ import type { ContactoPage } from "@/types/content";
  * deliberately not carried over.
  */
 export const contacto = {
+  heroImage: "/heroes/contacto.jpg",
   headlineSolid: "Pásate a",
   headlineOutlined: "conocer la sala",
   keywordLine: "Gimnasio en Calahorra · teléfono y dirección",

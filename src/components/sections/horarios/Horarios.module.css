@@ -62,6 +62,40 @@
   margin-top: calc(-1 * var(--header-height));
   padding: calc(var(--header-height) + var(--space-block)) var(--gutter-page)
     var(--space-section);
+  overflow: hidden;
+}
+
+.heroMedia {
+  position: absolute;
+  inset: -8% -4%;
+  z-index: -2;
+  opacity: 0.75;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heroFallback {
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(120% 90% at 50% 0%, var(--color-panel), transparent 72%),
+    var(--color-surface);
+}
+
+.heroScrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    180deg,
+    rgb(from var(--color-base) r g b / 0.86) 0%,
+    rgb(from var(--color-base) r g b / 0.6) 45%,
+    rgb(from var(--color-base) r g b / 0.97) 92%
+  );
 }
 
 .eyebrow {
@@ -161,11 +195,17 @@
   );
 }
 
+.page[data-motion] .heroMedia {
+  transform: translate3d(0, calc(var(--hero-t, 0) * 0.26px), 0)
+    scale(calc(1 + var(--hero-t, 0) * 0.00014));
+}
+
 .page[data-motion] .heroCopy {
   transform: translate3d(0, calc(var(--hero-t, 0) * -0.1px), 0);
   opacity: calc(1 - var(--hero-fade, 0) * 0.85);
 }
 
+.page[data-motion][data-scrolling] .heroMedia,
 .page[data-motion][data-scrolling] .heroCopy {
   will-change: transform;
 }
@@ -1171,6 +1211,7 @@
 /* -------------------------------------------------------- reduced motion */
 
 @media (prefers-reduced-motion: reduce) {
+  .page[data-motion] .heroMedia,
   .page[data-motion] .heroCopy,
   .page[data-motion] .ctaMarquee,
   .page[data-motion] .openFill,

@@ -1,14 +1,29 @@
+import Image from "next/image";
 import type { ReactElement } from "react";
 
 import { membresias } from "@/content/membresias";
+import { existingImage } from "@/lib/media/public-file";
 
 import styles from "./Membresias.module.css";
 
 export function MembresiasHero(): ReactElement {
+  const photo = existingImage(membresias.heroImage);
+
   return (
     <section className={styles.hero} data-hero>
       <div className={styles.heroMedia} data-hero-media aria-hidden>
-        <div className={styles.heroFallback} />
+        {photo === "" ? (
+          <div className={styles.heroFallback} />
+        ) : (
+          <Image
+            className={styles.heroImage}
+            src={photo}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+          />
+        )}
       </div>
       <div className={styles.heroScrim} aria-hidden />
 

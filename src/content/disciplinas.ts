@@ -1,6 +1,7 @@
 import type { DisciplinasPage } from "@/types/content";
 
 export const disciplinas = {
+  heroImage: "/heroes/disciplinas.jpg",
   eyebrow: "Clases dirigidas en Calahorra",
   headlineSolid: "Trece formas",
   headlineOutlined: "de entrenar",

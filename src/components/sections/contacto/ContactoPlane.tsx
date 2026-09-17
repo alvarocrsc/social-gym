@@ -1,8 +1,10 @@
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import type { ReactElement } from "react";
 
 import { contacto } from "@/content/contacto";
 import { site } from "@/content/site";
+import { existingImage } from "@/lib/media/public-file";
 import type { DayCode } from "@/types/content";
 
 import styles from "./Contacto.module.css";
@@ -24,9 +26,25 @@ export async function ContactoPlane(): Promise<ReactElement> {
   const hasWhatsapp = whatsapp !== "";
 
   const { address } = site;
+  const photo = existingImage(contacto.heroImage);
 
   return (
     <section className={styles.plane} aria-labelledby="contacto-titulo">
+      {photo === "" ? null : (
+        <>
+          <div className={styles.planeMedia} aria-hidden>
+            <Image
+              className={styles.planeImage}
+              src={photo}
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+            />
+          </div>
+          <div className={styles.planeScrim} aria-hidden />
+        </>
+      )}
       <div className={styles.column}>
         <div>
           <span className={styles.label}>{contacto.whereLabel}</span>

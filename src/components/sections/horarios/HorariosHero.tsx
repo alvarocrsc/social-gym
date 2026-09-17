@@ -1,12 +1,31 @@
+import Image from "next/image";
 import type { ReactElement } from "react";
 
 import { horarios } from "@/content/horarios";
+import { existingImage } from "@/lib/media/public-file";
 
 import styles from "./Horarios.module.css";
 
 export function HorariosHero(): ReactElement {
+  const photo = existingImage(horarios.heroImage);
+
   return (
     <section className={styles.hero} data-hero>
+      <div className={styles.heroMedia} data-hero-media aria-hidden>
+        {photo === "" ? (
+          <div className={styles.heroFallback} />
+        ) : (
+          <Image
+            className={styles.heroImage}
+            src={photo}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+          />
+        )}
+      </div>
+      <div className={styles.heroScrim} aria-hidden />
       <div className={styles.heroCopy} data-hero-copy>
         <span className={styles.eyebrow}>{horarios.eyebrow}</span>
 

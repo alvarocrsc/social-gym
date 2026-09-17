@@ -108,6 +108,12 @@ export interface Discipline {
 
 /** Copy for the /disciplinas hub. The cards come from `disciplines.ts`. */
 export interface DisciplinasPage {
+  /**
+   * Decorative full-bleed photo behind the hero copy, sitting at half
+   * opacity under a scrim. Empty or missing on disk falls back to the
+   * gradient, so the page never waits on photography.
+   */
+  heroImage: string;
   eyebrow: string;
   headlineSolid: string;
   headlineOutlined: string;
@@ -203,6 +209,12 @@ export interface ClassSlot {
 }
 
 export interface HorariosPage {
+  /**
+   * Decorative full-bleed photo behind the hero copy, sitting at half
+   * opacity under a scrim. Empty or missing on disk falls back to the
+   * gradient, so the page never waits on photography.
+   */
+  heroImage: string;
   eyebrow: string;
   headlineSolid: string;
   headlineOutlined: string;
@@ -264,6 +276,12 @@ export interface MembershipPlan {
 }
 
 export interface MembresiasPage {
+  /**
+   * Decorative full-bleed photo behind the hero copy, sitting at half
+   * opacity under a scrim. Empty or missing on disk falls back to the
+   * gradient, so the page never waits on photography.
+   */
+  heroImage: string;
   eyebrow: string;
   headlineSolid: string;
   headlineOutlined: string;
@@ -306,6 +324,12 @@ export interface MembresiasPage {
  * words wrapped around them.
  */
 export interface ContactoPage {
+  /**
+   * Decorative full-bleed photo behind the contact plane. The copy sits at
+   * the bottom of the first screen, so the scrim is light where the image
+   * is on its own and heavy where it meets the text.
+   */
+  heroImage: string;
   headlineSolid: string;
   headlineOutlined: string;
   keywordLine: string;

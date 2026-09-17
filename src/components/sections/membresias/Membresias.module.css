@@ -75,7 +75,7 @@
   position: absolute;
   inset: -8% -4%;
   z-index: -2;
-  opacity: 0.5;
+  opacity: 0.75;
 }
 
 .heroImage {

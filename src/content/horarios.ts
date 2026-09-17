@@ -6,6 +6,7 @@ import type { HorariosPage } from "@/types/content";
  * `schedule.ts`.
  */
 export const horarios = {
+  heroImage: "/heroes/horarios.jpg",
   eyebrow: "Horarios",
   headlineSolid: "Tú pones",
   headlineOutlined: "la hora",

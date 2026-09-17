@@ -115,6 +115,49 @@
   padding: clamp(28px, 5vh, 64px) var(--gutter-centered) clamp(44px, 9vh, 112px);
 }
 
+/*
+ * Only the decorative layers run past the fixed bar, which `main` pads for.
+ * Moving the section itself would break `.invite`'s `100svh - header` contract
+ * on phones and let the reference columns peek above the fold again.
+ */
+.planeMedia {
+  position: absolute;
+  top: calc(-1 * var(--header-height));
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -2;
+  opacity: 0.75;
+}
+
+.planeImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*
+ * Two scrims, because the copy sits in a different place in each layout. Below
+ * the three-column breakpoint the columns stack and the invitation is pulled
+ * first, so text starts at the very top and the photo has to stay under it
+ * throughout.
+ */
+.planeScrim {
+  position: absolute;
+  top: calc(-1 * var(--header-height));
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background: linear-gradient(
+    180deg,
+    rgb(from var(--color-base) r g b / 0.8) 0%,
+    rgb(from var(--color-base) r g b / 0.88) 40%,
+    rgb(from var(--color-base) r g b / 0.96) 78%,
+    var(--color-base) 100%
+  );
+}
+
 /* The invitation carries the h1 and the primary action, so it gets the
  * remaining width rather than an equal third. */
 @media (min-width: 68rem) {
@@ -123,6 +166,18 @@
       minmax(190px, 0.72fr)
       minmax(190px, 0.72fr)
       minmax(min(100%, 30rem), 1fr);
+  }
+
+  /* Three columns pin the copy to the bottom 43%, freeing the upper half for
+   * the photo. */
+  .planeScrim {
+    background: linear-gradient(
+      180deg,
+      rgb(from var(--color-base) r g b / 0.4) 0%,
+      rgb(from var(--color-base) r g b / 0.48) 22%,
+      rgb(from var(--color-base) r g b / 0.93) 42%,
+      var(--color-base) 60%
+    );
   }
 }
 
@@ -598,6 +653,29 @@
     gap: clamp(40px, 7vh, 56px);
     padding-top: 0;
     padding-bottom: clamp(52px, 9vh, 88px);
+  }
+
+  /*
+   * The photo belongs to the invitation's screen, not to the reference columns
+   * below it, so it stops at the fold. One viewport tall: the band starts
+   * behind the fixed bar and ends where `.invite` does.
+   */
+  .planeMedia,
+  .planeScrim {
+    height: 100svh;
+    bottom: auto;
+  }
+
+  /* Text runs the whole band here, so the scrim is even rather than graded,
+   * light enough to read the room and heavy enough for the dim mono lines. */
+  .planeScrim {
+    background: linear-gradient(
+      180deg,
+      rgb(from var(--color-base) r g b / 0.58) 0%,
+      rgb(from var(--color-base) r g b / 0.66) 46%,
+      rgb(from var(--color-base) r g b / 0.88) 84%,
+      var(--color-base) 100%
+    );
   }
 
   .column {
