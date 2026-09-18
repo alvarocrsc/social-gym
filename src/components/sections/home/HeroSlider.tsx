@@ -15,6 +15,9 @@ const settings = {
 
 const EPSILON = 0.0005;
 
+const COMPACT_SMOOTHNESS = 0.18;
+const COMPACT_MAX_LAG = 0.8;
+
 interface SlideView {
   el: HTMLElement;
   videos: HTMLVideoElement[];
@@ -150,7 +153,17 @@ export function HeroSlider({
     }
 
     function tick(): void {
-      position += (target - position) * settings.smoothness;
+      if (compact.matches) {
+        const lag = target - position;
+        if (Math.abs(lag) > COMPACT_MAX_LAG) {
+          position = target - Math.sign(lag) * COMPACT_MAX_LAG;
+        }
+      }
+
+      const smoothness = compact.matches
+        ? COMPACT_SMOOTHNESS
+        : settings.smoothness;
+      position += (target - position) * smoothness;
 
       if (Math.abs(target - position) < EPSILON) {
         position = target;
