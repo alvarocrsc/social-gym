@@ -1399,148 +1399,11 @@ export const disciplines = [
     seo: pageSeo["/disciplinas/cross-combat"],
   },
   {
-    slug: "defensa-personal",
-    enSlug: "self-defence",
-    name: "Defensa Personal",
-    code: "[DFP]",
-    order: 11,
-    badge: "Clase dirigida", // TODO: confirm
-    shortDescription:
-      "Qué hacer cuando no hay reglas: distancia, salida y una respuesta sencilla que funcione bajo estrés.",
-    tagline:
-      "No es un deporte, es un recurso. Distancia, salida y respuestas simples que aguantan bajo presión.",
-    headline: { solid: "Salir", outlined: "de ahí" },
-    longDescription:
-      "La defensa personal no busca ganar un combate: busca que puedas irte. Se entrena la lectura de la distancia, la respuesta ante un agarre y la salida, con técnicas pocas y fáciles de recordar.",
-    paragraphs: [
-      "Cada sesión trabaja una situación concreta —un agarre de muñeca, un abrazo por detrás, un empujón— y una respuesta que funcione sin fuerza y sin años de práctica.",
-      "Se practica por parejas, a intensidad controlada y con el coach corrigiendo. Nadie golpea a nadie: lo que se entrena es la reacción, no el daño.",
-      "No hace falta experiencia previa ni forma física. Es la clase a la que más gente viene por tranquilidad, no por entrenar.",
-    ],
-    // TODO: confirm — material redactado, no facilitado por el club.
-    meta: [
-      { label: "Duración", value: "60 min" },
-      { label: "Objetivo", value: "Agilidad" },
-      { label: "Material", value: "Sin material" },
-      { label: "Nivel", value: "Todos" },
-    ],
-    forWho: "", // TODO: copy
-    sessionLooksLike: [], // TODO: copy
-    // TODO: confirm — reparto de minutos redactado, pendiente de validar con los coaches.
-    session: [
-      {
-        time: "00–10 min",
-        title: "Calentamiento",
-        body: "Movilidad general y desplazamientos para entrar en calor y despertar la reacción.",
-      },
-      {
-        time: "10–25 min",
-        title: "Distancia y postura",
-        body: "Cómo colocarte, cómo leer la distancia y cómo salir antes de que haya contacto.",
-      },
-      {
-        time: "25–50 min",
-        title: "Situación del día",
-        body: "Una liberación concreta, repetida por parejas hasta que sale sin pensarla.",
-      },
-      {
-        time: "50–60 min",
-        title: "Repaso y calma",
-        body: "Repaso de lo aprendido y estiramiento para cerrar la sesión.",
-      },
-    ],
-    cta: {
-      heading: "Ven a probarlo",
-      body: "Elige tu membresía y reserva tu sitio en la próxima clase.",
-    },
-    // TODO: confirm — placeholder profile, not measured.
-    metrics: [
-      { label: "Fuerza", value: 45 },
-      { label: "Resistencia", value: 55 },
-      { label: "Agilidad", value: 85 },
-      { label: "Velocidad", value: 75 },
-      { label: "Flexibilidad", value: 45 },
-    ],
-    level: "todos", // TODO: confirm
-    image: {
-      src: "/disciplinas/defensa-personal.jpg",
-      alt: "",
-      width: 1720,
-      height: 1440,
-    }, // TODO: photography
-    // TODO: photography — los pies de foto son un borrador, el material no existe.
-    gallery: [
-      {
-        caption: "Distancia y postura",
-        span: 2,
-        image: {
-          src: "/disciplinas/defensa-personal/01.jpg",
-          alt: "",
-          width: 1120,
-          height: 1080,
-        },
-      },
-      {
-        caption: "Liberación de agarre",
-        span: 3,
-        image: {
-          src: "/disciplinas/defensa-personal/02.jpg",
-          alt: "",
-          width: 1120,
-          height: 1080,
-        },
-      },
-      {
-        caption: "Trabajo por parejas",
-        span: 1,
-        image: {
-          src: "/disciplinas/defensa-personal/03.jpg",
-          alt: "",
-          width: 1120,
-          height: 1080,
-        },
-      },
-      {
-        caption: "Salida",
-        span: 3,
-        image: {
-          src: "/disciplinas/defensa-personal/04.jpg",
-          alt: "",
-          width: 1120,
-          height: 1080,
-        },
-      },
-      {
-        caption: "Repaso técnico",
-        span: 1,
-        image: {
-          src: "/disciplinas/defensa-personal/05.jpg",
-          alt: "",
-          width: 1120,
-          height: 1080,
-        },
-      },
-      {
-        caption: "Estiramiento",
-        span: 2,
-        image: {
-          src: "/disciplinas/defensa-personal/06.jpg",
-          alt: "",
-          width: 1120,
-          height: 1080,
-        },
-      },
-    ],
-    coachSlugs: ["wilson"], // Confirmado 2026-09-08
-    faq: [], // TODO: copy
-    seo: pageSeo["/disciplinas/defensa-personal"],
-  },
-  {
     slug: "bjj",
     enSlug: "brazilian-jiu-jitsu",
     name: "Brazilian Jiu-Jitsu",
     code: "[BJJ]",
-    order: 12,
+    order: 11,
     badge: "Hora y media", // TODO: confirm
     shortDescription:
       "Suelo, control y sumisión. El arte marcial donde la técnica gana a la fuerza, en sesiones de hora y media.",
@@ -1672,7 +1535,7 @@ export const disciplines = [
     enSlug: "mma-grappling",
     name: "MMA / Grappling",
     code: "[MMA]",
-    order: 13,
+    order: 12,
     badge: "Hora y media", // TODO: confirm
     shortDescription:
       "De pie y en el suelo, en la misma sesión. Golpeo, derribo y control, con la intensidad que tú marques.",

@@ -1,7 +1,7 @@
 import type { ClassSlot } from "@/types/content";
 
 /**
- * Weekly class timetable, transcribed from the club's own schedule 2026-09-15.
+ * Weekly class timetable, transcribed from the club's own schedule 2026-09-21.
  *
  * One dataset for both `/horarios` and every discipline page, so the two can
  * never disagree. A visibly stale timetable is worse than no timetable (§6.5):
@@ -36,34 +36,24 @@ export const classSchedule = [
     coachSlug: "adrian-buda",
   },
   { day: "Tu", start: "10:30", classSlug: "cross-combat", coachSlug: "wilson" },
-  {
-    day: "Tu",
-    start: "18:00",
-    classSlug: "funcional",
-    coachSlug: "andrea",
-  },
+  { day: "Tu", start: "18:00", classSlug: "funcional", coachSlug: "andrea" },
+  { day: "Tu", start: "19:00", classSlug: "bjj", coachSlug: "wilson" },
   {
     day: "Tu",
     start: "19:00",
     classSlug: "power-cycling",
     coachSlug: "andrea",
   },
-  {
-    day: "Tu",
-    start: "19:30",
-    classSlug: "mma-grappling",
-    coachSlug: "wilson",
-  },
   { day: "Tu", start: "20:00", classSlug: "hyrox", coachSlug: "andrea" },
 
   // Miércoles
+  { day: "We", start: "18:00", classSlug: "core", coachSlug: "andrea" },
   {
     day: "We",
-    start: "18:00",
-    classSlug: "defensa-personal",
+    start: "19:00",
+    classSlug: "mma-grappling",
     coachSlug: "wilson",
   },
-  { day: "We", start: "18:00", classSlug: "core", coachSlug: "andrea" },
   { day: "We", start: "19:00", classSlug: "athx", coachSlug: "adrian-buda" },
   { day: "We", start: "19:00", classSlug: "hiit", coachSlug: "andrea" },
   { day: "We", start: "19:30", classSlug: "boxeo", coachSlug: "simon" },
@@ -79,13 +69,13 @@ export const classSchedule = [
   },
   { day: "Th", start: "10:30", classSlug: "cross-combat", coachSlug: "wilson" },
   { day: "Th", start: "18:00", classSlug: "booty-power", coachSlug: "andrea" },
+  { day: "Th", start: "19:00", classSlug: "bjj", coachSlug: "wilson" },
   {
     day: "Th",
     start: "19:00",
     classSlug: "power-cycling",
     coachSlug: "andrea",
   },
-  { day: "Th", start: "19:30", classSlug: "bjj", coachSlug: "wilson" },
   { day: "Th", start: "20:00", classSlug: "hyrox", coachSlug: "andrea" },
 
   // Viernes
@@ -95,19 +85,14 @@ export const classSchedule = [
     classSlug: "funcional",
     coachSlug: "adrian-buda",
   },
+  { day: "Fr", start: "18:00", classSlug: "funcional", coachSlug: "andrea" },
   {
     day: "Fr",
-    start: "18:00",
-    classSlug: "funcional",
-    coachSlug: "andrea",
-  },
-  { day: "Fr", start: "19:00", classSlug: "athx", coachSlug: "adrian-buda" },
-  {
-    day: "Fr",
-    start: "19:30",
+    start: "19:00",
     classSlug: "mma-grappling",
     coachSlug: "wilson",
   },
+  { day: "Fr", start: "19:00", classSlug: "athx", coachSlug: "adrian-buda" },
   { day: "Fr", start: "20:00", classSlug: "hyrox", coachSlug: "andrea" },
 
   // Sábado
@@ -119,4 +104,4 @@ export const classSchedule = [
  * ISO date of the last timetable review. Rendered on /horarios so visitors can
  * see how current it is. Update it whenever `classSchedule` changes.
  */
-export const classScheduleLastUpdated = "2026-09-15";
+export const classScheduleLastUpdated = "2026-09-21";

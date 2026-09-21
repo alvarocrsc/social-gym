@@ -47,7 +47,11 @@ export async function HomeVisit(): Promise<ReactElement> {
           {visit.lead}
         </p>
 
-        <dl className={styles.info}>
+        {/* The address, phone and hours reach Google through the
+            LocalBusiness JSON-LD and the Business Profile. Left eligible for a
+            snippet they win it on local queries, crowding out what the page is
+            actually for. */}
+        <dl className={styles.info} data-nosnippet>
           <div className={styles.infoRow} data-info="address" data-rv>
             <dt className={styles.infoLabel}>{visit.addressLabel}</dt>
             <dd className={styles.infoValue}>

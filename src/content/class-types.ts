@@ -98,14 +98,6 @@ export const classTypes = [
     disciplineSlug: "cross-combat",
   },
   {
-    slug: "defensa-personal",
-    code: "DFP",
-    name: "Defensa Personal",
-    tier: "contacto",
-    durationMin: 60,
-    disciplineSlug: "defensa-personal",
-  },
-  {
     slug: "bjj",
     code: "BJJ",
     name: "Brazilian Jiu-Jitsu",

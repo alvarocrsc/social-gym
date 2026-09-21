@@ -79,10 +79,6 @@ export const routing = defineRouting({
       es: "/disciplinas/cross-combat",
       en: "/disciplines/cross-combat",
     },
-    "/disciplinas/defensa-personal": {
-      es: "/disciplinas/defensa-personal",
-      en: "/disciplines/self-defence",
-    },
     "/disciplinas/bjj": {
       es: "/disciplinas/bjj",
       en: "/disciplines/brazilian-jiu-jitsu",

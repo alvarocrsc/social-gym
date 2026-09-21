@@ -15,7 +15,7 @@ export const pageSeo = {
   "/": {
     title: "Gimnasio en Calahorra abierto 365 días | Social Gym",
     description:
-      "Centro de entrenamiento en Calahorra abierto los 365 días. Hyrox, boxeo, jiu-jitsu, ciclo, pilates, fuerza y más. Inclusivo y sin egos. Ven a vernos.",
+      "Gimnasio y centro oficial Hyrox en Calahorra, abierto los 365 días. Boxeo, jiu-jitsu, pilates, power cycling y más, todo en una sola cuota. Sin egos.",
     path: "/",
     primaryKeyword: "gimnasio calahorra",
     secondaryKeywords: [
@@ -37,7 +37,7 @@ export const pageSeo = {
   "/disciplinas": {
     title: "Clases dirigidas en Calahorra | Social Gym Calahorra",
     description:
-      "Trece clases dirigidas en un mismo centro de Calahorra: Hyrox, ATHX, boxeo, jiu-jitsu, ciclo, pilates, core y fuerza. Elige la tuya y empieza hoy mismo.",
+      "Doce clases dirigidas en un mismo centro de Calahorra: Hyrox, ATHX, boxeo, jiu-jitsu, ciclo, pilates, core y fuerza. Elige la tuya y empieza hoy mismo.",
     path: "/disciplinas",
     primaryKeyword: "clases dirigidas calahorra",
     secondaryKeywords: ["actividades gimnasio calahorra"],
@@ -121,14 +121,6 @@ export const pageSeo = {
     path: "/disciplinas/cross-combat",
     primaryKeyword: "cross combat calahorra",
     secondaryKeywords: ["clases de combate calahorra"],
-  },
-  "/disciplinas/defensa-personal": {
-    title: "Defensa personal en Calahorra | Social Gym Calahorra",
-    description:
-      "Clases de defensa personal en Calahorra: distancia, salida y respuestas sencillas que funcionan bajo estrés. Sin experiencia previa y sin golpearse.",
-    path: "/disciplinas/defensa-personal",
-    primaryKeyword: "defensa personal calahorra",
-    secondaryKeywords: ["clases defensa personal la rioja"],
   },
   "/disciplinas/bjj": {
     title: "Brazilian Jiu-Jitsu en Calahorra | Social Gym Calahorra",

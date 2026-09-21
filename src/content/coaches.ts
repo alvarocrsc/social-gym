@@ -47,12 +47,7 @@ export const coaches = [
     role: "", // TODO: confirm — título exacto
     bio: "", // TODO: copy
     image: { src: "/coaches/wilson.jpg", alt: "", width: 800, height: 800 }, // TODO: confirm — foto y consentimiento
-    disciplineSlugs: [
-      "cross-combat",
-      "defensa-personal",
-      "bjj",
-      "mma-grappling",
-    ],
+    disciplineSlugs: ["cross-combat", "bjj", "mma-grappling"],
   },
   {
     slug: "simon",
