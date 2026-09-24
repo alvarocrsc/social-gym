@@ -11,8 +11,8 @@ interface Scroller {
   start: () => void;
   stop: () => void;
   scrollTo: (
-    target: string | HTMLElement,
-    options?: { offset?: number },
+    target: number | string | HTMLElement,
+    options?: { offset?: number; immediate?: boolean; force?: boolean },
   ) => void;
 }
 
@@ -52,4 +52,9 @@ export function lockScroll(next: boolean): void {
   if (scroller === null) return;
   if (next) scroller.stop();
   else scroller.start();
+}
+
+export function resetScroll(): void {
+  scroller?.scrollTo(0, { immediate: true, force: true });
+  window.scrollTo(0, 0);
 }

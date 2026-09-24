@@ -3,7 +3,7 @@ import type { ReactElement } from "react";
 
 import { disciplines } from "@/content/disciplines";
 import { Link } from "@/i18n/navigation";
-import { existingImage } from "@/lib/media/public-file";
+import { croppedImage } from "@/lib/media/public-file";
 import { disciplinePathname } from "@/lib/seo/routes";
 import type { ClassType, Coach } from "@/types/content";
 
@@ -34,7 +34,7 @@ export function ClassChip({
   const discipline = disciplines.find(
     (entry) => entry.slug === classType.disciplineSlug,
   );
-  const photo = existingImage(discipline?.image.src ?? "");
+  const photo = croppedImage(discipline?.image.src ?? "", "chip");
   const hasImage = photo !== "";
   const label = [dayLabel, classType.name, `${start}–${end}`, coach?.name]
     .filter((part) => part !== undefined)
@@ -49,7 +49,7 @@ export function ClassChip({
             src={photo}
             alt=""
             fill
-            sizes="(min-width: 48rem) 200px, 150px"
+            sizes="(min-width: 48rem) 290px, 70vw"
           />
         ) : (
           <span className={styles.classImageFallback} />

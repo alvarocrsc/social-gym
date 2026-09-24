@@ -16,20 +16,6 @@ export function DisciplinaGallery({
   discipline,
 }: DisciplinaGalleryProps): ReactElement {
   const { gallery } = discipline;
-  const videoCount = gallery.filter(
-    (piece) => piece.video !== undefined && piece.video.length > 0,
-  ).length;
-
-  const meta = [
-    `${String(gallery.length).padStart(2, "0")} ${disciplina.galleryPieces}`,
-    videoCount > 0
-      ? `${String(videoCount)} ${
-          videoCount === 1 ? disciplina.galleryVideo : disciplina.galleryVideos
-        }`
-      : undefined,
-  ]
-    .filter((part) => part !== undefined)
-    .join(" · ");
 
   return (
     <section className={styles.gallery} data-gallery aria-labelledby="galeria">
@@ -39,7 +25,7 @@ export function DisciplinaGallery({
             {disciplina.galleryHeading}
           </h2>
           <span className={styles.sectionMeta} data-rv style={revealDelay(120)}>
-            {meta}
+            {disciplina.galleryMeta}
           </span>
         </div>
 
@@ -53,7 +39,7 @@ export function DisciplinaGallery({
 
               return (
                 <li
-                  key={piece.caption}
+                  key={piece.image.src}
                   className={styles.piece}
                   data-piece
                   data-span={piece.span}

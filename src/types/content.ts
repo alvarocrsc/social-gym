@@ -137,8 +137,9 @@ export interface DisciplinaPage {
   playLabel: string;
   closeLabel: string;
   galleryHeading: string;
-  galleryPieces: string;
-  galleryVideos: string;
+  /** Sits beside the heading. Describes the set rather than counting it. */
+  galleryMeta: string;
+  /** Still used by the piece badge, which is visually hidden. */
   galleryVideo: string;
   attributesHeading: string;
   attributeLevels: { high: string; mid: string; low: string };

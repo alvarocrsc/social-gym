@@ -1,8 +1,13 @@
 "use client"; // Lenis owns the scroll position, which only exists on the client.
 
-import { useEffect } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef } from "react";
 
-import { registerScroller, unregisterScroller } from "@/lib/motion/scroll-lock";
+import {
+  registerScroller,
+  resetScroll,
+  unregisterScroller,
+} from "@/lib/motion/scroll-lock";
 
 /**
  * Momentum smooth scrolling.
@@ -14,6 +19,46 @@ import { registerScroller, unregisterScroller } from "@/lib/motion/scroll-lock";
  * Renders nothing, loads nothing under `prefers-reduced-motion: reduce`.
  */
 export function SmoothScroll(): null {
+  const pathname = usePathname();
+  const mountedRef = useRef(false);
+  const poppedRef = useRef(false);
+
+  // Back and forward restore their own offset; only a fresh navigation starts
+  // at the top.
+  useEffect(() => {
+    function onPop(): void {
+      poppedRef.current = true;
+    }
+    window.addEventListener("popstate", onPop);
+    return () => {
+      window.removeEventListener("popstate", onPop);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!mountedRef.current) {
+      mountedRef.current = true;
+      return;
+    }
+    if (poppedRef.current) {
+      poppedRef.current = false;
+      return;
+    }
+    // A hash points at somewhere other than the top, so leave it alone.
+    if (window.location.hash !== "") return;
+
+    // Two frames: Lenis writes its stale target on the frame after the route
+    // commits, so an earlier reset would simply be overwritten.
+    let second = 0;
+    const first = requestAnimationFrame(() => {
+      second = requestAnimationFrame(resetScroll);
+    });
+    return () => {
+      cancelAnimationFrame(first);
+      cancelAnimationFrame(second);
+    };
+  }, [pathname]);
+
   useEffect(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 

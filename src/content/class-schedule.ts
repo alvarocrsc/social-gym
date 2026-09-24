@@ -1,7 +1,7 @@
 import type { ClassSlot } from "@/types/content";
 
 /**
- * Weekly class timetable, transcribed from the club's own schedule 2026-09-21.
+ * Weekly class timetable, transcribed from the club's own schedule 2026-09-24.
  *
  * One dataset for both `/horarios` and every discipline page, so the two can
  * never disagree. A visibly stale timetable is worse than no timetable (§6.5):
@@ -50,7 +50,7 @@ export const classSchedule = [
   { day: "We", start: "18:00", classSlug: "core", coachSlug: "andrea" },
   {
     day: "We",
-    start: "19:00",
+    start: "18:00",
     classSlug: "mma-grappling",
     coachSlug: "wilson",
   },
@@ -88,7 +88,7 @@ export const classSchedule = [
   { day: "Fr", start: "18:00", classSlug: "funcional", coachSlug: "andrea" },
   {
     day: "Fr",
-    start: "19:00",
+    start: "18:00",
     classSlug: "mma-grappling",
     coachSlug: "wilson",
   },
@@ -104,4 +104,4 @@ export const classSchedule = [
  * ISO date of the last timetable review. Rendered on /horarios so visitors can
  * see how current it is. Update it whenever `classSchedule` changes.
  */
-export const classScheduleLastUpdated = "2026-09-21";
+export const classScheduleLastUpdated = "2026-09-24";
