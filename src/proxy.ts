@@ -1,6 +1,8 @@
+import { NextResponse, type NextRequest } from "next/server";
 import createMiddleware from "next-intl/middleware";
 
 import { routing } from "@/i18n/routing";
+import { legacyDestination } from "@/lib/seo/legacy-paths";
 
 /**
  * Locale negotiation and rewriting of localized pathnames.
@@ -9,9 +11,20 @@ import { routing } from "@/i18n/routing";
  * `proxy` — see `node_modules/next/dist/docs/01-app/02-guides/upgrading/version-16.md`.
  * Behaviour is unchanged; only the file and export names moved.
  */
-const proxy = createMiddleware(routing);
+const intl = createMiddleware(routing);
 
-export default proxy;
+/**
+ * Retired paths are answered here, before locale negotiation. next-intl cannot
+ * map them to a route and would answer 404, and on Netlify this runs at the
+ * edge ahead of anything `next.config.ts` declares.
+ */
+export default function proxy(request: NextRequest): NextResponse {
+  const destination = legacyDestination(request.nextUrl.pathname);
+  if (destination !== undefined) {
+    return NextResponse.redirect(new URL(destination, request.url), 308);
+  }
+  return intl(request);
+}
 
 export const config = {
   /*
