@@ -5,7 +5,12 @@ import { pageSeo } from "./seo";
 // AV1 first, H.264 second — same order and reasoning as `hero.ts`. Both strings
 // are read out of each file's av1C / avcC box, never guessed: a wrong one makes
 // the browser skip the source with no error.
-const GALLERY_AV1 = 'video/mp4; codecs="av01.0.08M.08"';
+//
+// The AV1 level rides on resolution, so a clip cropped out of landscape footage
+// declares a lower one than the tall Hyrox pair. Both are real values from the
+// files, not a shared guess.
+const GALLERY_AV1_L8 = 'video/mp4; codecs="av01.0.08M.08"'; // 1152×1360
+const GALLERY_AV1_L5 = 'video/mp4; codecs="av01.0.05M.08"'; // 916×1080
 const GALLERY_H264 = 'video/mp4; codecs="avc1.640028"'; // High@4.0
 
 /**
@@ -120,7 +125,7 @@ export const disciplines = [
           height: 1360,
         },
         video: [
-          { src: "/disciplinas/hyrox/02.av1.mp4", type: GALLERY_AV1 },
+          { src: "/disciplinas/hyrox/02.av1.mp4", type: GALLERY_AV1_L8 },
           { src: "/disciplinas/hyrox/02.mp4", type: GALLERY_H264 },
         ],
         duration: "0:06",
@@ -145,7 +150,7 @@ export const disciplines = [
           height: 1360,
         },
         video: [
-          { src: "/disciplinas/hyrox/04.av1.mp4", type: GALLERY_AV1 },
+          { src: "/disciplinas/hyrox/04.av1.mp4", type: GALLERY_AV1_L8 },
           { src: "/disciplinas/hyrox/04.mp4", type: GALLERY_H264 },
         ],
         duration: "0:06",
@@ -1083,6 +1088,11 @@ export const disciplines = [
           width: 1120,
           height: 1080,
         },
+        video: [
+          { src: "/disciplinas/core/02.av1.mp4", type: GALLERY_AV1_L5 },
+          { src: "/disciplinas/core/02.mp4", type: GALLERY_H264 },
+        ],
+        duration: "0:06",
       },
       {
         caption: "Plancha lateral",
@@ -1103,6 +1113,11 @@ export const disciplines = [
           width: 1120,
           height: 1080,
         },
+        video: [
+          { src: "/disciplinas/core/04.av1.mp4", type: GALLERY_AV1_L5 },
+          { src: "/disciplinas/core/04.mp4", type: GALLERY_H264 },
+        ],
+        duration: "0:06",
       },
       {
         caption: "Trabajo con banda",
@@ -1113,6 +1128,11 @@ export const disciplines = [
           width: 1120,
           height: 1080,
         },
+        video: [
+          { src: "/disciplinas/core/05.av1.mp4", type: GALLERY_AV1_L5 },
+          { src: "/disciplinas/core/05.mp4", type: GALLERY_H264 },
+        ],
+        duration: "0:06",
       },
       {
         caption: "Estiramiento",
@@ -1215,6 +1235,11 @@ export const disciplines = [
           width: 1120,
           height: 1080,
         },
+        video: [
+          { src: "/disciplinas/hiit/02.av1.mp4", type: GALLERY_AV1_L5 },
+          { src: "/disciplinas/hiit/02.mp4", type: GALLERY_H264 },
+        ],
+        duration: "0:06",
       },
       {
         caption: "Peso corporal",
@@ -1235,6 +1260,11 @@ export const disciplines = [
           width: 1120,
           height: 1080,
         },
+        video: [
+          { src: "/disciplinas/hiit/04.av1.mp4", type: GALLERY_AV1_L5 },
+          { src: "/disciplinas/hiit/04.mp4", type: GALLERY_H264 },
+        ],
+        duration: "0:06",
       },
       {
         caption: "Descanso activo",
