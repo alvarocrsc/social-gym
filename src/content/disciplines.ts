@@ -408,6 +408,11 @@ export const disciplines = [
           width: 1120,
           height: 1080,
         },
+        video: [
+          { src: "/disciplinas/athx/02.av1.mp4", type: GALLERY_AV1_L5 },
+          { src: "/disciplinas/athx/02.mp4", type: GALLERY_H264 },
+        ],
+        duration: "0:06",
       },
       {
         caption: "Peso muerto",
@@ -428,6 +433,11 @@ export const disciplines = [
           width: 1120,
           height: 1080,
         },
+        video: [
+          { src: "/disciplinas/athx/04.av1.mp4", type: GALLERY_AV1_L5 },
+          { src: "/disciplinas/athx/04.mp4", type: GALLERY_H264 },
+        ],
+        duration: "0:06",
       },
       {
         caption: "Trabajo con cargas",
@@ -438,6 +448,11 @@ export const disciplines = [
           width: 1120,
           height: 1080,
         },
+        video: [
+          { src: "/disciplinas/athx/05.av1.mp4", type: GALLERY_AV1_L5 },
+          { src: "/disciplinas/athx/05.mp4", type: GALLERY_H264 },
+        ],
+        duration: "0:06",
       },
       {
         caption: "Ejercicios funcionales",
