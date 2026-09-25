@@ -560,6 +560,11 @@ export const disciplines = [
           width: 1120,
           height: 1080,
         },
+        video: [
+          { src: "/disciplinas/pilates/02.av1.mp4", type: GALLERY_AV1_L5 },
+          { src: "/disciplinas/pilates/02.mp4", type: GALLERY_H264 },
+        ],
+        duration: "0:06",
       },
       {
         caption: "Aro y banda",
