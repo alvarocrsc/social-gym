@@ -381,9 +381,26 @@
 }
 
 .galleryTrack {
+  --track-gap: clamp(12px, 1.6vw, 26px);
+
   display: flex;
-  gap: clamp(12px, 1.6vw, 26px);
+  gap: var(--track-gap);
   padding-inline: var(--gutter-page);
+}
+
+@media (max-width: 47.9375rem) {
+  .galleryViewport {
+    scrollbar-width: none;
+  }
+
+  .galleryViewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .galleryTrack::after {
+    content: "";
+    flex: 0 0 calc(var(--gutter-page) - var(--track-gap));
+  }
 }
 
 .page[data-gallery-pin] .galleryTrack {
