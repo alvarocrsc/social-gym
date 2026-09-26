@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { ReactElement } from "react";
 
+import { disciplinas } from "@/content/disciplinas";
 import { Link } from "@/i18n/navigation";
 import { existingImage } from "@/lib/media/public-file";
 import { disciplinePathname } from "@/lib/seo/routes";
@@ -90,6 +91,16 @@ export function DisciplineCard({
             </Link>
           </h2>
           <p className={styles.cardText}>{discipline.shortDescription}</p>
+
+          <p className={styles.cardHint} aria-hidden>
+            <span className={styles.cardHintTouch}>
+              {disciplinas.cardHintTouch}
+            </span>
+            <span className={styles.cardHintPointer}>
+              {disciplinas.cardHintPointer}
+            </span>
+            <span className={styles.cardHintArrow}>→</span>
+          </p>
 
           <div
             className={styles.metrics}

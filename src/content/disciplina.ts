@@ -12,6 +12,7 @@ export const disciplina = {
   closeLabel: "Cerrar",
   galleryHeading: "Dentro de la sala",
   galleryMeta: "Una sesión real",
+  galleryHint: "Desliza para ver más",
   galleryVideo: "vídeo",
   attributesHeading: "Qué trabaja",
   attributeLevels: { high: "Alta", mid: "Media", low: "Baja" },

@@ -271,6 +271,11 @@ export const disciplines = [
           width: 1120,
           height: 1080,
         },
+        video: [
+          { src: "/disciplinas/boxeo/02.av1.mp4", type: GALLERY_AV1_L5 },
+          { src: "/disciplinas/boxeo/02.mp4", type: GALLERY_H264 },
+        ],
+        duration: "0:06",
       },
       {
         caption: "Saco pesado",
@@ -976,6 +981,17 @@ export const disciplines = [
           width: 1120,
           height: 1080,
         },
+        video: [
+          {
+            src: "/disciplinas/entrenamiento-funcional/02.av1.mp4",
+            type: GALLERY_AV1_L5,
+          },
+          {
+            src: "/disciplinas/entrenamiento-funcional/02.mp4",
+            type: GALLERY_H264,
+          },
+        ],
+        duration: "0:06",
       },
       {
         caption: "Press militar",

@@ -109,6 +109,12 @@ export interface Discipline {
 /** Copy for the /disciplinas hub. The cards come from `disciplines.ts`. */
 export interface DisciplinasPage {
   /**
+   * The card is a link, but only its title looks like one. These say so, one
+   * per input type — CSS picks which is shown, so it is right before hydration.
+   */
+  cardHintTouch: string;
+  cardHintPointer: string;
+  /**
    * Decorative full-bleed photo behind the hero copy, sitting at half
    * opacity under a scrim. Empty or missing on disk falls back to the
    * gradient, so the page never waits on photography.
@@ -139,6 +145,8 @@ export interface DisciplinaPage {
   galleryHeading: string;
   /** Sits beside the heading. Describes the set rather than counting it. */
   galleryMeta: string;
+  /** Shown only where the track is panned by finger rather than by scroll. */
+  galleryHint: string;
   /** Still used by the piece badge, which is visually hidden. */
   galleryVideo: string;
   attributesHeading: string;

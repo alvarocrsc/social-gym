@@ -285,7 +285,7 @@
   position: relative;
 }
 
-.page[data-motion] .gallery {
+.page[data-gallery-pin] .gallery {
   height: var(--gallery-height, 360vh);
 }
 
@@ -298,7 +298,7 @@
   overflow: hidden;
 }
 
-.page[data-motion] .galleryStage {
+.page[data-gallery-pin] .galleryStage {
   position: sticky;
   top: 0;
   height: 100svh;
@@ -312,6 +312,45 @@
   justify-content: space-between;
   gap: var(--space-block);
   padding-inline: var(--gutter-page);
+}
+ 
+.galleryHint {
+  display: none;
+}
+
+@media (max-width: 47.9375rem) {
+  .galleryHint {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-sm);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent-soft);
+  }
+
+  .galleryHintArrow {
+    animation: dg-nudge 1.8s var(--ease-out) infinite;
+  }
+}
+
+@keyframes dg-nudge {
+  0%,
+  60%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  30% {
+    transform: translate3d(6px, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .galleryHintArrow {
+    animation: none;
+  }
 }
 
 .sectionTitle {
@@ -337,7 +376,7 @@
   scroll-snap-type: x mandatory;
 }
 
-.page[data-motion] .galleryViewport {
+.page[data-gallery-pin] .galleryViewport {
   overflow: hidden;
 }
 
@@ -347,11 +386,11 @@
   padding-inline: var(--gutter-page);
 }
 
-.page[data-motion] .galleryTrack {
+.page[data-gallery-pin] .galleryTrack {
   transform: translate3d(calc(var(--gallery-x, 0) * -1px), 0, 0);
 }
 
-.page[data-motion][data-scrolling] .galleryTrack {
+.page[data-gallery-pin][data-scrolling] .galleryTrack {
   will-change: transform;
 }
 
@@ -1297,21 +1336,21 @@
  */
 
 @media (prefers-reduced-motion: reduce) {
-  .page[data-motion] .gallery {
+  .page[data-gallery-pin] .gallery {
     height: auto;
   }
 
-  .page[data-motion] .galleryStage {
+  .page[data-gallery-pin] .galleryStage {
     position: static;
     height: auto;
     padding: var(--space-section) 0 var(--space-block);
   }
 
-  .page[data-motion] .galleryViewport {
+  .page[data-gallery-pin] .galleryViewport {
     overflow-x: auto;
   }
 
-  .page[data-motion] .galleryTrack,
+  .page[data-gallery-pin] .galleryTrack,
   .page[data-motion] .piece,
   .page[data-motion] .pieceMedia,
   .page[data-motion] .heroMedia,

@@ -42,6 +42,7 @@ export function DisciplinaMotion({
     if (root === null) return;
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const compact = window.matchMedia("(max-width: 47.9375rem)");
 
     let disposed = false;
     let teardown: (() => void) | null = null;
@@ -53,6 +54,9 @@ export function DisciplinaMotion({
       const hero = root.querySelector<HTMLElement>("[data-hero]");
       const gallery = root.querySelector<HTMLElement>("[data-gallery]");
       const track = root.querySelector<HTMLElement>("[data-gallery-track]");
+      const viewport = root.querySelector<HTMLElement>(
+        "[data-gallery-viewport]",
+      );
       const session = root.querySelector<HTMLElement>("[data-session]");
       const cta = root.querySelector<HTMLElement>("[data-cta]");
       const pieces = Array.from(
@@ -103,12 +107,21 @@ export function DisciplinaMotion({
           // and the last figure never reaches the edge.
           overflow = Math.max(0, track.scrollWidth + gutter - viewportW);
 
-          // Pin only for as long as there is track left to pan. A short track
-          // — narrow figures on a phone — collapses to no pin at all.
-          gallery.style.setProperty(
-            "--gallery-height",
-            `${String(viewportH + overflow * 1.1)}px`,
-          );
+          if (compact.matches) {
+            root?.removeAttribute("data-gallery-pin");
+            gallery.style.removeProperty("--gallery-height");
+            track.style.removeProperty("--gallery-x");
+            trackX = 0;
+            trackTarget = 0;
+          } else {
+            root?.setAttribute("data-gallery-pin", "");
+            // Pin only for as long as there is track left to pan. A short track
+            // — narrow figures on a phone — collapses to no pin at all.
+            gallery.style.setProperty(
+              "--gallery-height",
+              `${String(viewportH + overflow * 1.1)}px`,
+            );
+          }
         }
       }
 
@@ -132,16 +145,19 @@ export function DisciplinaMotion({
 
         if (gallery !== null && track !== null) {
           const rect = gallery.getBoundingClientRect();
-          const travel = gallery.offsetHeight - viewportH;
-          const p = travel > 0 ? clamp01(-rect.top / travel) : 0;
-          trackTarget = p * overflow;
 
-          trackX =
-            Math.abs(trackTarget - trackX) < 0.5
-              ? trackTarget
-              : trackX + (trackTarget - trackX) * TRACK_LERP;
-          track.style.setProperty("--gallery-x", trackX.toFixed(2));
-          if (trackX !== trackTarget) dirty = true;
+          if (!compact.matches) {
+            const travel = gallery.offsetHeight - viewportH;
+            const p = travel > 0 ? clamp01(-rect.top / travel) : 0;
+            trackTarget = p * overflow;
+
+            trackX =
+              Math.abs(trackTarget - trackX) < 0.5
+                ? trackTarget
+                : trackX + (trackTarget - trackX) * TRACK_LERP;
+            track.style.setProperty("--gallery-x", trackX.toFixed(2));
+            if (trackX !== trackTarget) dirty = true;
+          }
 
           const visible = rect.bottom > 0 && rect.top < viewportH;
           if (visible) {
@@ -272,12 +288,21 @@ export function DisciplinaMotion({
       update();
       root.setAttribute("data-motion", "");
 
+      function onTrackScroll(): void {
+        dirty = true;
+        onScroll();
+      }
+
       gsap.ticker.add(update);
       window.addEventListener("scroll", onScroll, { passive: true });
+      viewport?.addEventListener("scroll", onTrackScroll, { passive: true });
+      compact.addEventListener("change", measure);
 
       teardown = () => {
         gsap.ticker.remove(update);
         window.removeEventListener("scroll", onScroll);
+        viewport?.removeEventListener("scroll", onTrackScroll);
+        compact.removeEventListener("change", measure);
         window.clearTimeout(idleTimer);
         countTweens.forEach((tween) => {
           tween.kill();
@@ -285,6 +310,7 @@ export function DisciplinaMotion({
         resizeObserver.disconnect();
         revealer.disconnect();
         root.removeAttribute("data-motion");
+        root.removeAttribute("data-gallery-pin");
         root.removeAttribute("data-scrolling");
         document.documentElement.style.removeProperty("--page-progress");
         gallery?.style.removeProperty("--gallery-height");

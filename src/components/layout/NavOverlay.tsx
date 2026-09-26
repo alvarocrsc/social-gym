@@ -212,6 +212,9 @@ export function NavOverlay({ children }: NavOverlayProps): ReactElement {
         });
       });
 
+      const compact = window.matchMedia("(max-width: 47.9375rem)");
+      const MOBILE_SPEED = 1.75;
+
       let timeline = buildTimeline();
 
       function buildTimeline(): gsap.core.Timeline {
@@ -219,6 +222,7 @@ export function NavOverlay({ children }: NavOverlayProps): ReactElement {
           paused: true,
           defaults: { ease: "power3.out" },
         });
+        tl.timeScale(compact.matches ? MOBILE_SPEED : 1);
 
         if (menuBg !== null) tl.to(menuBg, { opacity: 1, duration: 0.75 }, 0);
 
@@ -265,6 +269,11 @@ export function NavOverlay({ children }: NavOverlayProps): ReactElement {
       // Width only, and never mid-tween: on mobile the URL bar collapsing
       // fires `resize` on almost every scroll, and rebuilding there would kill
       // a running timeline and strand the menu half-open with no way back.
+      function syncSpeed(): void {
+        timeline.timeScale(compact.matches ? MOBILE_SPEED : 1);
+      }
+      compact.addEventListener("change", syncSpeed);
+
       let lastWidth = window.innerWidth;
       let resizeFrame = 0;
       function onResize(): void {
@@ -312,6 +321,7 @@ export function NavOverlay({ children }: NavOverlayProps): ReactElement {
       teardownMotion = () => {
         window.cancelAnimationFrame(resizeFrame);
         window.removeEventListener("resize", onResize);
+        compact.removeEventListener("change", syncSpeed);
         timeline.kill();
         flickerSplit?.revert();
         splits.forEach((split) => split.revert());

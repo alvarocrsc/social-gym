@@ -27,9 +27,13 @@ export function DisciplinaGallery({
           <span className={styles.sectionMeta} data-rv style={revealDelay(120)}>
             {disciplina.galleryMeta}
           </span>
+          <span className={styles.galleryHint} aria-hidden>
+            {disciplina.galleryHint}
+            <span className={styles.galleryHintArrow}>→</span>
+          </span>
         </div>
 
-        <div className={styles.galleryViewport}>
+        <div className={styles.galleryViewport} data-gallery-viewport>
           <ul className={styles.galleryTrack} data-gallery-track>
             {gallery.map((piece, i) => {
               const photo = existingImage(piece.image.src);

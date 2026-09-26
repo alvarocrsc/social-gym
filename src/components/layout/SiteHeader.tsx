@@ -46,7 +46,7 @@ export async function SiteHeader(): Promise<ReactElement> {
               loading="eager"
               className="size-9 md:size-13"
             />
-            <span className="text-body leading-display font-semibold md:font-display md:text-heading md:tracking-display md:uppercase">
+            <span className="font-display text-body leading-display tracking-display uppercase md:text-heading">
               {site.name}
             </span>
           </Link>

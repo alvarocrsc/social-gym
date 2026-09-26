@@ -184,6 +184,42 @@
   position: relative;
 }
 
+.cardHint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  margin: 1em 0 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-sm);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent-soft);
+}
+
+.cardHintPointer {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cardHintTouch {
+    display: none;
+  }
+
+  .cardHintPointer {
+    display: inline;
+  }
+}
+
+.cardHintArrow {
+  transition: transform 0.4s var(--ease-out);
+}
+
+@media (hover: hover) {
+  .card:hover .cardHintArrow {
+    transform: translate3d(5px, 0, 0);
+  }
+}
+
 .cardText {
   max-width: 40ch;
   margin: 0.6em 0 0;
