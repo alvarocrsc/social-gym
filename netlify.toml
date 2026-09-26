@@ -7,6 +7,16 @@
   command = "npm run build"
   publish = ".next"
 
+# Keep the media out of the serverless bundle.
+#
+# The Next runtime bundles the app into one function with a hard 250 MB
+# ceiling, and `public/` is copied in wholesale. Netlify already publishes
+# those files to the CDN, and nothing reads them at request time: every route
+# is prerendered, so `existingImage` resolves during the build, and the only
+# dynamic segment sets `dynamicParams = false`.
+[functions]
+  included_files = ["!public/**"]
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 

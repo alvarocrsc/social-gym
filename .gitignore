@@ -42,3 +42,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Source footage. The encoded .mp4/.av1.mp4 pair is what ships; a .mov in
+# public/ would be committed, served publicly, and bundled into the Netlify
+# function, which has a 250 MB ceiling.
+*.mov

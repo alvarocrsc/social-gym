@@ -313,7 +313,7 @@
   gap: var(--space-block);
   padding-inline: var(--gutter-page);
 }
- 
+
 .galleryHint {
   display: none;
 }
