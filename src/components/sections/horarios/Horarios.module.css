@@ -58,7 +58,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 92svh;
+  min-height: 100svh;
   margin-top: calc(-1 * var(--header-height));
   padding: calc(var(--header-height) + var(--space-block)) var(--gutter-page)
     var(--space-section);
@@ -102,7 +102,7 @@
   display: block;
   font-family: var(--font-mono);
   font-size: var(--text-mono-sm);
-  letter-spacing: 0.3em;
+  letter-spacing: var(--tracking-mono-wide);
   text-transform: uppercase;
   color: var(--color-accent-soft);
 }
@@ -128,7 +128,7 @@
   font-family: var(--font-mono);
   font-size: var(--text-mono);
   font-weight: 400;
-  letter-spacing: 0.26em;
+  letter-spacing: var(--tracking-mono-wide);
   text-transform: uppercase;
   color: var(--color-ink-muted);
 }
@@ -157,7 +157,7 @@
   gap: 12px;
   font-family: var(--font-mono);
   font-size: var(--text-mono-sm);
-  letter-spacing: 0.24em;
+  letter-spacing: var(--tracking-mono-wide);
   text-transform: uppercase;
   text-decoration: none;
   color: var(--color-accent-soft);
@@ -264,7 +264,7 @@
 .sectionMeta {
   font-family: var(--font-mono);
   font-size: var(--text-mono-sm);
-  letter-spacing: 0.22em;
+  letter-spacing: var(--tracking-mono-wide);
   text-transform: uppercase;
   color: var(--color-accent-soft);
 }
@@ -322,7 +322,7 @@
 .openDay {
   font-family: var(--font-mono);
   font-size: var(--text-mono-sm);
-  letter-spacing: 0.24em;
+  letter-spacing: var(--tracking-mono-wide);
   text-transform: uppercase;
   color: var(--color-accent-soft);
 }
@@ -334,7 +334,7 @@
   border-radius: var(--radius-full);
   font-family: var(--font-mono);
   font-size: var(--text-mono-sm);
-  letter-spacing: 0.16em;
+  letter-spacing: var(--tracking-mono);
   text-transform: uppercase;
   white-space: nowrap;
   color: var(--color-accent-soft);
@@ -365,7 +365,7 @@
 .openHoursEnd {
   font-family: var(--font-mono);
   font-size: var(--text-mono);
-  letter-spacing: 0.18em;
+  letter-spacing: var(--tracking-mono);
   text-transform: uppercase;
   color: var(--color-accent-soft);
 }
@@ -410,7 +410,7 @@
   margin-top: 10px;
   font-family: var(--font-mono);
   font-size: var(--text-mono-sm);
-  letter-spacing: 0.16em;
+  letter-spacing: var(--tracking-mono);
   color: var(--color-ink-muted);
 }
 
@@ -434,7 +434,7 @@
 .filterLabel {
   font-family: var(--font-mono);
   font-size: var(--text-mono-sm);
-  letter-spacing: 0.2em;
+  letter-spacing: var(--tracking-mono-wide);
   text-transform: uppercase;
   color: var(--color-ink-muted);
 }
@@ -525,7 +525,7 @@
   background: transparent;
   font-family: var(--font-mono);
   font-size: var(--text-mono-sm);
-  letter-spacing: 0.18em;
+  letter-spacing: var(--tracking-mono);
   text-transform: uppercase;
   color: var(--color-ink-muted);
   cursor: pointer;
@@ -546,7 +546,7 @@
   margin: 0 0 12px auto;
   font-family: var(--font-mono);
   font-size: var(--text-mono-sm);
-  letter-spacing: 0.18em;
+  letter-spacing: var(--tracking-mono);
   text-transform: uppercase;
   color: var(--color-accent-soft);
 }
@@ -591,7 +591,7 @@
   width: clamp(64px, 7vw, 96px);
   font-family: var(--font-mono);
   font-size: var(--text-mono-sm);
-  letter-spacing: 0.2em;
+  letter-spacing: var(--tracking-mono-wide);
   color: var(--color-ink-muted);
 }
 
@@ -640,7 +640,7 @@
   margin-top: 4px;
   font-family: var(--font-mono);
   font-size: var(--text-mono-sm);
-  letter-spacing: 0.2em;
+  letter-spacing: var(--tracking-mono-wide);
   text-transform: uppercase;
   color: var(--color-accent-soft);
 }
@@ -654,7 +654,7 @@
   background: var(--color-base);
   font-family: var(--font-mono);
   font-size: var(--text-mono);
-  letter-spacing: 0.1em;
+  letter-spacing: var(--tracking-mono-tight);
   text-align: left;
   vertical-align: middle;
   color: var(--color-ink);
@@ -802,7 +802,7 @@
   gap: 4px 8px;
   font-family: var(--font-mono);
   font-size: var(--text-mono-sm);
-  letter-spacing: 0.06em;
+  letter-spacing: var(--tracking-mono-tight);
 }
 
 .classLength {
@@ -874,7 +874,7 @@
   display: block;
   font-family: var(--font-mono);
   font-size: var(--text-mono-sm);
-  letter-spacing: 0.2em;
+  letter-spacing: var(--tracking-mono-wide);
   text-align: center;
   text-transform: uppercase;
   color: rgb(from var(--color-ink) r g b / 0.18);
@@ -884,7 +884,7 @@
   margin: var(--space-block) 0 0;
   font-family: var(--font-mono);
   font-size: var(--text-mono-sm);
-  letter-spacing: 0.16em;
+  letter-spacing: var(--tracking-mono);
   text-transform: uppercase;
   color: var(--color-accent-soft);
 }
@@ -896,7 +896,7 @@
   margin: var(--space-block) 0 0;
   font-family: var(--font-mono);
   font-size: var(--text-mono-sm);
-  letter-spacing: 0.16em;
+  letter-spacing: var(--tracking-mono);
   text-transform: uppercase;
   color: var(--color-ink-muted);
 }
@@ -958,7 +958,7 @@
   padding-top: 11px;
   font-family: var(--font-mono);
   font-size: var(--text-mono);
-  letter-spacing: 0.1em;
+  letter-spacing: var(--tracking-mono-tight);
   color: var(--color-ink-muted);
 }
 
@@ -1181,7 +1181,7 @@
 .storeBadgeKicker {
   font-family: var(--font-mono);
   font-size: var(--text-mono-sm);
-  letter-spacing: 0.2em;
+  letter-spacing: var(--tracking-mono-wide);
   text-transform: uppercase;
   color: var(--color-accent-soft);
 }
@@ -1260,7 +1260,7 @@
 
   .heroKeyword,
   .eyebrow {
-    letter-spacing: 0.18em;
+    letter-spacing: var(--tracking-mono);
   }
 
   .heroRow,
@@ -1363,7 +1363,7 @@
   }
 
   .storeBadgeKicker {
-    letter-spacing: 0.08em;
+    letter-spacing: var(--tracking-mono-tight);
   }
 
   .ctaAction {

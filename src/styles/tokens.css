@@ -75,7 +75,10 @@
   --text-wordmark: clamp(2.5rem, 12.8vw, 230px);
 
   --tracking-display: -0.03em;
-  --tracking-mono: 0.14em;
+  --tracking-mono-wide: 0.1em;
+  --tracking-mono: 0.06em;
+  --tracking-mono-tight: 0.03em;
+  --tracking-label: 0.05em;
   --leading-display: 0.96;
   --leading-body: 1.6;
   --leading-display-tight: 0.88;

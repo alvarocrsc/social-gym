@@ -128,7 +128,7 @@
   font-family: var(--font-label);
   font-size: var(--text-mono-lg);
   font-weight: 700;
-  letter-spacing: calc(var(--tracking-mono) * 0.35);
+  letter-spacing: var(--tracking-label);
   color: var(--color-base);
   background-color: var(--color-accent-soft);
 }

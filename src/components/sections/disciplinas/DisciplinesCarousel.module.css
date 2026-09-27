@@ -128,7 +128,7 @@
 
 .cardTop {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: var(--space-block);
 }
@@ -191,7 +191,7 @@
   margin: 1em 0 0;
   font-family: var(--font-mono);
   font-size: var(--text-mono-sm);
-  letter-spacing: 0.2em;
+  letter-spacing: var(--tracking-mono-wide);
   text-transform: uppercase;
   color: var(--color-accent-soft);
 }
@@ -458,15 +458,77 @@
   .progress {
     padding-top: clamp(18px, 4vw, 28px);
   }
+}
 
-  /* Five rings in a row leave 56px per label, and "RESISTENCIA" needs 89px, so
-     the labels used to run into each other. Three per row gives them space. */
+/* Columns are content-sized so "FLEXIBILIDAD" fits beside its ring even on the
+ * narrowest 280px card; equal columns would clip it. */
+@media (max-width: 47.9375rem) {
+  .cardIndex,
+  .cardBadge {
+    padding: 0.55em 0.9em;
+    border: 1px solid var(--color-hairline);
+    border-radius: var(--radius-full);
+    background-color: var(--color-scrim-menu);
+    line-height: 1;
+  }
+
+  .cardText {
+    font-size: var(--text-body-sm);
+    line-height: 1.55;
+  }
+
+  .cardHint {
+    display: block;
+  }
+
+  .cardHintArrow {
+    display: inline-block;
+    margin-left: 0.6em;
+  }
+
+  .metrics {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    gap: 14px 12px;
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-hairline);
+  }
+
   .ring {
-    width: calc((100% - 2 * var(--metric-gap)) / 3);
+    display: grid;
+    grid-template-columns: 30px auto;
+    column-gap: 8px;
+    row-gap: 3px;
+    align-items: center;
+    width: auto;
+  }
+
+  .ringGraphic {
+    display: contents;
+  }
+
+  .ringSvg {
+    grid-row: 1 / 3;
+  }
+
+  .ringReadout {
+    position: static;
+    display: block;
+    align-self: end;
+    line-height: 1;
+  }
+
+  .ringNumber {
+    font-size: var(--text-body);
   }
 
   .ringLabel {
-    letter-spacing: 0.08em;
+    align-self: start;
+    letter-spacing: 0;
+    line-height: 1.2;
+    text-align: left;
   }
 }
 

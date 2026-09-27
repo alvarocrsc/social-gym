@@ -51,7 +51,7 @@
   gap: 8px;
   font-family: var(--font-mono);
   font-size: var(--text-mono-sm);
-  letter-spacing: 0.24em;
+  letter-spacing: var(--tracking-mono-wide);
   text-transform: uppercase;
   color: var(--color-ink-dim);
 }
@@ -122,7 +122,7 @@
   flex-shrink: 0;
   font-family: var(--font-mono);
   font-size: var(--text-mono-sm);
-  letter-spacing: 0.12em;
+  letter-spacing: var(--tracking-mono-tight);
   text-transform: uppercase;
   color: var(--color-ink-dim);
 }
@@ -186,7 +186,7 @@
   background: var(--color-veil);
   font-family: var(--font-mono);
   font-size: var(--text-mono-sm);
-  letter-spacing: 0.1em;
+  letter-spacing: var(--tracking-mono-tight);
   text-transform: uppercase;
   color: var(--color-ink);
   cursor: pointer;

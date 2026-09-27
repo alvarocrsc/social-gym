@@ -193,7 +193,7 @@
   margin-bottom: 14px;
   font-family: var(--font-mono);
   font-size: var(--text-mono-sm);
-  letter-spacing: 0.24em;
+  letter-spacing: var(--tracking-mono-wide);
   text-transform: uppercase;
   color: var(--color-ink-dim);
 }
@@ -213,7 +213,7 @@
   margin-top: 14px;
   font-family: var(--font-mono);
   font-size: var(--text-mono-sm);
-  letter-spacing: 0.2em;
+  letter-spacing: var(--tracking-mono-wide);
   text-transform: uppercase;
   color: var(--color-accent-soft);
 }
@@ -260,7 +260,7 @@
   min-height: 1.2em;
   font-family: var(--font-mono);
   font-size: var(--text-mono-sm);
-  letter-spacing: 0.2em;
+  letter-spacing: var(--tracking-mono-wide);
   text-transform: uppercase;
   color: var(--color-accent-soft);
 }
@@ -338,7 +338,7 @@
   font-family: var(--font-mono);
   font-size: var(--text-mono);
   font-weight: 400;
-  letter-spacing: 0.22em;
+  letter-spacing: var(--tracking-mono-wide);
   line-height: 1.5;
   text-transform: uppercase;
   color: var(--color-ink-dim);
@@ -416,7 +416,7 @@
   gap: 10px;
   font-family: var(--font-mono);
   font-size: var(--text-mono-sm);
-  letter-spacing: 0.18em;
+  letter-spacing: var(--tracking-mono);
   text-transform: uppercase;
   color: var(--color-ink-muted);
 }
@@ -426,7 +426,7 @@
   margin: 0;
   font-family: var(--font-mono);
   font-size: var(--text-mono-sm);
-  letter-spacing: 0.14em;
+  letter-spacing: var(--tracking-mono);
   line-height: 1.7;
   color: var(--color-ink-dim);
 }
@@ -485,7 +485,7 @@
   margin-top: 16px;
   font-family: var(--font-mono);
   font-size: var(--text-mono-sm);
-  letter-spacing: 0.2em;
+  letter-spacing: var(--tracking-mono-wide);
   text-transform: uppercase;
   color: var(--color-accent-soft);
 }
@@ -560,7 +560,7 @@
   background: var(--color-veil);
   font-family: var(--font-mono);
   font-size: var(--text-mono-sm);
-  letter-spacing: 0.2em;
+  letter-spacing: var(--tracking-mono-wide);
   text-transform: uppercase;
   color: var(--color-ink);
   cursor: pointer;
@@ -608,7 +608,7 @@
   gap: 8px;
   font-family: var(--font-mono);
   font-size: var(--text-mono-sm);
-  letter-spacing: 0.2em;
+  letter-spacing: var(--tracking-mono-wide);
   text-transform: uppercase;
   color: var(--color-accent-soft);
 }
@@ -687,16 +687,16 @@
   /* Mono tracking, not the body sizes, is what overflows a narrow screen. */
   .inviteKeyword {
     margin-top: clamp(12px, 2vh, 18px);
-    letter-spacing: 0.16em;
+    letter-spacing: var(--tracking-mono);
     line-height: 1.7;
   }
 
   .status {
-    letter-spacing: 0.14em;
+    letter-spacing: var(--tracking-mono);
   }
 
   .actionNote {
-    letter-spacing: 0.08em;
+    letter-spacing: var(--tracking-mono-tight);
   }
 
   .inviteLead {
