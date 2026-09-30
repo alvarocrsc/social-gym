@@ -13,13 +13,14 @@ import type { PageSeo } from "@/types/seo";
  */
 export const pageSeo = {
   "/": {
-    title: "Gimnasio en Calahorra abierto 365 días | Social Gym",
+    title: "Gimnasio en Calahorra, La Rioja · 365 días | Social Gym",
     description:
-      "Gimnasio y centro oficial Hyrox en Calahorra, abierto los 365 días. Boxeo, jiu-jitsu, pilates, power cycling y más, todo en una sola cuota. Sin egos.",
+      "Gimnasio y centro oficial Hyrox en Calahorra, La Rioja, abierto los 365 días. Boxeo, jiu-jitsu, pilates, power cycling y más en una sola cuota. Sin egos.",
     path: "/",
     primaryKeyword: "gimnasio calahorra",
     secondaryKeywords: [
       "gimnasio en calahorra",
+      "gimnasio la rioja",
       "centro de entrenamiento calahorra",
     ],
   },
@@ -43,12 +44,16 @@ export const pageSeo = {
     secondaryKeywords: ["actividades gimnasio calahorra"],
   },
   "/disciplinas/hyrox": {
-    title: "Hyrox en Calahorra · Centro oficial | Social Gym Calahorra",
+    title: "Hyrox en Calahorra, La Rioja · Centro oficial | Social Gym",
     description:
-      "Centro oficial de entrenamiento Hyrox en Calahorra. Prepara las ocho estaciones con un plan real, tanto si compites como si empiezas desde cero.",
+      "Centro oficial Hyrox en Calahorra, La Rioja. Prepara las ocho estaciones con material oficial y un plan real, tanto si compites como si empiezas de cero.",
     path: "/disciplinas/hyrox",
     primaryKeyword: "hyrox calahorra",
-    secondaryKeywords: ["centro oficial hyrox la rioja", "entrenar hyrox"],
+    secondaryKeywords: [
+      "hyrox la rioja",
+      "centro oficial hyrox la rioja",
+      "entrenar hyrox",
+    ],
   },
   "/disciplinas/boxeo": {
     title: "Clases de boxeo en Calahorra | Social Gym Calahorra",

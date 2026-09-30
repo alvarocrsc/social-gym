@@ -196,7 +196,7 @@ export function buildDisciplineService(discipline: Discipline): JsonLdNode {
   return {
     "@type": "Service",
     "@id": `${absoluteUrl(`/disciplinas/${discipline.slug}`)}#service`,
-    name: `${discipline.name} en ${site.address.locality}`,
+    name: `${discipline.name} en ${site.address.locality}, ${site.address.region}`,
     description: discipline.shortDescription,
     serviceType: discipline.name,
     url: absoluteUrl(`/disciplinas/${discipline.slug}`),

@@ -41,7 +41,7 @@ export const disciplines = [
     order: 1,
     badge: "Centro oficial", // Confirmed — official Hyrox centre (§1)
     shortDescription:
-      "Somos centro oficial Hyrox. Preparamos las ocho estaciones contigo, compitas o no: aquí el objetivo es terminar mejor de lo que empezaste.",
+      "Somos centro oficial Hyrox en La Rioja. Preparamos las ocho estaciones contigo, compitas o no: aquí el objetivo es terminar mejor de lo que empezaste.",
     tagline:
       "Ocho estaciones y un kilómetro de carrera entre cada una. El formato de fitness de competición más exigente del mundo, con sala y material oficiales en Calahorra.",
     headline: { solid: "Correr", outlined: "y levantar" },
@@ -49,7 +49,7 @@ export const disciplines = [
       "Hyrox combina resistencia y fuerza funcional en un formato cerrado e idéntico en todo el mundo: ocho kilómetros de carrera repartidos en ocho vueltas, con una estación de trabajo al final de cada una.",
     paragraphs: [
       "Aquí entrenamos la prueba por partes. Cada sesión trabaja el gesto técnico de una o dos estaciones, la transición entre carrera y estación —donde se pierden la mayoría de los minutos— y el ritmo al que de verdad puedes sostener el esfuerzo.",
-      "El material es el oficial: trineo, sacos, wall balls, remo, ski erg y pasillo de carrera. No hace falta experiencia previa, porque las cargas se escalan y cada estación tiene su versión de iniciación.",
+      "Como centro oficial Hyrox en La Rioja, el material es el oficial: trineo, sacos, wall balls, remo, ski erg y pasillo de carrera. No hace falta experiencia previa, porque las cargas se escalan y cada estación tiene su versión de iniciación.",
       "Si compites, planificamos contigo el bloque previo a tu carrera. Si no compites, es sencillamente el entreno más completo que vas a encontrar en una hora.",
     ],
     // TODO: confirm — duración y material redactados, no facilitados por el club.
