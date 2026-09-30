@@ -217,6 +217,11 @@ export interface ClassSlot {
   coachSlug?: string;
 }
 
+export interface HeroStat {
+  value: string;
+  label: string;
+}
+
 export interface HorariosPage {
   /**
    * Decorative full-bleed photo behind the hero copy, sitting at half
@@ -229,6 +234,7 @@ export interface HorariosPage {
   headlineOutlined: string;
   keywordLine: string;
   lead: string;
+  heroStats: readonly HeroStat[];
   heroAction: string;
   openHeading: string;
   openTrackTicks: readonly string[];
@@ -500,6 +506,9 @@ export interface SiteFooterContent {
  */
 export interface Site {
   name: string;
+  /** Site name for Search results: `WebSite` schema and `og:site_name`. */
+  websiteName: string;
+  websiteAlternateNames: readonly string[];
   legalName: string;
   nif: string;
   tagline: string;

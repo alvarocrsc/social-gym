@@ -42,7 +42,7 @@ export function buildMetadata(seo: PageSeo): Metadata {
       type: "website",
       locale: "es_ES",
       url: canonical,
-      siteName: site.name,
+      siteName: site.websiteName,
       title: seo.title,
       description: seo.description,
       images: [

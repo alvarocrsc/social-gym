@@ -11,7 +11,11 @@ export const horarios = {
   headlineSolid: "Tú pones",
   headlineOutlined: "la hora",
   keywordLine: "Horario del gimnasio en Calahorra",
-  lead: "Diecinueve horas abiertos de lunes a viernes. Entra a la hora que te cuadre y reserva tu clase dirigida desde la app.",
+  lead: "19 horas abiertos de lunes a viernes. Entra a la hora que te cuadre y reserva tu clase dirigida desde la app.",
+  heroStats: [
+    { value: "19", label: "horas abierto" },
+    { value: "365", label: "días al año" },
+  ],
   heroAction: "Ver la semana",
   openHeading: "Sala abierta",
   openTrackTicks: ["00:00", "12:00", "24:00"],

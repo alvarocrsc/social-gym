@@ -9,6 +9,10 @@ import type { Site } from "@/types/content";
  */
 export const site = {
   name: "Social Gym",
+  // The label Google Search shows above the URL. Written like the wordmark;
+  // `name` above has to match the Business Profile exactly, so it stays as is.
+  websiteName: "SOCIAL GYM",
+  websiteAlternateNames: ["Social Gym", "Social Gym Calahorra"],
   legalName: "PUMP GYM S.L.",
   nif: "B72749559",
   tagline: "Mambo, eat & repeat",

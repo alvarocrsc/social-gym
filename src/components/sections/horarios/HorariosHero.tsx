@@ -39,6 +39,14 @@ export function HorariosHero(): ReactElement {
 
         <div className={styles.heroRow}>
           <p className={styles.heroLead}>{horarios.lead}</p>
+          <ul className={styles.heroStats}>
+            {horarios.heroStats.map((stat) => (
+              <li key={stat.label} className={styles.heroStat}>
+                <span className={styles.heroStatValue}>{stat.value}</span>
+                <span className={styles.heroStatLabel}>{stat.label}</span>
+              </li>
+            ))}
+          </ul>
           <a className={styles.heroAction} href={`#${horarios.weekAnchor}`}>
             {horarios.heroAction}
             <span className={styles.heroActionGlyph} aria-hidden>
