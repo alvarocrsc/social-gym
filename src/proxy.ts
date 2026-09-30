@@ -1,8 +1,9 @@
 import { NextResponse, type NextRequest } from "next/server";
 import createMiddleware from "next-intl/middleware";
 
+import { site } from "@/content/site";
 import { routing } from "@/i18n/routing";
-import { legacyDestination } from "@/lib/seo/legacy-paths";
+import { legacyDestination, legacyHosts } from "@/lib/seo/legacy-paths";
 
 /**
  * Locale negotiation and rewriting of localized pathnames.
@@ -14,12 +15,18 @@ import { legacyDestination } from "@/lib/seo/legacy-paths";
 const intl = createMiddleware(routing);
 
 /**
- * Retired paths are answered here, before locale negotiation. next-intl cannot
- * map them to a route and would answer 404, and on Netlify this runs at the
- * edge ahead of anything `next.config.ts` declares.
+ * Retired paths and the retired domain are answered here, before locale
+ * negotiation. next-intl cannot map them to a route and would answer 404, and
+ * on Netlify this runs at the edge ahead of anything `next.config.ts` declares.
  */
 export default function proxy(request: NextRequest): NextResponse {
-  const destination = legacyDestination(request.nextUrl.pathname);
+  const { hostname, pathname, search } = request.nextUrl;
+  const destination = legacyDestination(pathname);
+  if (legacyHosts.has(hostname) && site.url !== undefined) {
+    const target = new URL(destination ?? pathname, site.url);
+    target.search = search;
+    return NextResponse.redirect(target, 308);
+  }
   if (destination !== undefined) {
     return NextResponse.redirect(new URL(destination, request.url), 308);
   }

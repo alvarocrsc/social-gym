@@ -17,6 +17,15 @@ export const legacyPaths: Readonly<Record<string, string>> = {
   "/disciplinas/defensa-personal": "/disciplinas",
 };
 
+/**
+ * The gym's previous domain. Any request that reaches it moves to the same
+ * page on the current one.
+ */
+export const legacyHosts: ReadonlySet<string> = new Set([
+  "socialgymfit.com",
+  "www.socialgymfit.com",
+]);
+
 /** Looks a pathname up, ignoring a trailing slash. */
 export function legacyDestination(pathname: string): string | undefined {
   const clean = pathname.length > 1 ? pathname.replace(/\/+$/, "") : pathname;
