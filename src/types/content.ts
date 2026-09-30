@@ -124,6 +124,7 @@ export interface DisciplinasPage {
   headlineSolid: string;
   headlineOutlined: string;
   lead: string;
+  heroStats: readonly HeroStat[];
   scrollHint: string;
   /** Labels the ring group on each card for screen readers. */
   metricsLabel: string;

@@ -8,6 +8,7 @@ export const disciplinas = {
   headlineSolid: "Doce formas",
   headlineOutlined: "de entrenar",
   lead: "Fuerza, boxeo, resistencia y clases dirigidas bajo un mismo techo en Calahorra. Elige la tuya y cámbiate cuando quieras: todas entran en la misma cuota.",
+  heroStats: [{ value: "Hyrox", label: "centro oficial" }],
   scrollHint: "Desliza abajo",
   metricsLabel: "Exigencia física",
   cta: {

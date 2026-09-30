@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { ReactElement } from "react";
 
+import { HeroStats } from "@/components/ui/HeroStats";
 import { disciplinas } from "@/content/disciplinas";
 import { existingImage } from "@/lib/media/public-file";
 
@@ -38,6 +39,7 @@ export function DisciplinasHero(): ReactElement {
 
       <div className={styles.heroFoot}>
         <p className={styles.heroLead}>{disciplinas.lead}</p>
+        <HeroStats stats={disciplinas.heroStats} />
         <p className={styles.heroHint} aria-hidden>
           {disciplinas.scrollHint}
           <span className={styles.heroHintArrow}>→</span>

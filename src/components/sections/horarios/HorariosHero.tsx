@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { ReactElement } from "react";
 
+import { HeroStats } from "@/components/ui/HeroStats";
 import { horarios } from "@/content/horarios";
 import { existingImage } from "@/lib/media/public-file";
 
@@ -39,14 +40,7 @@ export function HorariosHero(): ReactElement {
 
         <div className={styles.heroRow}>
           <p className={styles.heroLead}>{horarios.lead}</p>
-          <ul className={styles.heroStats}>
-            {horarios.heroStats.map((stat) => (
-              <li key={stat.label} className={styles.heroStat}>
-                <span className={styles.heroStatValue}>{stat.value}</span>
-                <span className={styles.heroStatLabel}>{stat.label}</span>
-              </li>
-            ))}
-          </ul>
+          <HeroStats stats={horarios.heroStats} />
           <a className={styles.heroAction} href={`#${horarios.weekAnchor}`}>
             {horarios.heroAction}
             <span className={styles.heroActionGlyph} aria-hidden>
